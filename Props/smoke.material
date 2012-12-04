@@ -1,0 +1,22 @@
+material local://smoke.material
+{
+    technique
+    {
+        pass
+        {
+            ambient 0.905882 0.964706 1 1
+            diffuse 1 0.427451 0.286275 1
+            specular 1 0.968627 0.486275 1 0
+            scene_blend alpha_blend
+            depth_write off
+            fog_override true linear 0 0 0 0.001 50 150
+
+            texture_unit
+            {
+                texture local://smoke.png
+            }
+        }
+
+    }
+
+}

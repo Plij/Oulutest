@@ -1,0 +1,20 @@
+material local://Special.001.material
+{
+    technique
+    {
+        pass
+        {
+			lighting on
+			depth_write off
+			scene_blend add
+
+
+            texture_unit
+            {
+                texture local://myrkky.png
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,129 @@
+// user material: rex/DiffSpecmap
+vertex_program rex/DiffSpecmapVP cg
+{
+	source SuperShader.cg
+    entry_point mainVS
+   	profiles vs_3_0 arbvp1
+   	compile_arguments -DDIFFUSE_MAPPING -DSPECULAR_MAPPING
+	default_params
+	{
+	    param_named_auto worldViewProjMatrix worldviewproj_matrix
+	    param_named_auto worldMatrix world_matrix
+		param_named_auto camPos camera_position
+		param_named_auto sunLightDir light_position 0
+		param_named_auto lightPos0 light_position 1
+		param_named_auto lightPos1 light_position 2
+		param_named_auto lightAtt0 light_attenuation 1
+		param_named_auto lightAtt1 light_attenuation 2
+		param_named_auto fogParams fog_params
+		param_named_auto fogColor fog_colour
+	}
+}
+fragment_program rex/DiffSpecmapFP cg
+{
+	source SuperShader.cg
+    entry_point mainPS
+    profiles ps_3_0 arbfp1
+   	compile_arguments -DDIFFUSE_MAPPING -DSPECULAR_MAPPING
+	default_params
+    {
+		param_named_auto sunLightCol light_diffuse_colour 0
+		param_named_auto lightCol0 light_diffuse_colour 1
+		param_named_auto lightCol1 light_diffuse_colour 2
+		param_named_auto ambientLight ambient_light_colour
+    }
+}
+// abstract passes //
+abstract pass rex/DiffSpecmap/PASS0
+		{
+			iteration once
+			vertex_program_ref rex/DiffSpecmapVP
+			{
+			}
+			fragment_program_ref rex/DiffSpecmapFP
+			{
+				param_named specularPower float 8.0
+			}
+			texture_unit baseMap
+			{
+				texture TextureMissing.png
+			}
+			texture_unit specularMap
+			{
+				texture TextureMissing.png
+			}
+		}
+// room_texture genrated by blender2ogre 0.5.8
+
+material room_texture 
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass room_texture
+        {
+            ambient 0.800000011920929 0.800000011920929 0.800000011920929 1.0
+            diffuse 0.6400000190734865 0.6400000190734865 0.6400000190734865 1.0
+            specular 0.5 0.5 0.5 1.0 12.5
+            emissive 0.0 0.0 0.0 1.0
+
+            alpha_to_coverage off
+            colour_write on
+            cull_hardware clockwise
+            depth_check on
+            depth_func less_equal
+            depth_write on
+            illumination_stage 
+            light_clip_planes off
+            light_scissor off
+            lighting on
+            normalise_normals off
+            polygon_mode solid
+            scene_blend one zero
+            scene_blend_op add
+            shading gouraud
+            transparent_sorting on
+
+            texture_unit 
+            {
+                texture scene_room_uv_color.JPG
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op modulate
+            }
+        }
+
+        pass room_texture.LAYER0 : rex/DiffSpecmap/PASS0
+        {
+            depth_bias 2.0
+            alpha_to_coverage off
+            colour_write on
+            cull_hardware clockwise
+            depth_check on
+            depth_func less_equal
+            depth_write on
+            illumination_stage 
+            light_clip_planes off
+            light_scissor off
+            lighting on
+            normalise_normals off
+            polygon_mode solid
+            scene_blend one zero
+            scene_blend_op add
+            shading gouraud
+            transparent_sorting on
+
+            texture_unit baseMap
+            {
+                texture scene_room_uv_color.JPG
+                tex_address_mode wrap
+            }
+            texture_unit specularMap
+            {
+                texture scene_room_uv_color.JPG
+                tex_address_mode wrap
+            }
+        }
+    }
+}

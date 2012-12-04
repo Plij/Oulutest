@@ -1,0 +1,35 @@
+// winter_scene_mat2 genrated by blender2ogre 0.5.8
+
+material winter_scene_mat2 
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass winter_scene_mat2
+        {
+            ambient 0.5238783359527588 0.6416746973991394 0.6859445571899414 1.0
+            diffuse 0.41910267500732346 0.51333976556867 0.5487556539290495 1.0
+            specular 0.5 0.5 0.5 1.0 12.5
+            emissive 0.36671482892181473 0.4491722805300391 0.48016118185586265 1.0
+
+            alpha_to_coverage off
+            colour_write on
+            cull_hardware clockwise
+            depth_check on
+            depth_func less_equal
+            depth_write on
+            illumination_stage 
+            light_clip_planes off
+            light_scissor off
+            lighting on
+            normalise_normals off
+            polygon_mode solid
+            scene_blend one zero
+            scene_blend_op add
+            shading gouraud
+            transparent_sorting on
+
+        }
+    }
+}

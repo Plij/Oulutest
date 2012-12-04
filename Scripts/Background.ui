@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Background</class>
+ <widget class="QWidget" name="Background">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>110</width>
+    <height>200</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#Background { background-color: transparent; }
+QFrame#frame { background-color: rgba(136, 136, 136, 200); border-radius: 12px;}
+</string>
+  </property>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>-1</x>
+     <y>0</y>
+     <width>111</width>
+     <height>201</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget#Background{ background-color: transparent;}
+QFrame#frame{ background-color: rgba(136, 136, 136, 200); border-radius: 15px; }</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QListWidget" name="BackgroundListWidget">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>28</y>
+      <width>91</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>NightSky</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>DaySky</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Sunset</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Background&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

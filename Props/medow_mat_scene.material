@@ -1,0 +1,75 @@
+// medow_mat_scene genrated by blender2ogre 0.5.8
+
+material medow_mat_scene 
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass medow_mat_scene
+        {
+            ambient 0.11822062730789185 0.2738242745399475 0.09884310513734818 1.0
+            diffuse 0.09457650325561318 0.21905942289619773 0.07907448528818017 1.0
+            specular 0.01008005253970623 0.07119813561439514 0.027282921597361565 1.0 12.5
+            emissive 0.00827544306597261 0.019167697259252492 0.006919016652633392 1.0
+
+            alpha_to_coverage off
+            colour_write on
+            cull_hardware clockwise
+            depth_check on
+            depth_func less_equal
+            depth_write on
+            illumination_stage 
+            light_clip_planes off
+            light_scissor off
+            lighting on
+            normalise_normals off
+            polygon_mode solid
+            scene_blend one zero
+            scene_blend_op add
+            shading gouraud
+            transparent_sorting on
+
+            texture_unit 
+            {
+                texture medow_text_scene.jpg
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op alpha_blend
+            }
+        }
+
+        pass medow_mat_scene
+        {
+            ambient 0.11822062730789185 0.2738242745399475 0.09884310513734818 1.0
+            diffuse 0.09457650325561318 0.21905942289619773 0.07907448528818017 1.0
+            specular 0.01008005253970623 0.07119813561439514 0.027282921597361565 1.0 12.5
+            emissive 0.00827544306597261 0.019167697259252492 0.006919016652633392 1.0
+
+            alpha_to_coverage off
+            colour_write on
+            cull_hardware clockwise
+            depth_check on
+            depth_func less_equal
+            depth_write on
+            illumination_stage 
+            light_clip_planes off
+            light_scissor off
+            lighting on
+            normalise_normals off
+            polygon_mode solid
+            scene_blend one zero
+            scene_blend_op add
+            shading gouraud
+            transparent_sorting on
+
+            texture_unit 
+            {
+                texture medow_text_scene.jpg
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op alpha_blend
+            }
+        }
+    }
+}

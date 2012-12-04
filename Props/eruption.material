@@ -1,0 +1,17 @@
+material eruption
+{
+	technique
+	{
+		pass
+		{
+			lighting on
+			depth_write off
+			scene_blend add
+
+			texture_unit
+			{
+				texture eruption.png
+			}
+		}
+	}
+}

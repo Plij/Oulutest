@@ -1,0 +1,108 @@
+rocket_smoke
+{
+	quota	60
+	material	smoke.material
+	particle_width	0.55
+	particle_height	0.55
+	cull_each	true
+	renderer	billboard
+	sorted	false
+	local_space	false
+	iteration_interval	0
+	nonvisible_update_timeout	0
+	billboard_type	point
+	billboard_origin	center
+	billboard_rotation_type	vertex
+	common_up_vector	0 1 0
+	point_rendering	false
+	accurate_facing	false
+
+	emitter Point
+	{
+		angle	0
+		colour	0 0 128 1
+		colour_range_start	1 1 1 1
+		colour_range_end	1 1 1 1
+		direction	0 -5 0
+		emission_rate	100
+		position	0 -2 0
+		velocity	0.6
+		velocity_min	0.5
+		velocity_max	0.9
+		time_to_live	4
+		time_to_live_min	2
+		time_to_live_max	6
+		duration	0
+		duration_min	0
+		duration_max	0
+		repeat_delay	0
+		repeat_delay_min	0
+		repeat_delay_max	0
+	}
+
+
+emitter Point
+	{
+		angle	0
+		colour	0 0 128 1
+		colour_range_start	1 1 1 1
+		colour_range_end	1 1 1 1
+		direction	0 0 0
+		emission_rate	10
+		position	0 -7 0
+		velocity	1.6
+		velocity_min	1.5
+		velocity_max	10.9
+		particle_width	10.55
+		particle_height	1.55
+		time_to_live	10
+		time_to_live_min	2
+		time_to_live_max	16
+		duration	0
+		duration_min	0
+		duration_max	0
+		repeat_delay	0
+		repeat_delay_min	0
+		repeat_delay_max	0
+	}
+
+
+
+
+	affector ColourFader
+	{
+		red	-0.1
+		green	-0.1
+		blue	-0.1
+		alpha	-0.5
+	}
+
+	affector Scaler
+	{
+		rate	0.5
+	}
+
+	affector ColourInterpolator
+	{
+		colour0	0 0 128 1
+		time0	0
+		colour1	0 0 128 0.490196
+		time1	0.2
+		colour2	0 0 128 1
+		time2	0.4
+		colour3	0 0 128 0.698039
+		time3	0.6
+		colour4	0 0 128 0.498039
+		time4	0.8
+		colour5	0 0 128 1
+		time5	1
+	}
+
+	affector Rotator
+	{
+		rotation_speed_range_start	-100
+		rotation_speed_range_end	100
+		rotation_range_start	0
+		rotation_range_end	100
+	}
+}

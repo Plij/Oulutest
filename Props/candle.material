@@ -1,0 +1,21 @@
+
+material local://candle.material
+{
+	technique
+	{
+		pass
+		{
+			lighting off
+			scene_blend alpha_blend
+			depth_write off
+			fog_override true linear 0 0 0 0.001 50 150
+
+			texture_unit
+			{
+				texture local://candle.PNG
+			}
+		}
+
+	}
+
+}

@@ -1,0 +1,42 @@
+// mushrooms_prop_mat3 genrated by blender2ogre 0.5.8
+
+material mushrooms_prop_mat3 
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass mushrooms_prop_mat3
+        {
+            ambient 0.800000011920929 0.7698656916618347 0.4478383958339691 1.0
+            diffuse 0.6400000190734865 0.615892562506982 0.358270722005825 1.0
+            specular 0.0858716368675232 0.5 0.0848962664604187 1.0 4.5
+            emissive 0.0 0.0 0.0 1.0
+
+            alpha_to_coverage off
+            colour_write on
+            cull_hardware clockwise
+            depth_check on
+            depth_func less_equal
+            depth_write on
+            illumination_stage 
+            light_clip_planes off
+            light_scissor off
+            lighting on
+            normalise_normals off
+            polygon_mode solid
+            scene_blend one zero
+            scene_blend_op add
+            shading gouraud
+            transparent_sorting on
+
+            texture_unit 
+            {
+                texture mushrooms_prop_text.jpg
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op alpha_blend
+            }
+        }
+    }
+}

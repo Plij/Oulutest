@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainMenu</class>
+ <widget class="QWidget" name="MainMenu">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>103</width>
+    <height>212</height>
+   </rect>
+  </property>
+  <property name="mouseTracking">
+   <bool>true</bool>
+  </property>
+  <property name="acceptDrops">
+   <bool>true</bool>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#MainMenu { background-color: transparent; }
+QFrame#frame { background-color: rgba(136, 136, 136, 200); border-radius: 12px;}
+</string>
+  </property>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>2</x>
+     <y>1</y>
+     <width>101</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QPushButton" name="BackgroundBtn">
+    <property name="geometry">
+     <rect>
+      <x>14</x>
+      <y>84</y>
+      <width>75</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="text">
+     <string>Background</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PropBtn">
+    <property name="geometry">
+     <rect>
+      <x>14</x>
+      <y>53</y>
+      <width>75</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="text">
+     <string>Prop</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="SceneBtn">
+    <property name="geometry">
+     <rect>
+      <x>14</x>
+      <y>21</y>
+      <width>75</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>Scene</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ClearMenuBtn">
+    <property name="geometry">
+     <rect>
+      <x>14</x>
+      <y>116</y>
+      <width>75</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>HomeMenu</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ClearEntityBtn">
+    <property name="geometry">
+     <rect>
+      <x>14</x>
+      <y>147</y>
+      <width>75</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>ClearAll</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="RandomBtn">
+    <property name="geometry">
+     <rect>
+      <x>14</x>
+      <y>180</y>
+      <width>75</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>Random</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

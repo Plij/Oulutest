@@ -1,0 +1,42 @@
+// sunset_background_mat genrated by blender2ogre 0.5.8
+
+material sunset_background_mat 
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass sunset_background_mat
+        {
+            ambient 0.019183868542313576 0.2606056332588196 0.984870970249176 1.0
+            diffuse 0.015347095062540395 0.2084845097137169 0.7878967879399177 1.0
+            specular 0.5 0.5 0.5 1.0 12.5
+            emissive 0.005755160219659772 0.07818168531765401 0.2954612734638875 1.0
+
+            alpha_to_coverage off
+            colour_write on
+            cull_hardware clockwise
+            depth_check on
+            depth_func less_equal
+            depth_write on
+            illumination_stage 
+            light_clip_planes off
+            light_scissor off
+            lighting on
+            normalise_normals off
+            polygon_mode solid
+            scene_blend one zero
+            scene_blend_op add
+            shading gouraud
+            transparent_sorting on
+
+            texture_unit 
+            {
+                texture sunset_text_background.jpg
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op alpha_blend
+            }
+        }
+    }
+}

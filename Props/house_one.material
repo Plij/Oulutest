@@ -1,0 +1,42 @@
+// house_one genrated by blender2ogre 0.5.8
+
+material house_one 
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass house_one
+        {
+            ambient 0.800000011920929 0.7962287664413452 0.7849150896072388 1.0
+            diffuse 0.6268852804137062 0.6239301076077695 0.6150646358965517 1.0
+            specular 0.12295082211494446 0.12295082211494446 0.12295082211494446 1.0 12.5
+            emissive 0.0 0.0 0.0 1.0
+
+            alpha_to_coverage off
+            colour_write on
+            cull_hardware clockwise
+            depth_check on
+            depth_func less_equal
+            depth_write on
+            illumination_stage 
+            light_clip_planes off
+            light_scissor off
+            lighting on
+            normalise_normals off
+            polygon_mode solid
+            scene_blend one zero
+            scene_blend_op add
+            shading gouraud
+            transparent_sorting on
+
+            texture_unit 
+            {
+                texture BuildingsHighRise0300_20_M.jpg
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op modulate
+            }
+        }
+    }
+}
