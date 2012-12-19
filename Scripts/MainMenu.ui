@@ -21,7 +21,86 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget#MainMenu { background-color: transparent; }
-QFrame#frame { background-color: rgba(136, 136, 136, 200); border-radius: 12px;}
+QFrame#frame { background-color: rgba(33, 217, 229,200);
+ border-radius: 12px;}
+
+QPushButton#BackgroundBtn{color:black;
+background-color: white;
+ border-width: 4px;
+ border-color: rgba(29,158,166,55);
+ border-style: solid;
+ border-radius: 7;
+ padding: 3px;
+ font-size: 12px;
+font:bold;
+ padding-left: 5px;
+ padding-right: 5px;}
+QPushButton#SceneBtn{color:black;
+background-color: white;
+ border-width: 4px;
+ border-color: rgba(29,158,166,55);
+ border-style: solid;
+ border-radius: 7;
+ padding: 3px;
+ font-size: 12px;
+font:bold;
+ padding-left: 5px;
+ padding-right: 5px;}
+QPushButton#PropBtn{color:black;
+background-color: white;
+ border-width: 4px;
+ border-color: rgba(29,158,166,55);
+ border-style: solid;
+ border-radius: 7;
+ padding: 3px;
+ font-size: 12px;
+font:bold;
+ padding-left: 5px;
+ padding-right: 5px;}
+QPushButton#ClearMenuBtn{color:black;
+background-color: white;
+ border-width: 4px;
+ border-color: rgba(29,158,166,55);
+ border-style: solid;
+ border-radius: 7;
+ padding: 3px;
+ font-size: 12px;
+font:bold;
+ padding-left: 5px;
+ padding-right: 5px;}
+QPushButton#ClearEntityBtn{color:black;
+background-color: white;
+ border-width: 4px;
+ border-color: rgba(29,158,166,55);
+ border-style: solid;
+ border-radius: 7;
+ padding: 3px;
+ font-size: 12px;
+font:bold;
+ padding-left: 5px;
+ padding-right: 5px;}
+QPushButton#RandomBtn{color:black;
+background-color: white;
+ border-width: 4px;
+ border-color: rgba(29,158,166,55);
+ border-style: solid;
+ border-radius: 7;
+ padding: 3px;
+ font-size: 12px;
+font:bold;
+ padding-left: 5px;
+ padding-right: 5px;}
+QPushButton#MumbleBtn{color:black;
+background-color: white;
+ border-width: 4px;
+ border-color: rgba(29,158,166,55);
+ border-style: solid;
+ border-radius: 7;
+ padding: 3px;
+ font-size: 12px;
+font:bold;
+ padding-left: 5px;
+ padding-right: 5px;}
 </string>
   </property>
   <widget class="QFrame" name="frame">
@@ -39,45 +118,54 @@ QFrame#frame { background-color: rgba(136, 136, 136, 200); border-radius: 12px;}
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
+   <property name="lineWidth">
+    <number>0</number>
+   </property>
    <widget class="QPushButton" name="BackgroundBtn">
     <property name="geometry">
      <rect>
-      <x>14</x>
-      <y>84</y>
-      <width>75</width>
-      <height>20</height>
+      <x>4</x>
+      <y>13</y>
+      <width>93</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="mouseTracking">
      <bool>true</bool>
     </property>
     <property name="text">
-     <string>Background</string>
+     <string>BackGround</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>16</width>
+      <height>16</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="PropBtn">
     <property name="geometry">
      <rect>
-      <x>14</x>
-      <y>53</y>
-      <width>75</width>
-      <height>20</height>
+      <x>4</x>
+      <y>75</y>
+      <width>93</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="mouseTracking">
      <bool>true</bool>
     </property>
     <property name="text">
-     <string>Prop</string>
+     <string>PROPS</string>
     </property>
    </widget>
    <widget class="QPushButton" name="SceneBtn">
     <property name="geometry">
      <rect>
-      <x>14</x>
-      <y>21</y>
-      <width>75</width>
-      <height>20</height>
+      <x>4</x>
+      <y>44</y>
+      <width>93</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="mouseTracking">
@@ -87,16 +175,16 @@ QFrame#frame { background-color: rgba(136, 136, 136, 200); border-radius: 12px;}
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>Scene</string>
+     <string>SCENE</string>
     </property>
    </widget>
    <widget class="QPushButton" name="ClearMenuBtn">
     <property name="geometry">
      <rect>
-      <x>14</x>
-      <y>116</y>
-      <width>75</width>
-      <height>20</height>
+      <x>4</x>
+      <y>107</y>
+      <width>93</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="mouseTracking">
@@ -112,10 +200,10 @@ QFrame#frame { background-color: rgba(136, 136, 136, 200); border-radius: 12px;}
    <widget class="QPushButton" name="ClearEntityBtn">
     <property name="geometry">
      <rect>
-      <x>14</x>
-      <y>147</y>
-      <width>75</width>
-      <height>20</height>
+      <x>4</x>
+      <y>139</y>
+      <width>93</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="mouseTracking">
@@ -131,10 +219,10 @@ QFrame#frame { background-color: rgba(136, 136, 136, 200); border-radius: 12px;}
    <widget class="QPushButton" name="RandomBtn">
     <property name="geometry">
      <rect>
-      <x>14</x>
-      <y>180</y>
-      <width>75</width>
-      <height>20</height>
+      <x>4</x>
+      <y>170</y>
+      <width>93</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="mouseTracking">

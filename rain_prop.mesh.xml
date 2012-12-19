@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mesh>
+    <sharedgeometry vertexcount="4">
+        <vertexbuffer texture_coords="0" positions="true" colours_diffuse="False" normals="true">
+            <vertex>
+                <position y="0.014013" x="-0.000290" z="0.009985"/>
+                <normal y="-0.998747" x="-0.001992" z="0.050009"/>
+            </vertex>
+            <vertex>
+                <position y="0.013051" x="0.005008" z="-0.004316"/>
+                <normal y="-0.998747" x="-0.001992" z="0.050009"/>
+            </vertex>
+            <vertex>
+                <position y="0.013101" x="0.052557" z="-0.006108"/>
+                <normal y="-0.998747" x="-0.001992" z="0.050009"/>
+            </vertex>
+            <vertex>
+                <position y="0.013582" x="0.049217" z="0.008053"/>
+                <normal y="-0.998747" x="-0.001992" z="0.050009"/>
+            </vertex>
+        </vertexbuffer>
+    </sharedgeometry>
+    <submeshes>
+        <submesh usesharedvertices="true" material="_missing_material_" use32bitindexes="False" operationtype="triangle_list">
+            <faces count="2">
+                <face v1="0" v2="1" v3="2"/>
+                <face v1="0" v2="2" v3="3"/>
+            </faces>
+        </submesh>
+    </submeshes>
+    <submeshnames>
+        <submesh index="0" name="_missing_material_">
+        </submesh>
+    </submeshnames>
+</mesh>

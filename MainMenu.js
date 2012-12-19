@@ -1,7 +1,18 @@
+//!ref: Scripts/MainMenu.ui
+//!ref: Scripts/Background.ui
+//!ref: Scripts/Effect.ui
+//!ref: ScriptS/Element.ui
+//!ref: Scripts/ManMade.ui
+//!ref: Scripts/Object.ui
+//!ref: Scripts/Prop.ui
+//!ref: Scripts/PropType.ui
+//!ref: Scripts/Scene.ui
+//!ref: Scripts/MumbleClientWidget.ui
+//!ref: Scripts/MumbleConnectWidget.ui
+//!ref: Scripts/StartMumble.ui
 
-engine.IncludeFile("local://RefFiles.js");
 
-
+engine.IncludeFile("local://MumbleFunc.js");
 engine.ImportExtension("qt.core");
 engine.ImportExtension("qt.gui");
 //engine.ImportExtension("qt.uitools");
@@ -31,7 +42,13 @@ var ElementProxy = null;
 var ObjectProxy = null;
 var ManMadeProxy = null;
 var EffectProxy = null;
-
+var MumbleClientProxy_visible = false;
+var MumbleConnectProxy_visible = false;
+var MumbleProxy = null;
+var MumbleClientProxy = null;
+var MumbleConnectProxy = null;
+var _mumbleClientWidget = null;
+var _mumbleConnectWidget = null;
 var _SceneListWidget = null;
 //var _PropListWidget = null;
 var _BackgroundListWidget  = null;
@@ -40,16 +57,31 @@ var _ObjectListWidget = null;
 var _ManMadeListWidget = null;
 var _EffectListWidget = null;
 
+//------------mumble /variable----begin-------------//
+var _connectionInfo =
+{
+    host      : "athena.mumble-serveur.com",    // Change to IP if you want to test remote Murmur servers.
+    port      : 13501,          // Default port for Murmur, see murmur.ini for changing this.
+    password  : "e92ds6gs",             // Default password for Murmur is empty, see murmur.ini for changing this.
+    channel   : "mumble-serveur.com public #1",             // Default Murmur server will have one channel called "Root". Empty channel name is depicted as "Root" when connecting via MumblePlugin.
+    outputMuted : false,        // True means your voice is sent after connecting, false means your output is muted.
+    intputMuted : false         // True means voice should be sent to us from other client after connecting, false means server wont send us the voice packets.
+};
+
+
+
+//------------mumble /variable ----- end ------------//
+
 /*
 Use these to get added properties into right positions. Divided into 3 groups.
 */
 
-var Scenes = ["Winter", "Mountains", "Meadow", "Forest", "City", "Beach", "Room"];
+var Scenes = ["Winter", "Mountains", "Medow", "Forest", "City", "Beach", "Room"];
 var Backgrounds = ["NightSky", "DaySky", "Sunset"];
-var Elements =["Clouds", "Sun", "Moon", "Rainbow", "SnowFlakes", "Rain", "Volcano"];
-var Objects = ["PalmTrees", "Butterflies", "Mushroom", "Tree1", "Tree2", "Rocks", "Walrus", "Bunnies"];
-var ManMade = ["Mob", "SnowMan", "SandCastle", "Rocket", "Parasol", "SandToys", "Tombstone", "Pirates", "Car", "Treasure"];
-var SpecialEffects = ["Fire", "Smoke", "FireWorks", "PinkElephant", "BlackMonolith", "UFO", "Hearts"];
+var Elements =["Clouds", "Sun", "Moon", "SnowFlakes","Volcano"];
+var Objects = ["Palm", "Tree", "Butterflies", "Mushroom", "Walrus", "PinkElephant"];
+var ManMade = ["Rocket", "SandToys", "Tombstone", "Car", "Treasure", "Mob", "Parasol", "Pirates"];
+var SpecialEffects = ["Monolith", "UFO", "Fire", "Hearts", "Rain"];
 
 var PropType = ["Element","Object","ManMade","Effect"];
 
@@ -80,6 +112,25 @@ this.Positions = [ScenePos, GroundPropPos, SkyPropPos, BackgPos];
 
 function Init()
 {
+
+//	---------------------------- Hook to MumblePlugin  / start ---------------------------------//
+	 
+		mumble.Connected.connect(OnConnected);
+		mumble.Disconnected.connect(OnDisconnected);
+		mumble.ConnectionRejected.connect(OnRejected);
+	
+		mumble.MeCreated.connect(OnMeCreated);
+		mumble.JoinedChannel.connect(OnJoinedChannel);
+	
+		mumble.UserMuted.connect(OnUserLocalMuteChanged);
+		mumble.UserSelfMuted.connect(OnUserSelfMutedChange);
+		mumble.UserSelfDeaf.connect(OnUserSelfDeafChange);
+		mumble.UserSpeaking.connect(OnUserSpeakingChange);
+		mumble.UserPositionalChanged.connect(OnUserPositionalChange);
+		mumble.ChannelTextMessageReceived.connect(OnChannelTextMessageReceived);
+		
+//	---------------------------- Hook to MumblePlugin  / end ---------------------------------//
+
 // load the file "MainMenu.ui"   
  	var _widget = ui.LoadFromFile("Scripts/MainMenu.ui", false);
  	
@@ -231,6 +282,54 @@ function Init()
     EffectProxy.x = 965 + 105;             // they should be caculated late
     EffectProxy.y = 25 + 13 ;
 
+// --------------------------------------------------- mumble /widget---- --- begin ------------------------------------------//
+// load the file "StartMumble.ui and add it into the scene"
+	var _mumbleWidget = ui.LoadFromFile("Scripts/StartMumble.ui",false);
+	var _MumbleBtn = findChild(_mumbleWidget,"MumbleBtn");
+//	 when the mumble button clicked, the mumble client GUI will be shown in the scene
+	_MumbleBtn.pressed.connect(MumbleBtnClicked);
+	
+	var MumbleProxy = new UiProxyWidget(_mumbleWidget);
+	ui.AddProxyWidgetToScene(MumbleProxy);
+//	 set the default value of visible as  true;
+	MumbleProxy.visible = true;
+	MumbleProxy.windowFlags = 0;
+	MumbleProxy.x = 1;
+	MumbleProxy.y = 0;
+
+
+	
+	_mumbleClientWidget = ui.LoadFromFile("Scripts/MumbleClientWidget.ui",false);
+	MumbleClientProxy = new UiProxyWidget(_mumbleClientWidget);
+	
+	
+		_buttonConnect = findChild(_mumbleClientWidget,"buttonOpenConnect");
+		_buttonConnect.clicked.connect(ShowConnectDialog);
+	
+	    _buttonDisconnect = findChild(_mumbleClientWidget, "buttonDisconnect");
+		_buttonDisconnect.clicked.connect(mumble, mumble.Disconnect); // Direct connection to MumblePlugin C++ QObject
+	
+		_buttonWizard = findChild(_mumbleClientWidget, "buttonOpenWizard");
+		_buttonWizard.clicked.connect(mumble, mumble.RunAudioWizard); // Direct connection to MumblePlugin C++ QObject
+	
+		_buttonSelfMute = findChild(_mumbleClientWidget, "muteSelfToggle");
+		_buttonSelfMute.clicked.connect(OnSelfMuteToggle);
+	
+		_buttonSelfDeaf = findChild(_mumbleClientWidget, "deafSelfToggle");
+		_buttonSelfDeaf.clicked.connect(OnSelfDeafToggle);
+		
+		_userList = findChild(_mumbleClientWidget, "listUsers");
+	
+	ui.AddProxyWidgetToScene(MumbleClientProxy);
+	MumbleClientProxy.visible = MumbleClientProxy_visible;
+	MumbleClientProxy.windowFlags = 0;
+	MumbleClientProxy.x = 2;
+	MumbleClientProxy.y = 42;
+	
+	
+	
+//------------------------------------------------- mumble /widget-------------end ------------------------------//
+	
 
 }
 
@@ -290,6 +389,19 @@ function Init()
 		
 	}
 
+
+//---------------------------
+	function MumbleBtnClicked(){
+		// show and hide the mumble of client
+		MumbleClientProxy_visible = !MumbleClientProxy_visible;
+		MumbleClientProxy.visible = MumbleClientProxy_visible;
+		 SetConnectionState(false, "Disconnected");
+		// hide the connect dialog
+		MumbleConnectProxy.visible = false;
+		
+	}
+
+//----------------------------
 /*
  *  handle the mouse event occur on submenu (scene, prop, background, clear).
  *  currently, just implement the effect that click the button once , the submenu will be shown, click the button again, the submenu disappear, do the loop like that 
@@ -377,14 +489,23 @@ function Init()
 	}
 	
 	function RandomButtonClicked(){
-		var randomArray = [Elements, Objects, Backgrounds, Scenes, ManMade, SpecialEffects];
-		var idx = rnd(randomArray.length);
-		var rndtype = randomArray[idx];
-		var entidx = rnd(rndtype.length);
-		var ent = randomArray[idx][entidx];
+		var ElementArray = [Backgrounds, Scenes];
+		var randomProp = [Elements, Objects, ManMade, SpecialEffects];
+		var idx = rnd(randomProp.length);
+		var entidx = rnd(randomProp[idx].length);
+		var ent = randomProp[idx][entidx];
 		//var ent = rndtype [entidx];
 		LoadXML(ent);
 		
+		var idx = rnd(ElementArray[0].length);
+		var ent = ElementArray[0][idx];
+    LoadXML(ent);
+    
+    var idx = rnd(ElementArray[1].length);
+    var ent = ElementArray[1][idx];
+    LoadXML(ent);
+    
+    
 	}
  	
 
@@ -458,7 +579,9 @@ function Init()
 This function is launched if the new added entity has an animationcontroller. If the entity has no animations, we wait and let tundra load them.
 After that we launch EnableAnims, which activates animations.
 */
-function CheckAnims(ent){
+function CheckAnims(enti){
+  var ent = scene.GetEntityByName(enti);
+  this.enti=ent;
   if(ent.animationcontroller.GetAvailableAnimations().length > 0){
      EnableAnims();
   }else
@@ -507,134 +630,110 @@ function LoadXML (text){
   }
   else
   {
+  
     //Load entity from file, inside Props folder. assets[0] is entity, so scene.LoadSceneXML returns array.
     //Create a dynamiccomponent for the entity to check if it has been placed into the world already. This way we wont place them again when adding an new entity.
-    var assets = scene.LoadSceneXML(asset.GetAsset("Props/" + text + ".txml").DiskSource(), false, false, 0);
-    var ent = assets[0];
+    var assets = scene.LoadSceneXML(asset.GetAsset(text + ".txml").DiskSource(), false, false, 0);
+    var enti = assets[0].name;
     var id = assets[0].id;
-	console.LogInfo(ent.name, ent, assets[0].name);
+    var ent = scene.GetEntityByName(enti);
     ent.placeable.visible = false;
     ent.dynamiccomponent.CreateAttribute('bool', 'Placed');
+    
     if(!ent.animationcontroller && ent.dynamiccomponent.GetAttribute('Placed') == false)
-      CheckPlacement(ent);
+      CheckPlacement(enti);
     else if(ent.dynamiccomponent.GetAttribute('Placed') == false)
-      CheckAnims(ent);
+      CheckAnims(enti);
+    else
+      console.LogInfo('We have a bug at loadXML');
    }
 }
 
 
 
-function CheckPlacement(ent){
+function CheckPlacement(enti){
 			  //CASE1: Entity has no animations and is not placed yet. We place it and set placed to true, depending on if its prop, scene or background. 
 			  //TODO: An array for multiple different locations that the entity can be added in.
+          var ent = scene.GetEntityByName(enti);
           if(ent.dynamiccomponent.name == "Prop" || ent.dynamiccomponent.name == "prop"){
-            if(ent.dynamiccomponent.GetAttribute('Type') == 'Ground'){
-              var idx = rnd(this.Positions[1].length);
-              var pos = this.Positions[1][idx];
-
-            }else if(ent.dynamiccomponent.GetAttribute('Type') == 'Sky'){
-                var idx = rnd(this.Positions[2].length);
-                var pos = this.Positions[2][idx];
-            }else {
-              console.LogInfo('DynamicComponent Type: Ground or sky missing');
-                var pos = this.Positions[2][1];
-            }
               
-             var tm = ent.placeable.transform;
+             /*var tm = ent.placeable.transform;
              tm.pos.x = pos.x;
              tm.pos.y = pos.y;
              tm.pos.z = pos.z;
-             ent.placeable.transform = tm; 
+             ent.placeable.transform = tm;*/ 
              ent.placeable.visible = true;            
              ent.dynamiccomponent.SetAttribute('Placed', true);
              
           }else if (ent.dynamiccomponent.name == "Scene" || ent.dynamiccomponent.name == "scene"){
              var idx = rnd(this.Positions[0].length);
              var pos = this.Positions[0][idx];
-             var tm = ent.placeable.transform;
+             /*var tm = ent.placeable.transform;
              tm.pos.x = pos.x;
              tm.pos.y = pos.y;
              tm.pos.z = pos.z;
-             ent.placeable.transform = tm;
+             ent.placeable.transform = tm;*/
              ent.placeable.visible = true;  
              ent.dynamiccomponent.SetAttribute('Placed', true);
              
           }else if(ent.dynamiccomponent.name == "Background" || ent.dynamiccomponent.name == "background"){
              var idx = rnd(this.Positions[3].length);
              var pos = this.Positions[3][idx];
-             var tm = ent.placeable.transform;
+             /*var tm = ent.placeable.transform;
              tm.pos.x = pos.x;
              tm.pos.y = pos.y;
              tm.pos.z = pos.z;
              tm.rot.y = 180;
-             ent.placeable.transform = tm;  
+             ent.placeable.transform = tm;*/  
              ent.placeable.visible = true;
              ent.dynamiccomponent.SetAttribute('Placed', true);
           }
             
 }
 
-function EnableAnims(ent){
-  for(i=0; i<ent.length; i++){
-  
-     
+function EnableAnims(){
+    var ent = this.enti;
+    if(ent.dynamiccomponent.name == "Prop" || ent.dynamiccomponent.name == "prop"){
+      
+      /*var tm = ent[i].placeable.transform;
+      tm.pos.x = pos.x;
+      tm.pos.y = pos.y;
+      tm.pos.z = pos.z;
+      ent[i].placeable.transform = tm;*/
+      
+      ent.animationcontroller.EnableAnimation('PropAnim'); 
+      ent.placeable.visible = true;
+      ent.dynamiccomponent.SetAttribute('Placed', true);
+      
+    }else if(ent.dynamiccomponent.name == "Scene" || ent.dynamiccomponent.name == "scene"){
     
-      if(ent[i].dynamiccomponent.name == "Prop" || ent[i].dynamiccomponent.name == "prop"){
+      var idx = rnd(this.Positions[0].length);
+      var pos = this.Positions[0][idx]; 
       
-        if(ent[i].dynamiccomponent.GetAttribute('Type') == 'Ground'){
-        
-          var idx = rnd(this.Positions[1].length);
-          var pos = this.Positions[1][idx];
+      /*var tm = ent[i].placeable.transform;
+      tm.pos.x = pos.x;
+      tm.pos.y = pos.y;
+      tm.pos.z = pos.z; 
+      ent[i].placeable.transform = tm;*/
 
-        }else if(ent[i].dynamiccomponent.GetAttribute('Type') == 'Sky'){
-        
-          var idx = rnd(this.Positions[2].length);
-          var pos = this.Positions[2][idx];
-        }else
-          var pos = this.Positions[2][1];
-        
-        var tm = ent[i].placeable.transform;
-        tm.pos.x = pos.x;
-        tm.pos.y = pos.y;
-        tm.pos.z = pos.z;
-        ent[i].placeable.transform = tm;
-        
-        ent[i].animationcontroller.EnableAnimation('PropAnim'); 
-        ent[i].placeable.visible = true;
-        ent[i].dynamiccomponent.SetAttribute('Placed', true);
-        console.LogInfo(ent[i].animationcontroller.GetAvailableAnimations());
-        
-      }else if(ent[i].dynamiccomponent.name == "Scene" || ent[i].dynamiccomponent.name == "scene"){
+      ent.animationcontroller.EnableAnimation('SceneAnim');
       
-        var idx = rnd(this.Positions[0].length);
-        var pos = this.Positions[0][idx]; 
-        var tm = ent[i].placeable.transform;
-        tm.pos.x = pos.x;
-        tm.pos.y = pos.y;
-        tm.pos.z = pos.z; 
-        ent[i].placeable.transform = tm;
-        
-
-        ent[i].animationcontroller.EnableAnimation('SceneAnim');
-
-        
-        ent[i].placeable.visible = true;
-        ent[i].dynamiccomponent.SetAttribute('Placed', true);
-        console.LogInfo(ent[i].animationcontroller.GetAvailableAnimations());
-        
-      }else if(ent[i].dynamiccomponent.name == "Background" || ent[i].dynamiccomponent.name == "background"){
+      ent.placeable.visible = true;
+      ent.dynamiccomponent.SetAttribute('Placed', true);
       
-        var pos = this.Positions[3][0];
-        var tm = ent[i].placeable.transform;
-        tm.pos.x = pos.x;
-        tm.pos.y = pos.y;
-        tm.pos.z = pos.z;
-        ent[i].placeable.transform = tm;
-        ent[i].placeable.visible = true;
-        ent[i].dynamiccomponent.SetAttribute('Placed', true);
-        
-      }
-     }
+    }else if(ent.dynamiccomponent.name == "Background" || ent.dynamiccomponent.name == "background"){
+    
+      var pos = this.Positions[3][0];
+      /*var tm = ent[i].placeable.transform;
+      tm.pos.x = pos.x;
+      tm.pos.y = pos.y;
+      tm.pos.z = pos.z;
+      ent[i].placeable.transform = tm;*/
+      ent.placeable.visible = true;
+      ent.dynamiccomponent.SetAttribute('Placed', true);
+      
+    }
+     
 }
 
 			   //print('text doesnt exist.', text, tempArray[i]);
@@ -663,6 +762,7 @@ function RemoveAllEntities(){
 function OnScriptdestroyed() {
 	_widget.deleteLater();
 	delete _widget ;
+	tundra.ForgetAllAssets();
 }
 
 // start the script before checking the server whether it is running
@@ -671,7 +771,7 @@ if (server.IsRunning()){
   console.LogInfo("server is running");
 }
 else{
-    
+   
    Init();
    print('Init');
 }

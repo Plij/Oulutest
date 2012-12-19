@@ -1,6 +1,9 @@
-material beach
+// beach genrated by blender2ogre 0.5.8
+
+material beach 
 {
-    receive_shadows on
+    receive_shadows on 
+
     technique
     {
         pass beach
@@ -11,7 +14,7 @@ material beach
             depth_check on
             depth_func less_equal
             depth_write on
-            illumination_stage
+            illumination_stage 
             light_clip_planes off
             light_scissor off
             lighting on
@@ -21,14 +24,16 @@ material beach
             scene_blend_op add
             shading gouraud
             transparent_sorting on
-            texture_unit
+
+            texture_unit 
             {
-                texture local://beach_text_scene.jpg
+                texture beach_text_scene.jpg
                 tex_address_mode wrap
                 scale 1.0 1.0
                 colour_op modulate
             }
         }
+
         pass beach
         {
             alpha_to_coverage off
@@ -37,7 +42,7 @@ material beach
             depth_check on
             depth_func less_equal
             depth_write on
-            illumination_stage
+            illumination_stage 
             light_clip_planes off
             light_scissor off
             lighting on
@@ -47,9 +52,10 @@ material beach
             scene_blend_op add
             shading gouraud
             transparent_sorting on
-            texture_unit
+
+            texture_unit 
             {
-                texture local://beach_text_scene.jpg
+                texture beach_text_scene.jpg
                 tex_address_mode wrap
                 scale 1.0 1.0
                 colour_op modulate

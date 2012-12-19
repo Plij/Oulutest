@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>103</width>
+    <width>102</width>
     <height>192</height>
    </rect>
   </property>
@@ -21,8 +21,57 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget#PropTypesMenu { background-color: transparent; }
-QFrame#frame { background-color: rgba(136, 136, 136, 200); border-radius: 12px;}
-</string>
+QFrame#frame { background-color: rgba(33, 217, 229, 150);
+ border-radius: 12px;}
+QPushButton#EffectBtn{
+color:black;
+background-color: white;
+ border-width: 4px;
+ border-color: rgba(237,29,63,55);
+ border-style: solid;
+ border-radius: 7;
+ padding: 3px;
+ font-size: 15px;
+font:bold;
+ padding-left: 5px;
+ padding-right: 5px;
+ }
+
+QPushButton#ElementBtn
+{color:black;
+background-color: white;
+ border-width: 4px;
+ border-color: rgba(21,122,69,55);
+ border-style: solid;
+ border-radius: 7;
+ padding: 3px;
+ font-size: 15px;
+font:bold;
+ padding-left: 5px;
+ padding-right: 5px;
+}
+QPushButton#ManMadeBtn{color:black;
+background-color: white;
+ border-width: 4px;
+ border-color: rgba(29,158,166,55);
+ border-style: solid;
+ border-radius: 7;
+ padding: 3px;
+ font-size: 15px;
+font:bold;
+ padding-left: 5px;
+ padding-right: 5px;}
+QPushButton#ObjectBtn{color:black;
+background-color: white;
+ border-width: 4px;
+ border-color: rgba(36,233,87,55);
+ border-style: solid;
+ border-radius: 7;
+ padding: 3px;
+ font-size: 15px;
+font:bold;
+ padding-left: 5px;
+ padding-right: 5px;}</string>
   </property>
   <widget class="QFrame" name="frame">
    <property name="geometry">
@@ -42,9 +91,9 @@ QFrame#frame { background-color: rgba(136, 136, 136, 200); border-radius: 12px;}
    <widget class="QPushButton" name="ManMadeBtn">
     <property name="geometry">
      <rect>
-      <x>12</x>
+      <x>5</x>
       <y>99</y>
-      <width>81</width>
+      <width>91</width>
       <height>31</height>
      </rect>
     </property>
@@ -58,9 +107,9 @@ QFrame#frame { background-color: rgba(136, 136, 136, 200); border-radius: 12px;}
    <widget class="QPushButton" name="ObjectBtn">
     <property name="geometry">
      <rect>
-      <x>12</x>
-      <y>59</y>
-      <width>81</width>
+      <x>5</x>
+      <y>60</y>
+      <width>91</width>
       <height>31</height>
      </rect>
     </property>
@@ -74,9 +123,9 @@ QFrame#frame { background-color: rgba(136, 136, 136, 200); border-radius: 12px;}
    <widget class="QPushButton" name="ElementBtn">
     <property name="geometry">
      <rect>
-      <x>12</x>
+      <x>5</x>
       <y>21</y>
-      <width>81</width>
+      <width>91</width>
       <height>31</height>
      </rect>
     </property>
@@ -93,9 +142,9 @@ QFrame#frame { background-color: rgba(136, 136, 136, 200); border-radius: 12px;}
    <widget class="QPushButton" name="EffectBtn">
     <property name="geometry">
      <rect>
-      <x>12</x>
+      <x>5</x>
       <y>138</y>
-      <width>81</width>
+      <width>91</width>
       <height>31</height>
      </rect>
     </property>

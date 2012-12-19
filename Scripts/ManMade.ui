@@ -18,7 +18,8 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget#ManMade{ background-color: transparent;}
-QFrame#frame{ background-color: rgba(136, 136, 136, 200); border-radius: 15px; }</string>
+QFrame#frame { background-color: rgba(33, 217, 229, 150);
+ border-radius: 12px;}</string>
   </property>
   <widget class="QFrame" name="frame">
    <property name="geometry">
@@ -40,12 +41,12 @@ QFrame#frame{ background-color: rgba(136, 136, 136, 200); border-radius: 15px; }
      <rect>
       <x>12</x>
       <y>2</y>
-      <width>54</width>
+      <width>81</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;ManMade:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;MAN_MADE:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QListWidget" name="ManMadeListWidget">

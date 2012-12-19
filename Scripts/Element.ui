@@ -18,7 +18,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget#Element{ background-color: transparent;}
-QFrame#frame{ background-color: rgba(136, 136, 136, 200); border-radius: 15px; }</string>
+QFrame#frame{ background-color: rgba(21,122,69,150); border-radius: 15px; }</string>
   </property>
   <widget class="QFrame" name="frame">
    <property name="geometry">
@@ -40,12 +40,12 @@ QFrame#frame{ background-color: rgba(136, 136, 136, 200); border-radius: 15px; }
      <rect>
       <x>12</x>
       <y>2</y>
-      <width>54</width>
+      <width>111</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Elements:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;NATURAL_ELEMENTS:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QListWidget" name="ElementListWidget">

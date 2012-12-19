@@ -1,0 +1,28 @@
+<!DOCTYPE Scene>
+<scene>
+ <entity id="10">
+  <component type="EC_Name" sync="true">
+   <attribute value="sandtoys" name="name"/>
+   <attribute value="" name="description"/>
+  </component>
+  <component type="EC_Placeable" sync="true">
+   <attribute value="-55.830002,10.450000,-75.250000,0.000000,-112.000000,8.000000,0.760000,0.760000,0.760000" name="Transform"/>
+   <attribute value="false" name="Show bounding box"/>
+   <attribute value="true" name="Visible"/>
+   <attribute value="1" name="Selection layer"/>
+   <attribute value="" name="Parent entity ref"/>
+   <attribute value="" name="Parent bone name"/>
+  </component>
+  <component type="EC_Mesh" sync="true">
+   <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
+   <attribute value="sandtoys.mesh" name="Mesh ref"/>
+   <attribute value="" name="Skeleton ref"/>
+   <attribute value="sandtoy_color.material" name="Mesh materials"/>
+   <attribute value="0" name="Draw distance"/>
+   <attribute value="false" name="Cast shadows"/>
+  </component>
+  <component type="EC_DynamicComponent" sync="true" name="prop">
+   <attribute value="ground" type="string" name="type"/>
+  </component>
+ </entity>
+</scene>

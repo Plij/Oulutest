@@ -1,0 +1,26 @@
+<!DOCTYPE Scene>
+<scene>
+ <entity id="1">
+  <component type="EC_Name" sync="true">
+   <attribute value="winter_scene" name="name"/>
+   <attribute value="" name="description"/>
+  </component>
+  <component type="EC_Placeable" sync="true">
+   <attribute value="-54.980000,9.800000,-74.250000,0.000000,180.000000,0.000000,2.750789,0.053225,6.600000" name="Transform"/>
+   <attribute value="false" name="Show bounding box"/>
+   <attribute value="true" name="Visible"/>
+   <attribute value="1" name="Selection layer"/>
+   <attribute value="" name="Parent entity ref"/>
+   <attribute value="" name="Parent bone name"/>
+  </component>
+  <component type="EC_Mesh" sync="true">
+   <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
+   <attribute value="winter_scene.mesh" name="Mesh ref"/>
+   <attribute value="" name="Skeleton ref"/>
+   <attribute value="winter_scene_mat.material;winter_scene_mat3.material" name="Mesh materials"/>
+   <attribute value="0" name="Draw distance"/>
+   <attribute value="false" name="Cast shadows"/>
+  </component>
+  <component type="EC_DynamicComponent" sync="true" name="scene"/>
+ </entity>
+</scene>

@@ -18,7 +18,8 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget#Scene{ background-color: transparent;}
-QFrame#frame{ background-color: rgba(136, 136, 136, 200); border-radius: 15px; }</string>
+QFrame#frame { background-color: rgba(33, 217, 229, 150);
+ border-radius: 12px;}</string>
   </property>
   <widget class="QFrame" name="frame">
    <property name="geometry">
@@ -60,41 +61,6 @@ QFrame#frame{ background-color: rgba(136, 136, 136, 200); border-radius: 15px; }
     <property name="mouseTracking">
      <bool>true</bool>
     </property>
-    <item>
-     <property name="text">
-      <string>Winter</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Mountains</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Meadow</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Forest</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>City</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Beach</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Room&amp;Window</string>
-     </property>
-    </item>
    </widget>
   </widget>
  </widget>

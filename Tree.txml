@@ -1,0 +1,28 @@
+<!DOCTYPE Scene>
+<scene>
+ <entity id="82">
+  <component type="EC_Name" sync="true">
+   <attribute value="tree_prop" name="name"/>
+   <attribute value="" name="description"/>
+  </component>
+  <component type="EC_Placeable" sync="true">
+   <attribute value="-53.000000,11.000000,-76.000000,0.000000,0.000000,0.000000,2.750789,0.053225,6.421705" name="Transform"/>
+   <attribute value="false" name="Show bounding box"/>
+   <attribute value="true" name="Visible"/>
+   <attribute value="1" name="Selection layer"/>
+   <attribute value="" name="Parent entity ref"/>
+   <attribute value="" name="Parent bone name"/>
+  </component>
+  <component type="EC_Mesh" sync="true">
+   <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.400000,1.400000,1.400000" name="Transform"/>
+   <attribute value="tree_prop.mesh" name="Mesh ref"/>
+   <attribute value="" name="Skeleton ref"/>
+   <attribute value="tree_prop_mat1.material;tree_prop_mat3.material;tree_prop_mat2.material" name="Mesh materials"/>
+   <attribute value="0" name="Draw distance"/>
+   <attribute value="false" name="Cast shadows"/>
+  </component>
+  <component type="EC_DynamicComponent" sync="true" name="prop">
+   <attribute value="ground" type="string" name="type"/>
+  </component>
+ </entity>
+</scene>

@@ -1,0 +1,39 @@
+<!DOCTYPE Scene>
+<scene>
+ <entity id="12">
+  <component type="EC_Name" sync="true">
+   <attribute value="tombstone" name="name"/>
+   <attribute value="" name="description"/>
+  </component>
+  <component type="EC_Placeable" sync="true">
+   <attribute value="-54.000000,12.000000,-76.000000,0.000000,-75.000000,0.000000,0.850302,0.130992,1.517210" name="Transform"/>
+   <attribute value="false" name="Show bounding box"/>
+   <attribute value="true" name="Visible"/>
+   <attribute value="1" name="Selection layer"/>
+   <attribute value="" name="Parent entity ref"/>
+   <attribute value="" name="Parent bone name"/>
+  </component>
+  <component type="EC_Mesh" sync="true">
+   <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
+   <attribute value="tombstone.mesh" name="Mesh ref"/>
+   <attribute value="" name="Skeleton ref"/>
+   <attribute value="tombsotone_textures.material" name="Mesh materials"/>
+   <attribute value="0" name="Draw distance"/>
+   <attribute value="false" name="Cast shadows"/>
+  </component>
+  <component type="EC_ParticleSystem" sync="true" name="candle_flame">
+   <attribute value="candle_flame.particle" name="Particle ref"/>
+   <attribute value="false" name="Cast shadows"/>
+   <attribute value="true" name="Enabled"/>
+   <attribute value="0" name="Rendering distance"/>
+  </component>
+  <component type="EC_DynamicComponent" sync="true" name="prop">
+   <attribute value="ground" type="string" name="type"/>
+  </component>
+  <component type="EC_Highlight" sync="true" name="MySpecialHighlight">
+   <attribute value="true" name="Is visible"/>
+   <attribute value="0.300000 0.500000 0.100000 0.500000" name="Solid color"/>
+   <attribute value="1.000000 1.000000 1.000000 0.500000" name="Outline color"/>
+  </component>
+ </entity>
+</scene>

@@ -1,0 +1,42 @@
+// forest_scene_mat5 genrated by blender2ogre 0.5.8
+
+material forest_scene_mat5 
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass forest_scene_mat5
+        {
+            ambient 0.054966237396001816 0.028727475553750992 0.010688926093280315 1.0
+            diffuse 0.030595916539120083 0.015990605980356065 0.005949788563599512 1.0
+            specular 0.6556452512741089 0.588695811112359 0.2459849697849883 1.0 9.0
+            emissive 0.0 0.0 0.0 1.0
+
+            alpha_to_coverage off
+            colour_write on
+            cull_hardware clockwise
+            depth_check on
+            depth_func less_equal
+            depth_write on
+            illumination_stage 
+            light_clip_planes off
+            light_scissor off
+            lighting on
+            normalise_normals off
+            polygon_mode solid
+            scene_blend one zero
+            scene_blend_op add
+            shading gouraud
+            transparent_sorting on
+
+            texture_unit 
+            {
+                texture forest_text_scene.jpg
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op alpha_blend
+            }
+        }
+    }
+}

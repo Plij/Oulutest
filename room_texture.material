@@ -87,7 +87,7 @@ material room_texture
 
             texture_unit 
             {
-                texture scene_room_uv_color.JPG
+                texture scene_room_text.jpg
                 tex_address_mode wrap
                 scale 1.0 1.0
                 colour_op modulate
@@ -116,12 +116,12 @@ material room_texture
 
             texture_unit baseMap
             {
-                texture scene_room_uv_color.JPG
+                texture scene_room_text.jpg
                 tex_address_mode wrap
             }
             texture_unit specularMap
             {
-                texture scene_room_uv_color.JPG
+                texture scene_room_text.jpg
                 tex_address_mode wrap
             }
         }
