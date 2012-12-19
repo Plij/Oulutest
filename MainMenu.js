@@ -489,6 +489,7 @@ function Init()
 	}
 	
 	function RandomButtonClicked(){
+    RemoveAllEntities();
 		var ElementArray = [Backgrounds, Scenes];
 		var randomProp = [Elements, Objects, ManMade, SpecialEffects];
 		var idx = rnd(randomProp.length);
@@ -533,6 +534,11 @@ function Init()
 		CurrentClickedItemName = _BackgroundListWidget.currentItem().text();
 		console.LogInfo(_BackgroundListWidget.objectName);
 		console.LogInfo("CurrentClicked        BackgroundListItem: " + CurrentClickedItemName);
+		var ents = scene.GetEntitiesWithComponent('EC_DynamicComponent');
+		for(i in ents){
+      if(ents[i].dynamiccomponent.name == 'background' || ents[i].dynamiccomponent.name == 'Background')
+        scene.RemoveEntity(ents[i].id);
+		}
 		LoadXML(CurrentClickedItemName);
 	}
    /*
