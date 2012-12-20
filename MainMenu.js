@@ -75,13 +75,13 @@ var _connectionInfo =
 /*
 Use these to get added properties into right positions. Divided into 3 groups.
 */
-
+//TOADD lajittele aakkosittain
 var Scenes = ["Winter", "Mountains", "Medow", "Forest", "City", "Beach", "Room"];
 var Backgrounds = ["NightSky", "DaySky", "Sunset"];
-var Elements =["Clouds", "Sun", "Moon", "SnowFlakes","Volcano"];
+var Elements =["Clouds", "Sun", "Moon", "SnowFlakes","Rain" ,"Volcano"];
 var Objects = ["Palm", "Tree", "Butterflies", "Mushroom", "Walrus", "PinkElephant"];
 var ManMade = ["Rocket", "SandToys", "Tombstone", "Car", "Treasure", "Mob", "Parasol", "Pirates"];
-var SpecialEffects = ["Monolith", "UFO", "Fire", "Hearts", "Rain"];
+var SpecialEffects = ["Monolith", "UFO", "Fire", "Hearts", "Rain", "SnowFlakes"];
 
 var PropType = ["Element","Object","ManMade","Effect"];
 
