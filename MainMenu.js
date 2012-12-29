@@ -18,8 +18,9 @@ engine.ImportExtension("qt.gui");
 //engine.ImportExtension("qt.uitools");
 
 /*  Authors: Xiaori Hu & Lasse Annola
- *	MainMenu includes the submenus(background, prop, scene, clearMenu, clearEntity) 
- *  When you click the buttons ( background, prop, scene) on the interface of MainMenu, it will popup the corresponding submenu at right side of MainMenu
+ *	MainMenu includes the submenus(background, proptype, scene, clearMenu, clearEntity) , besides, the prop also has four submenus (element, object, manmade, effect)
+ *  itself.
+ *  When you click the buttons ( background, proptype, scene) on the interface of MainMenu, it will popup the corresponding submenu at right side of MainMenu
  *  when you click the button (clearMenu) on the interface of MainMenu, it will hind the submenu in the screen
  *  when you click the button (clearEntity) on the interface of MainMenu, it will clear all the entities in the scene. 
  *  KNOWN BUG: When holding z,x,c or space for a long period of time to move an entity GUI crashes. Fixed by adding MainMenu.js gui script into a separate entity
@@ -63,9 +64,9 @@ var _EffectListWidget = null;
 var _connectionInfo =
 {
     host      : "athena.mumble-serveur.com",    // Change to IP if you want to test remote Murmur servers.
-    port      : 13501,          // Default port for Murmur, see murmur.ini for changing this.
-    password  : "e92ds6gs",             // Default password for Murmur is empty, see murmur.ini for changing this.
-    channel   : "mumble-serveur.com public #1",             // Default Murmur server will have one channel called "Root". Empty channel name is depicted as "Root" when connecting via MumblePlugin.
+    port      : 13501,          				// Default port for Murmur, see murmur.ini for changing this.
+    password  : "e92ds6gs",             		// Default password for Murmur is empty, see murmur.ini for changing this.
+    channel   : "mumble-serveur.com public #1", // Default Murmur server will have one channel called "Root". Empty channel name is depicted as "Root" when connecting via MumblePlugin.
     outputMuted : false,        // True means your voice is sent after connecting, false means your output is muted.
     intputMuted : false         // True means voice should be sent to us from other client after connecting, false means server wont send us the voice packets.
 };
@@ -108,28 +109,31 @@ position1 = {x:-52.40 ,y:13.29 ,z:-73.83}
 this.Positions = [ScenePos, GroundPropPos, SkyPropPos, BackgPos];
 
 
-
+/*
+ * Initialization for mainmenu and mumble. For the mainmenu, it should load all widgets related to mainmenu, add all event listeners.
+ * For the mumble, it also should load all widgets related to mumble and add all corresponding event listerners. Besides, since we use 
+ * the mumble plugin in our project,  in order to realize the mumble function, it requires install a client-side mumble(can be downloaded 
+ * from the official website of Mumble) before running this script.
+ */
 function Init()
 {
 
-//	---------------------------- Hook to MumblePlugin  / start ---------------------------------//
+// -------------Hook to MumblePlugin  ------------- begin ---------- //
 	 
-		mumble.Connected.connect(OnConnected);
-		mumble.Disconnected.connect(OnDisconnected);
-		mumble.ConnectionRejected.connect(OnRejected);
-	
-		mumble.MeCreated.connect(OnMeCreated);
-		mumble.JoinedChannel.connect(OnJoinedChannel);
-	
-		mumble.UserMuted.connect(OnUserLocalMuteChanged);
-		mumble.UserSelfMuted.connect(OnUserSelfMutedChange);
-		mumble.UserSelfDeaf.connect(OnUserSelfDeafChange);
-		mumble.UserSpeaking.connect(OnUserSpeakingChange);
-		mumble.UserPositionalChanged.connect(OnUserPositionalChange);
-		mumble.ChannelTextMessageReceived.connect(OnChannelTextMessageReceived);
-		
-//	---------------------------- Hook to MumblePlugin  / end ---------------------------------//
+	mumble.Connected.connect(OnConnected);
+	mumble.Disconnected.connect(OnDisconnected);
+	mumble.ConnectionRejected.connect(OnRejected);
+	mumble.MeCreated.connect(OnMeCreated);
+	mumble.JoinedChannel.connect(OnJoinedChannel);
+	mumble.UserMuted.connect(OnUserLocalMuteChanged);
+	mumble.UserSelfMuted.connect(OnUserSelfMutedChange);
+	mumble.UserSelfDeaf.connect(OnUserSelfDeafChange);
+	mumble.UserSpeaking.connect(OnUserSpeakingChange);
+	mumble.UserPositionalChanged.connect(OnUserPositionalChange);
+	mumble.ChannelTextMessageReceived.connect(OnChannelTextMessageReceived);
+// -------------- Hook to MumblePlugin ---------------end -----------------//
 
+		
 // load the file "MainMenu.ui"   
  	var _widget = ui.LoadFromFile("Scripts/MainMenu.ui", false);
  	
@@ -146,42 +150,42 @@ function Init()
 	_ClearMenuBtn.pressed.connect(ClearMenuBtnClicked);			// listering to the singal of clean menu button clicked
 
 	var _ClearEntityBtn = findChild(_widget,"ClearEntityBtn");
-	_ClearEntityBtn.pressed.connect(RemoveAllEntities);		// listering to the singal of clean entity button clicked
+	_ClearEntityBtn.pressed.connect(RemoveAllEntities);		    // listering to the singal of clean entity button clicked
 	
 	var _RandomBtn = findChild(_widget,"RandomBtn");
-	_RandomBtn.pressed.connect(RandomButtonClicked);    //TODO  the function Random()
-
-	//Add connects to elements, man made, special effectts and object buttons. 
+	_RandomBtn.pressed.connect(RandomButtonClicked);    		// listering to the singal of random button clicked, which will generate effect randomly.
 
  	var MenuProxy = new UiProxyWidget(_widget);
  
  	ui.AddProxyWidgetToScene(MenuProxy);
     MenuProxy.visible = true;
     MenuProxy.windowFlags = 0;
-
+	
+	//set proxy position
 	MenuProxy.x = 860;
 	MenuProxy.y = 25;
 
-// load the file "Scene.ui"	
+// load the file "Scene.ui"	 
 	var _SceneWidget = ui.LoadFromFile("Scripts/Scene.ui", false);
 
     _SceneListWidget = findChild(_SceneWidget, "SceneListWidget");
-	_SceneListWidget.itemDoubleClicked.connect(SceneListItemDoubleClicked);
+	_SceneListWidget.itemDoubleClicked.connect(SceneListItemDoubleClicked); //  listen to the event of item double clicked in the SceneListWidget
 
     SceneProxy = new UiProxyWidget(_SceneWidget);
     
     ui.AddProxyWidgetToScene(SceneProxy);
-    SceneProxy.visible = SceneList_visible;   // set the SceneList_visibe = false;
-    SceneProxy.windowFlags = 0;
-    
-    SceneProxy.x = 965;             // they should be caculated late
+    SceneProxy.visible = SceneList_visible;   
+    SceneProxy.windowFlags = 0;				 
+	
+    // set proxy position 
+    SceneProxy.x = 965;             
     SceneProxy.y = 25;
 
-// load the file "Background.ui"
+// load the file "Background.ui" 
 	var _BackgroundWidget = ui.LoadFromFile("Scripts/Background.ui", false);
 
 	_BackgroundListWidget = findChild(_BackgroundWidget,"BackgroundListWidget");
-	_BackgroundListWidget.itemDoubleClicked.connect(BackgroundListItemDoubleClicked);   // listen to the event of item double clicked in BackgroundListWidget
+	_BackgroundListWidget.itemDoubleClicked.connect(BackgroundListItemDoubleClicked);   // listen to the event of item double clicked in the BackgroundListWidget
 
 	BackgroundProxy = new UiProxyWidget(_BackgroundWidget);
 
@@ -189,15 +193,14 @@ function Init()
 	BackgroundProxy.visible = BackgroundList_visible;
 	BackgroundProxy.windowFlags = 0;
     
-    BackgroundProxy.x = 965;             // they should be caculated late
+	//set proxy position
+    BackgroundProxy.x = 965;            
     BackgroundProxy.y = 25;
 
 
 
-// load the file "PropType.ui"
+// load the file "PropType.ui", note that, the PropType includes four submenus: element, object, manmade, specialeffect
 	var _PropTypeWidget = ui.LoadFromFile("Scripts/PropType.ui", false);
-// TODO check the ElementBtnClicked() wehther we can take param in () or not, if it can, then we can use variable(var) replace concrete button name, e.g. varBtnClicked
-// in that case, we just need only one function to deal with the event of button clicked.
 	_ElementBtn = findChild(_PropTypeWidget,"ElementBtn");     
 	_ElementBtn.pressed.connect(ElementBtnClicked); 			// listen to the event of Element button clicked in PropTypeWidget
 	
@@ -217,7 +220,8 @@ function Init()
 	PropTypeProxy.visible = PropType_visible;
 	PropTypeProxy.windowFlags = 0;
     
-    PropTypeProxy.x = 965;             // they should be caculated late
+	//set proxy position
+    PropTypeProxy.x = 965;           
     PropTypeProxy.y = 25;
 
 
@@ -233,7 +237,8 @@ function Init()
 	ElementProxy.visible = ElementList_visible;
 	ElementProxy.windowFlags = 0;
     
-    ElementProxy.x = 965 + 105;             // they should be caculated late
+	//set proxy position
+    ElementProxy.x = 965 + 105;            
     ElementProxy.y = 25 + 13;
 
 // load the file "Object.ui"
@@ -248,7 +253,8 @@ function Init()
 	ObjectProxy.visible = ObjectList_visible;
 	ObjectProxy.windowFlags = 0;
     
-    ObjectProxy.x = 965 + 105;             // they should be caculated late
+	//set proxy position
+    ObjectProxy.x = 965 + 105;           
     ObjectProxy.y = 25 + 13 ;
 
 // load the file "ManMade.ui"
@@ -263,7 +269,8 @@ function Init()
 	ManMadeProxy.visible = ManMadeList_visible;
 	ManMadeProxy.windowFlags = 0;
     
-    ManMadeProxy.x = 965 + 105;             // they should be caculated late
+	//set proxy position
+    ManMadeProxy.x = 965 + 105;             
     ManMadeProxy.y = 25 + 13 ;
 
 // load the file "Effect.ui"
@@ -278,50 +285,56 @@ function Init()
 	EffectProxy.visible = EffectList_visible;
 	EffectProxy.windowFlags = 0;
     
-    EffectProxy.x = 965 + 105;             // they should be caculated late
+	//set proxy position
+    EffectProxy.x = 965 + 105;            
     EffectProxy.y = 25 + 13 ;
 
 // --------------------------------------------------- mumble /widget---- --- begin ------------------------------------------//
 // load the file "StartMumble.ui and add it into the scene"
 	var _mumbleWidget = ui.LoadFromFile("Scripts/StartMumble.ui",false);
 	var _MumbleBtn = findChild(_mumbleWidget,"MumbleBtn");
-//	 when the mumble button clicked, the mumble client GUI will be shown in the scene
-	_MumbleBtn.pressed.connect(MumbleBtnClicked);
+
+	_MumbleBtn.pressed.connect(MumbleBtnClicked);    //	 when the mumble button clicked, the mumble client GUI will be shown in the scene
 	
 	var MumbleProxy = new UiProxyWidget(_mumbleWidget);
 	ui.AddProxyWidgetToScene(MumbleProxy);
+	
 //	 set the default value of visible as  true;
 	MumbleProxy.visible = true;
 	MumbleProxy.windowFlags = 0;
+	
+	//set proxy position
 	MumbleProxy.x = 1;
 	MumbleProxy.y = 0;
 
 
-	
+	// load the file "MumbleClientWidget.ui"
 	_mumbleClientWidget = ui.LoadFromFile("Scripts/MumbleClientWidget.ui",false);
 	MumbleClientProxy = new UiProxyWidget(_mumbleClientWidget);
 	
 	
 		_buttonConnect = findChild(_mumbleClientWidget,"buttonOpenConnect");
-		_buttonConnect.clicked.connect(ShowConnectDialog);
+		_buttonConnect.clicked.connect(ShowConnectDialog);                // listen to the event of show connect Dialog 
 	
 	    _buttonDisconnect = findChild(_mumbleClientWidget, "buttonDisconnect");
-		_buttonDisconnect.clicked.connect(mumble, mumble.Disconnect); // Direct connection to MumblePlugin C++ QObject
+		_buttonDisconnect.clicked.connect(mumble, mumble.Disconnect);     // Direct connection to MumblePlugin C++ QObject
 	
 		_buttonWizard = findChild(_mumbleClientWidget, "buttonOpenWizard");
-		_buttonWizard.clicked.connect(mumble, mumble.RunAudioWizard); // Direct connection to MumblePlugin C++ QObject
+		_buttonWizard.clicked.connect(mumble, mumble.RunAudioWizard);      // Direct connection to MumblePlugin C++ QObject
 	
 		_buttonSelfMute = findChild(_mumbleClientWidget, "muteSelfToggle");
-		_buttonSelfMute.clicked.connect(OnSelfMuteToggle);
+		_buttonSelfMute.clicked.connect(OnSelfMuteToggle);                // listen to the event of Mute self 
 	
 		_buttonSelfDeaf = findChild(_mumbleClientWidget, "deafSelfToggle");
-		_buttonSelfDeaf.clicked.connect(OnSelfDeafToggle);
+		_buttonSelfDeaf.clicked.connect(OnSelfDeafToggle);                 // listen to the event of Deaf self
 		
 		_userList = findChild(_mumbleClientWidget, "listUsers");
 	
 	ui.AddProxyWidgetToScene(MumbleClientProxy);
 	MumbleClientProxy.visible = MumbleClientProxy_visible;
 	MumbleClientProxy.windowFlags = 0;
+	
+	//set proxy position
 	MumbleClientProxy.x = 2;
 	MumbleClientProxy.y = 42;
 	
@@ -332,15 +345,8 @@ function Init()
 
 }
 
-	// when scene button and background button are clicked, then it should hide all sub menus of proptype
-   /* function clearPropTypeMenu(){
-		for(var i= 0; i<PropType.length; i++){
-			var tempString = (UiProxyWidget) (PropType[i] + "Proxy");
-			tempString.visible = false;
-		}
-		
-	}*/
-	
+	// responed to the event of cleanPropTypeMenu, when the scene or background widget shown, it should call this function to hide the proptype widget and its four  
+	// submenu widgets
 	function clearPropTypeMenu(){
 		ElementProxy.visible = false;
 		ObjectProxy.visible = false;
@@ -348,21 +354,8 @@ function Init()
 		EffectProxy.visible = false;
 		
 	}
-	// when one of proptype menus clicked, others should be hidden. 
-	/*function clearPropTypeSubMenu(btnName){
-		for(var i=0; i<PropType.length; i++){
-			if(PropType[i] != btnName)
-			{
-				var tempString = UiProxyWidget(PropType[i] + "Proxy");
-				tempString.visible = false; 
-			}
-			else{
-				var tempS = (UiProxyWidget)(PropType[i] + "Proxy");
-				tempS.visible = true;
-			}
-		}
-	
-	}*/
+	// respond to the event of clearPropTypeSubMenu, e.g. it shows the proptype widget currently, when one of the four submenus selected, then the rest submenu widgets
+	// should be hidden. 
 	function clearPropTypeSubMenu(btnName){
 		if(btnName == "Element"){
 			ElementProxy.visible = true;
@@ -390,6 +383,7 @@ function Init()
 
 
 //---------------------------
+//  respond to the event of Mumble button clicked, when the mumble button clicked, then it will show the mumble client widget in the scene. 
 	function MumbleBtnClicked(){
 		// show and hide the mumble of client
 		MumbleClientProxy_visible = !MumbleClientProxy_visible;
@@ -402,10 +396,10 @@ function Init()
 
 //----------------------------
 /*
- *  handle the mouse event occur on submenu (scene, prop, background, clear).
- *  currently, just implement the effect that click the button once , the submenu will be shown, click the button again, the submenu disappear, do the loop like that 
+ *  handle all events occurring on submenus (background, proptype, scene, clearMenu, clearEntity)---------begin------------
  */
  
+ 	// when scene button clicked, it will load all items related to scene from the scene array, and hide the proptype and background widgets.
 	function SceneBtnClicked(){
       _SceneListWidget.clear();
       for(i = 0; i < Scenes.length; i++){
@@ -417,12 +411,15 @@ function Init()
 	  BackgroundProxy.visible = ! SceneProxy.visible;
 	}
 	
+	// when proptype button clicked, it will show the proptype widget, and hide the proptype and background widgets.
 	function PropBtnClicked(){
 	  PropTypeProxy.visible= true;
 	  SceneProxy.visible = ! PropTypeProxy.visible;
 	  BackgroundProxy.visible = ! PropTypeProxy.visible;
 	}
-
+	
+    // when element button clicked, it will load all items related to element from the element array, hide the proptype,background widgets and the rest submenu 
+	// widgets(object, manmade, effect) in proptype. 
     function ElementBtnClicked(){
 	  _ElementListWidget.clear();
       for(i = 0; i < Elements.length; i++){
@@ -434,6 +431,8 @@ function Init()
 	  clearPropTypeSubMenu("Element");
 	}
 	
+	// when object button clicked, it will load all items related to object from the object array, hide the proptype,background widgets and the rest submenu 
+	// widgets(element, manmade, effect) in proptype.
 	function ObjectBtnClicked(){
 	  _ObjectListWidget.clear();
       for(i = 0; i < Objects.length; i++){
@@ -444,7 +443,8 @@ function Init()
 	  BackgroundProxy.visible = ! ObjectProxy.visible;
 	  clearPropTypeSubMenu("Object");
 	}
-	
+	// when manmade button clicked, it will load all items related to manmade from the manmade array, hide the proptype,background widgets and the rest submenu 
+	// widgets(element, object, effect) in proptype.
 	function ManMadeBtnClicked(){
 	  _ManMadeListWidget.clear();
       for(i = 0; i < ManMade.length; i++){
@@ -456,6 +456,8 @@ function Init()
 	  clearPropTypeSubMenu("ManMade");
 	}
 	
+	// when effect button clicked, it will load all items related to effect from the specialeffect array, hide the proptype,background widgets and the rest submenu 
+	// widgets(element, manmade, object) in proptype.
 	function EffectBtnClicked(){
 	  _EffectListWidget.clear();
       for(i = 0; i < SpecialEffects.length; i++){
@@ -467,6 +469,7 @@ function Init()
 	  clearPropTypeSubMenu("Effect");
 	}
 	
+	// when background button clicked, it will load all items related to background from the background array, and hide the proptype and scene widgets.
 	function BackgroundBtnClicked(){
       console.LogInfo(_BackgroundListWidget);
 	  _BackgroundListWidget.clear();
@@ -479,6 +482,7 @@ function Init()
 	  clearPropTypeMenu();
 	}
 
+	//respond to the event of clean menu
 	function ClearMenuBtnClicked(){
 
 		SceneProxy.visible = false;
@@ -486,7 +490,7 @@ function Init()
 		BackgroundProxy.visible = false;
 		clearPropTypeMenu();
 	}
-	
+	// respond to the event of Random generate the effect 
 	function RandomButtonClicked(){
     RemoveAllEntities();
 		var ElementArray = [Backgrounds, Scenes];
@@ -508,19 +512,13 @@ function Init()
     
 	}
  	
-
-
-
-
+//------------------------ handle all events occurring on submenus (background, proptype, scene, clearMenu, clearEntity)------------end-------//
 
 /* 
- * handle the mouse event occur on the submenu
+ * --------------------handle all events occurring on the itemListWidget----------------------begin ----------------------//
  *
  */
- // how to get the object name from the ListWidget, actully, Object name = ListWidget.item[index].text()    Is this syntax right?
-	// 	how to get the number of index
-  
-
+	// respond to the event of item double clicked in the sceneListWidget
  	function SceneListItemDoubleClicked(){
 		var type ='Scene';
 		CurrentClickedItemName = _SceneListWidget.currentItem().text();
@@ -529,6 +527,7 @@ function Init()
 		LoadXML(CurrentClickedItemName, type);
 	}
 	
+	// respond to the event of item double clicked in the backgroundListWidget
 	function BackgroundListItemDoubleClicked (){
 		CurrentClickedItemName = _BackgroundListWidget.currentItem().text();
 		console.LogInfo(_BackgroundListWidget.objectName);
@@ -541,6 +540,7 @@ function Init()
 		LoadXML(CurrentClickedItemName);
 	}
 	
+	// respond to the event of item double clicked in the effectListWidget
 	function ElementListItemDoubleClicked () {
 		CurrentClickedItemName = _ElementListWidget.currentItem().text();
 		console.LogInfo(_ElementListWidget.objectName);
@@ -548,6 +548,7 @@ function Init()
 		LoadXML(CurrentClickedItemName);
 	}
 	
+	// respond to the event of item double clicked in the objectListWidget
 	function ObjectListItemDoubleClicked () {
 		CurrentClickedItemName = _ObjectListWidget.currentItem().text();
 		console.LogInfo(_ObjectListWidget.objectName);
@@ -555,6 +556,7 @@ function Init()
 		LoadXML(CurrentClickedItemName);
 	}
 
+	// respond to the event of item double clicked in the manmadeListWidget
 	function ManMadeListItemDoubleClicked () {
 		CurrentClickedItemName = _ManMadeListWidget.currentItem().text();
 		console.LogInfo(_ManMadeListWidget.objectName);
@@ -562,6 +564,7 @@ function Init()
 		LoadXML(CurrentClickedItemName);	
 	}
 	
+	// respond to the event of item double clicked in the effectListWidget
 	function EffectListItemDoubleClicked () {
 		CurrentClickedItemName = _EffectListWidget.currentItem().text();
 		console.LogInfo(_EffectListWidget.objectName);
@@ -569,7 +572,7 @@ function Init()
 		LoadXML(CurrentClickedItemName);
 	}	
 
-
+//--------------------handle all events occurring on the itemListWidget----------------------end ----------------------//
 	
 
 /*
