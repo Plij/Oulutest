@@ -17,11 +17,13 @@ engine.ImportExtension("qt.core");
 engine.ImportExtension("qt.gui");
 //engine.ImportExtension("qt.uitools");
 
-/* 
+/*  Authors: Xiaori Hu & Lasse Annola
  *	MainMenu includes the submenus(background, prop, scene, clearMenu, clearEntity) 
  *  When you click the buttons ( background, prop, scene) on the interface of MainMenu, it will popup the corresponding submenu at right side of MainMenu
  *  when you click the button (clearMenu) on the interface of MainMenu, it will hind the submenu in the screen
  *  when you click the button (clearEntity) on the interface of MainMenu, it will clear all the entities in the scene. 
+ *  KNOWN BUG: When holding z,x,c or space for a long period of time to move an entity GUI crashes. Fixed by adding MainMenu.js gui script into a separate entity
+ *    from PropsScript.js.
  */
 
 var SceneList_visible = false;
@@ -67,15 +69,12 @@ var _connectionInfo =
     outputMuted : false,        // True means your voice is sent after connecting, false means your output is muted.
     intputMuted : false         // True means voice should be sent to us from other client after connecting, false means server wont send us the voice packets.
 };
-
-
-
 //------------mumble /variable ----- end ------------//
 
 /*
-Use these to get added properties into right positions. Divided into 3 groups.
+These are all Properties that are currently made for our Project, if you make a new entity add its files to scenes rootfolder and according to
+its name in root add it to array. For example if you have City.txml in your root you must have 'City' in array. Case sensitive!!!
 */
-//TOADD lajittele aakkosittain
 var Scenes = ["Winter", "Mountains", "Medow", "Forest", "City", "Beach", "Room"];
 var Backgrounds = ["NightSky", "DaySky", "Sunset"];
 var Elements =["Clouds", "Sun", "Moon", "SnowFlakes","Rain" ,"Volcano"];
@@ -541,15 +540,7 @@ function Init()
 		}
 		LoadXML(CurrentClickedItemName);
 	}
-   /*
-  //Replace with ElementlistDoubleClicked()
-	function PropListItemDoubleClicked (){
-		CurrentClickedItemName = _PropListWidget.currentItem().text();
-		console.LogInfo(_PropListWidget.objectName);
-		console.LogInfo("CurrentClicked        PropListItem: " + CurrentClickedItemName);
-		LoadXML(CurrentClickedItemName);
-	}
-	*/
+	
 	function ElementListItemDoubleClicked () {
 		CurrentClickedItemName = _ElementListWidget.currentItem().text();
 		console.LogInfo(_ElementListWidget.objectName);
@@ -594,23 +585,17 @@ function CheckAnims(enti){
     frame.DelayedExecute(1.0).Triggered.connect(EnableAnims);
 }
 
-/*
-Animations have to be named 'SceneAnim' or 'PropAnim'. 
-This function is launched when animations have been loaded into the entity and they are usable.
-In this.Positions array 0 = Scene Placement, 1 = Prop Placement and 2 = Background placement
-*/
-
-
+//A custom random function.
 function rnd(n){
   seed = new Date().getTime();
   seed = (seed*9301+49297) % 233280;
   return (Math.floor((seed/(233280.0)* n)));
 }
 
+/*
+Function for randoming narrators animations. Narrator entity has to be named 'narrator' in this case.
+*/
 function NarratorAnim(){
-  /*
-  Function for randoming narrators animations
-  */
   var nar = scene.GetEntityByName('narrator');
   var a = nar.animationcontroller.GetAvailableAnimations();
     
@@ -624,21 +609,19 @@ function NarratorAnim(){
 }
 
 function LoadXML (text){
-  NarratorAnim();
-  /*
-  effectArray holds all possible props, scenes or backgrounds that can be added into the 3d world with GUI. The name in array has to be exact same as 
-  the name of the file in /Props/ folder. variable text is GUI's text of chosen button and is used to compare. Use the table made my Tomi & Paula to get
-  right names for effectArray.
-  */			   
   
+  /*
+  This function loads the entity from file .txml and places it according to its own settings. All Props, Scenes and Backgrounds are in the root folder of Oulutest.
+  Also on every new action with GUI, we make our "narrator" animate. See NarratorAnim() for its logic.
+  */			   
+  NarratorAnim();
   if(text == null || text == ""){
 	  console.LogInfo("You havn't selected any effect");
   }
   else
   {
   
-    //Load entity from file, inside Props folder. assets[0] is entity, so scene.LoadSceneXML returns array.
-    //Create a dynamiccomponent for the entity to check if it has been placed into the world already. This way we wont place them again when adding an new entity.
+    //Load entity from file. assets[0] is entity, so scene.LoadSceneXML returns array.
     var assets = scene.LoadSceneXML(asset.GetAsset(text + ".txml").DiskSource(), false, false, 0);
     var enti = assets[0].name;
     var id = assets[0].id;
@@ -646,108 +629,58 @@ function LoadXML (text){
     ent.placeable.visible = false;
     ent.dynamiccomponent.CreateAttribute('bool', 'Placed');
     
+    //Check if entity has animationcontroller.
     if(!ent.animationcontroller && ent.dynamiccomponent.GetAttribute('Placed') == false)
       CheckPlacement(enti);
     else if(ent.dynamiccomponent.GetAttribute('Placed') == false)
       CheckAnims(enti);
     else
-      console.LogInfo('We have a bug at loadXML');
+      console.LogInfo('Entity is missing dynamiccomponent.');
    }
 }
 
 
 
 function CheckPlacement(enti){
-			  //CASE1: Entity has no animations and is not placed yet. We place it and set placed to true, depending on if its prop, scene or background. 
-			  //TODO: An array for multiple different locations that the entity can be added in.
-          var ent = scene.GetEntityByName(enti);
-          if(ent.dynamiccomponent.name == "Prop" || ent.dynamiccomponent.name == "prop"){
-              
-             /*var tm = ent.placeable.transform;
-             tm.pos.x = pos.x;
-             tm.pos.y = pos.y;
-             tm.pos.z = pos.z;
-             ent.placeable.transform = tm;*/ 
-             ent.placeable.visible = true;            
-             ent.dynamiccomponent.SetAttribute('Placed', true);
-             
-          }else if (ent.dynamiccomponent.name == "Scene" || ent.dynamiccomponent.name == "scene"){
-             var idx = rnd(this.Positions[0].length);
-             var pos = this.Positions[0][idx];
-             /*var tm = ent.placeable.transform;
-             tm.pos.x = pos.x;
-             tm.pos.y = pos.y;
-             tm.pos.z = pos.z;
-             ent.placeable.transform = tm;*/
-             ent.placeable.visible = true;  
-             ent.dynamiccomponent.SetAttribute('Placed', true);
-             
-          }else if(ent.dynamiccomponent.name == "Background" || ent.dynamiccomponent.name == "background"){
-             var idx = rnd(this.Positions[3].length);
-             var pos = this.Positions[3][idx];
-             /*var tm = ent.placeable.transform;
-             tm.pos.x = pos.x;
-             tm.pos.y = pos.y;
-             tm.pos.z = pos.z;
-             tm.rot.y = 180;
-             ent.placeable.transform = tm;*/  
-             ent.placeable.visible = true;
-             ent.dynamiccomponent.SetAttribute('Placed', true);
-          }
+    //CASE1: Entity has no animations and is not placed yet. We place it and set placed to true, depending on if its prop, scene or background. 
+      var ent = scene.GetEntityByName(enti);
+      if(ent.dynamiccomponent.name == "Prop" || ent.dynamiccomponent.name == "prop"){
+         ent.placeable.visible = true;            
+         ent.dynamiccomponent.SetAttribute('Placed', true);
+         
+      }else if (ent.dynamiccomponent.name == "Scene" || ent.dynamiccomponent.name == "scene"){
+         ent.placeable.visible = true;  
+         ent.dynamiccomponent.SetAttribute('Placed', true);
+         
+      }else if(ent.dynamiccomponent.name == "Background" || ent.dynamiccomponent.name == "background"){
+         ent.placeable.visible = true;
+         ent.dynamiccomponent.SetAttribute('Placed', true);
+      }
             
 }
 
 function EnableAnims(){
+    //CASE2: Entity has animations, we check what kind of an entity it is and activate the animation
+    //If entity is Prop it has PropAnim, this is decided to be the animation name of all props(they have only 1).
+    //Scenes have SceneAnim named animation, same principle as in Props.
     var ent = this.enti;
-    if(ent.dynamiccomponent.name == "Prop" || ent.dynamiccomponent.name == "prop"){
-      
-      /*var tm = ent[i].placeable.transform;
-      tm.pos.x = pos.x;
-      tm.pos.y = pos.y;
-      tm.pos.z = pos.z;
-      ent[i].placeable.transform = tm;*/
-      
+    if(ent.dynamiccomponent.name == "Prop" || ent.dynamiccomponent.name == "prop"){     
       ent.animationcontroller.EnableAnimation('PropAnim'); 
       ent.placeable.visible = true;
       ent.dynamiccomponent.SetAttribute('Placed', true);
       
     }else if(ent.dynamiccomponent.name == "Scene" || ent.dynamiccomponent.name == "scene"){
-    
-      var idx = rnd(this.Positions[0].length);
-      var pos = this.Positions[0][idx]; 
-      
-      /*var tm = ent[i].placeable.transform;
-      tm.pos.x = pos.x;
-      tm.pos.y = pos.y;
-      tm.pos.z = pos.z; 
-      ent[i].placeable.transform = tm;*/
-
-      ent.animationcontroller.EnableAnimation('SceneAnim');
-      
+      ent.animationcontroller.EnableAnimation('SceneAnim');      
       ent.placeable.visible = true;
       ent.dynamiccomponent.SetAttribute('Placed', true);
       
     }else if(ent.dynamiccomponent.name == "Background" || ent.dynamiccomponent.name == "background"){
-    
-      var pos = this.Positions[3][0];
-      /*var tm = ent[i].placeable.transform;
-      tm.pos.x = pos.x;
-      tm.pos.y = pos.y;
-      tm.pos.z = pos.z;
-      ent[i].placeable.transform = tm;*/
       ent.placeable.visible = true;
       ent.dynamiccomponent.SetAttribute('Placed', true);
       
     }
      
 }
-
-			   //print('text doesnt exist.', text, tempArray[i]);
-
- 
-  
-  
-// end of function
 
 /*
 Removes all entities that have DynamicComponent, in our case they are user assigned entities.
@@ -759,12 +692,12 @@ function RemoveAllEntities(){
     scene.RemoveEntity(ents[i].Id()); 
   }
   
-  console.LogInfo("Executing the funtion of removing all entities")
+  console.LogInfo("Executing the function of removing all entities")
 }
 
 
 
-// destory the widget and stop the script running
+// Destory the widget and stop the script running
 function OnScriptdestroyed() {
 	_widget.deleteLater();
 	delete _widget ;
