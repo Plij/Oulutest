@@ -1,10 +1,13 @@
 /*
-	 *   handle the events happening in the mumble 
-	 */
+ *   Authors: Xiaori Hu 
+ *   MumlbeFunc.js includes most of the functions handling the events happening in the mumble 
+ *
+ */
 
-	
-
-		
+/*
+ *  Set the state of connection, and all buttons(excpet connect button) in widget of mumble client 
+ *	aren't enable before the mumble actually connects to mumble server.
+ */
 	function SetConnectionState(connected, strState)
 	{
 		var stateLabel = findChild(_mumbleClientWidget, "labelConnectionState");
@@ -16,13 +19,19 @@
 		_buttonSelfMute.enabled = connected;
 		_buttonSelfDeaf.enabled = connected;
 	}
-	
+/*
+ * set the mumble server channnle name, the default value is Root if keeping it blank. 
+ */
 	function SetChannelName(channelName)
 	{
 		var channelLabel = findChild(_mumbleClientWidget, "labelChannelName");
 		channelLabel.text = channelName;
 	}
 	
+/*
+ *  show the widget of connecting to server, the parameters of connecting to server are default value, 
+ *  so don't need to care more about it and just to click connect button, which makes it earier for users to use.
+ */
 	function ShowConnectDialog()
 	{
 		 //Initialize if not yet done
@@ -56,6 +65,9 @@
 		//_mumbleConnectWidget.visible = true;	
 	}
 	
+/*
+ *  Everytime connecting to server, it will get all parameters from the connection widget in case that some parameters are modified. 
+ */
 	function GetConnectionDataWidgets(widget)
 	{
 		if (widget == null)
@@ -75,6 +87,9 @@
 		return widgets;
 	}
 	
+/*
+ *   connect to server via using the mumble plugin and also show the state of connection
+ */
 	function Connect()
 	{
 		var widgets = GetConnectionDataWidgets(_mumbleConnectWidget);
@@ -85,6 +100,9 @@
 		SetConnectionState(false, "Connecting to " + widgets.host.text + ":" + widgets.port.value.toString() + "...");  
 	}
 	
+/*
+ *   show the reason of failing to connect to server
+ */
 	function OnRejected(rejectType, reason)
 	{
 		// enum RejectReasonWrongServerPW
@@ -95,11 +113,17 @@
 			QMessageBox.warning(ui.MainWindow(), "", "Server is full");
 	}
 	
+/*
+ * show the state of connection when succfully connect to server
+ */
 	function OnConnected(host, port, username)
 	{
 		SetConnectionState(true, "Connected to " + host + ":" + port.toString() +'<br>' + " as "+ username);
 	}
 	
+/*
+ * show the reason of disconnecting to server
+ */
 	function OnDisconnected(reason)
 	{
 		if (reason != "")
@@ -116,6 +140,9 @@
 		// You can use the signaling model you feel is best for you.
 	}
 	
+/*
+ *  show the users joining to channel of server
+ */
 	function OnJoinedChannel(mumbleChannel)
 	{
 		SetChannelName(mumbleChannel.fullName);
@@ -124,6 +151,9 @@
 		mumbleChannel.UserLeft.connect(OnUserLeftPresentChannel);
 	}
 	
+/*
+ *  get the user via user identification number from server
+ */
 	function GetUser(userId)
 	{
 		var user = null;
@@ -139,6 +169,9 @@
 		return user;
 	}
 	
+/*
+ *   show the current user joining to channel of server
+ */
 	function OnUserJoinedPresentChannel(user)
 	{
 		var listItem = new QListWidgetItem(_iconInactive, user.name + " (" + user.id.toString() + ")");
@@ -154,6 +187,9 @@
 		_userList.addItem(listItem);
 	}
 	
+/*
+ *   show the user of leaving current channel of server
+ */
 	function OnUserLeftPresentChannel(userId)
 	{
 		var listItem = GetUser(userId);
@@ -161,6 +197,9 @@
 			_userList.takeAt(listItem.row);
 	}
 	
+/*
+ *  focus on the selected user in the userlist
+ */
 	function OnUserSelected(listItem)
 	{
 		if (listItem == null)
@@ -181,6 +220,9 @@
 		}
 	}
 	
+/*
+ *  respond to the event of mute self
+ */
 	function OnSelfMuteToggle()
 	{
 		var mumbleMe = mumble.Me();
@@ -188,6 +230,9 @@
 			mumble.SetOutputAudioMuted(!mumbleMe.isSelfMuted);
 	}
 	
+/*
+ *  respond to the event of deaf self
+ */
 	function OnSelfDeafToggle()
 	{
 		var mumbleMe = mumble.Me();
@@ -195,6 +240,9 @@
 			mumble.SetInputAudioMuted(!mumbleMe.isSelfDeaf);
 	}
 	
+/*
+ *  mute the selected user
+ */
 	function OnMuteSelectedToggle()
 	{
 		var currentItem = _userList.currentItem();
@@ -206,6 +254,9 @@
 		}
 	}
 	
+/*
+ *  update the state of user
+ */
 	function UpdateUserState(mumbleUser)
 	{
 		var iter = GetUser(mumbleUser.id);
@@ -229,11 +280,17 @@
 		}
 	}
 	
+/*
+ *    the state of muting local users changes. 
+ */
 	function OnUserLocalMuteChanged(mumbleUser, isMuted)
 	{
 		UpdateUserState(mumbleUser);
 	}
 	
+/*
+ *    the state of muting self changes.
+ */
 	function OnUserSelfMutedChange(mumbleUser, isMuted)
 	{
 		UpdateUserState(mumbleUser);
@@ -241,6 +298,9 @@
 			_buttonSelfMute.text = mumbleUser.isSelfMuted ? "Unmute Self" : "Mute self";
 	}
 	
+/*
+ *     the state of deafing self changes.
+ */
 	function OnUserSelfDeafChange(mumbleUser, isDeaf)
 	{
 		UpdateUserState(mumbleUser);
@@ -248,11 +308,17 @@
 			_buttonSelfDeaf.text = mumbleUser.isSelfDeaf ? "Unmute Everyone" : "Mute Everyone";
 	}
 	
+/*
+ *      the position of user changes
+ */
 	function OnUserPositionalChange(mumbleUser, isPositional)
 	{
 		UpdateUserState(mumbleUser);
 	}
-	
+
+/*
+ *  speak to concrete user
+ */
 	function OnUserSpeakingChange(mumbleUser, speaking)
 	{
 		var iter = GetUser(mumbleUser.id);
@@ -260,6 +326,9 @@
 			iter.listItem.setIcon(speaking ? _iconActive : _iconInactive);
 	}
 	
+/*
+ *   send the text message 
+ */
 	function SendTextMessage()
 	{
 		var message = _chatLine.text;
@@ -273,6 +342,9 @@
 		}
 	}
 	
+/*
+ *  receive the text message from concrete user in the channel
+ */
 	function OnChannelTextMessageReceived(mumbleUser, message)
 	{
 		if (message != "")

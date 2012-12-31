@@ -27,6 +27,7 @@ engine.ImportExtension("qt.gui");
  *    from PropsScript.js.
  */
 
+// global variables
 var SceneList_visible = false;
 var BackgroundList_visible = false;
 var PropType_visible = false;
@@ -382,7 +383,6 @@ function Init()
 	}
 
 
-//---------------------------
 //  respond to the event of Mumble button clicked, when the mumble button clicked, then it will show the mumble client widget in the scene. 
 	function MumbleBtnClicked(){
 		// show and hide the mumble of client
@@ -394,7 +394,6 @@ function Init()
 		
 	}
 
-//----------------------------
 /*
  *  handle all events occurring on submenus (background, proptype, scene, clearMenu, clearEntity)---------begin------------
  */
