@@ -79,10 +79,10 @@ its name in root add it to array. For example if you have City.txml in your root
 */
 var Scenes = ["Winter", "Mountains", "Medow", "Forest", "City", "Beach", "Room"];
 var Backgrounds = ["NightSky", "DaySky", "Sunset"];
-var Elements =["Clouds", "Sun", "Moon", "SnowFlakes","Rain" ,"Volcano"];
-var Objects = ["Palm", "Tree", "Butterflies", "Mushroom", "Walrus", "PinkElephant"];
-var ManMade = ["Rocket", "SandToys", "Tombstone", "Car", "Treasure", "Mob", "Parasol", "Pirates"];
-var SpecialEffects = ["Monolith", "UFO", "Fire", "Hearts", "Rain", "SnowFlakes"];
+var Elements =["Clouds", "Sun", "Moon", "SnowFlakes","Rain" ,"Volcano", "Fire", "Rainbow"];
+var Objects = ["Palm", "Tree", "Butterflies", "Mushroom", "Walrus", "PinkElephant", "Bunny", "Cow"];
+var ManMade = ["Rocket", "SandToys", "Tombstone", "Car", "Treasure", "Mob", "Parasol", "Pirates", "SandCastle", "Snowman"];
+var SpecialEffects = ["Monolith", "UFO", "Fire", "Hearts", "Rain", "SnowFlakes", "Fireworks"];
 
 var PropType = ["Element","Object","ManMade","Effect"];
 

@@ -1759,4 +1759,27 @@
    <attribute value="false" name="Cast shadows"/>
   </component>
  </entity>
+ <entity id="193" sync="1">
+  <component type="EC_Name" sync="true">
+   <attribute value="stage_plexi" name="name"/>
+   <attribute value="" name="description"/>
+  </component>
+  <component type="EC_Placeable" sync="true">
+   <attribute value="-53.220001,12.800000,-74.449997,1.090000,-90.000000,178.880005,7.680000,3.480000,3.650000" name="Transform"/>
+   <attribute value="false" name="Show bounding box"/>
+   <attribute value="true" name="Visible"/>
+   <attribute value="1" name="Selection layer"/>
+   <attribute value="" name="Parent entity ref"/>
+   <attribute value="" name="Parent bone name"/>
+  </component>
+  <component type="EC_Mesh" sync="true">
+   <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
+   <attribute value="stage_plexi.mesh" name="Mesh ref"/>
+   <attribute value="" name="Skeleton ref"/>
+   <attribute value="stage_plexi_mat.material" name="Mesh materials"/>
+   <attribute value="0" name="Draw distance"/>
+   <attribute value="false" name="Cast shadows"/>
+  </component>
+  <component type="EC_DynamicComponent" sync="true" name="stage"/>
+ </entity>
 </scene>

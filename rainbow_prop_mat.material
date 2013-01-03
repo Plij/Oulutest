@@ -1,0 +1,25 @@
+// rainbow_prop_mat genrated by blender2ogre 0.5.8
+
+material rainbow_prop_mat 
+{
+    receive_shadows on 
+
+       technique
+    {
+        pass rainbow_prop_mat
+        {
+            ambient 0.8 0.8 0.8 1
+            diffuse 0.64 0.64 0.64 1
+            specular 0.5 0.479069 0.217079 1 12.5
+            emissive 0.8 0.8 0.8 1
+            scene_blend src_colour src_colour
+
+            texture_unit
+            {
+                texture local://rainbow_prop.jpg
+                colour_op_ex blend_texture_alpha src_texture src_current
+                colour_op_multipass_fallback src_alpha one_minus_src_alpha
+            }
+        }
+	}
+}
