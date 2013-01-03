@@ -494,6 +494,7 @@ function Init()
 	}
 	// respond to the event of Random generate the effect 
 	function RandomButtonClicked(){
+    
     RemoveAllEntities();
 		var ElementArray = [Backgrounds, Scenes];
 		var randomProp = [Elements, Objects, ManMade, SpecialEffects];
@@ -612,6 +613,15 @@ function NarratorAnim(){
   }
   
 }
+/*
+Removes all highlights to be sure that entities are not selected when added to scene.
+*/
+function RemoveHighlights(ents){
+  for (i in ents){
+    ents[i].RemoveComponent('EC_Highlight', 'MySpecialHighlight');
+  }
+
+}
 
 function LoadXML (text){
   
@@ -620,6 +630,7 @@ function LoadXML (text){
   Also on every new action with GUI, we make our "narrator" animate. See NarratorAnim() for its logic.
   */			   
   NarratorAnim();
+  
   if(text == null || text == ""){
 	  console.LogInfo("You havn't selected any effect");
   }
@@ -633,7 +644,7 @@ function LoadXML (text){
     var ent = scene.GetEntityByName(enti);
     ent.placeable.visible = false;
     ent.dynamiccomponent.CreateAttribute('bool', 'Placed');
-    
+    RemoveHighlights(scene.GetEntitiesWithComponent('EC_Highlight', 'MySpecialHighlight'));
     //Check if entity has animationcontroller.
     if(!ent.animationcontroller && ent.dynamiccomponent.GetAttribute('Placed') == false)
       CheckPlacement(enti);
@@ -643,6 +654,7 @@ function LoadXML (text){
       console.LogInfo('Entity is missing dynamiccomponent.');
    }
 }
+
 
 
 
@@ -705,11 +717,8 @@ Set Camera a new script which will set its position and inputmappers
 function SetCamera(){
   var cam = scene.GetEntityByName('FreeLookCamera');
   var script = cam.GetOrCreateComponent('EC_Script');
-  var scriptrefs = ["local://freelookcamera.js", "local://CamScript.js"];
-  for(i = 0; i < scriptrefs.length; i++){
-    script.scriptRef[i] = scriptrefs[i];
+  script.scriptRef = ["local://freelookcamera.js", "local://CamScript.js"];
   
-  }
   
 }
 

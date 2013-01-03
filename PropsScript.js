@@ -13,7 +13,9 @@ var clicker =
     highlightName : "MySpecialHighlight",
     handleClick : function(ent, button, raycast)
     {
+        
         this.toggleHover(ent);
+        
         
     },
     toggleHover : function(ent)

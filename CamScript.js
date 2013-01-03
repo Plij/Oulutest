@@ -1,15 +1,17 @@
+/*
+ * Author: Lasse Annola
+ * This script is used to remove inputmappings we don't want to use and place our FreeLookCamera into the right position. This is loaded thru MainMenu.js
+ *  SetCamera(); function.
+ */
 function CamScript(entity, comp){
   this.me = entity;
-  
-  
-  
- 
+
 }
 
 function SetCam(){
  var im = this.me.GetComponent('EC_InputMapper');
   if(!im){
-    console.LogInfo('No camera in the scene');  
+    console.LogInfo('Inputmapper not found');  
   }else{
     var tm = this.me.placeable.transform;
     tm.pos.x = -92.15;
