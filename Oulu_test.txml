@@ -1605,7 +1605,7 @@
    <attribute value="" name="description"/>
   </component>
   <component type="EC_Script" sync="true">
-   <attribute value="local://PropsScript.js;local://MainMenu.js" name="Script ref"/>
+   <attribute value=";local://MainMenu.js" name="Script ref"/>
    <attribute value="true" name="Run on load"/>
    <attribute value="0" name="Run mode"/>
    <attribute value="" name="Script application name"/>
@@ -1727,10 +1727,10 @@
    <attribute value="" name="description"/>
   </component>
   <component type="EC_Script" sync="true">
-   <attribute value="EntityScript.js" name="Script ref"/>
+   <attribute value="local://PropsScript.js" name="Script ref"/>
    <attribute value="true" name="Run on load"/>
    <attribute value="0" name="Run mode"/>
-   <attribute value="ScriptApp" name="Script application name"/>
+   <attribute value="" name="Script application name"/>
    <attribute value="" name="Script class name"/>
   </component>
  </entity>
@@ -1759,7 +1759,7 @@
    <attribute value="false" name="Cast shadows"/>
   </component>
  </entity>
- <entity id="193" sync="1">
+ <entity id="82" sync="1">
   <component type="EC_Name" sync="true">
    <attribute value="stage_plexi" name="name"/>
    <attribute value="" name="description"/>
@@ -1780,6 +1780,5 @@
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
-  <component type="EC_DynamicComponent" sync="true" name="stage"/>
  </entity>
 </scene>

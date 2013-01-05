@@ -1,17 +1,17 @@
-// fire_prop_mat1 genrated by blender2ogre 0.5.8
+// hearts_prop2 genrated by blender2ogre 0.5.8
 
-material fire_prop_mat1 
+material hearts_prop2 
 {
     receive_shadows on 
 
     technique
     {
-        pass fire_prop_mat1
+        pass hearts_prop2
         {
-            ambient 0.8 0.8 0.8 1
-            diffuse 0.64 0.64 0.64 1
-            specular 0.5 0.5 0.5 1 12.5
-            emissive 0 1 1 1
+            ambient 0.22826270759105682 0.718207061290741 0.800000011920929 1.0
+            diffuse 0.18261016879394898 0.5745656575942881 0.6400000190734865 1.0
+            specular 0.12076100707054138 0.43600547313690186 0.5 1.0 12.5
+            emissive 0.22826270759105682 0.718207061290741 0.800000011920929 1.0
 
             alpha_to_coverage off
             colour_write on

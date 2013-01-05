@@ -1,18 +1,18 @@
-// fire_prop_mat1 genrated by blender2ogre 0.5.8
+// fireworks_prop2 genrated by blender2ogre 0.5.8
 
-material fire_prop_mat1 
+material fireworks_prop2 
 {
     receive_shadows on 
 
     technique
     {
-        pass fire_prop_mat1
+        pass fireworks_prop2
         {
-            ambient 0.8 0.8 0.8 1
-            diffuse 0.64 0.64 0.64 1
-            specular 0.5 0.5 0.5 1 12.5
+			ambient 0.223798 0.93626 1 1
+            diffuse 0.179039 0.749008 0.8 1
+            specular 0.353182 0.493632 0.5 1 12.5
             emissive 0 1 1 1
-
+			
             alpha_to_coverage off
             colour_write on
             cull_hardware clockwise

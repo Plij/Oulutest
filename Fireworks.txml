@@ -1,12 +1,12 @@
 <!DOCTYPE Scene>
 <scene>
- <entity id="1">
+ <entity id="85">
   <component type="EC_Name" sync="true">
-   <attribute value="fireworks_prop" name="name"/>
+   <attribute value="fireworks_prop2" name="name"/>
    <attribute value="" name="description"/>
   </component>
   <component type="EC_Placeable" sync="true">
-   <attribute value="-57.000000,8.000000,-74.000000,0.000000,90.000000,0.000000,0.900000,0.900000,0.900000" name="Transform"/>
+   <attribute value="-59.000000,10.000000,-74.000000,0.000000,90.000000,0.000000,0.750000,0.750000,0.750000" name="Transform"/>
    <attribute value="false" name="Show bounding box"/>
    <attribute value="true" name="Visible"/>
    <attribute value="1" name="Selection layer"/>
@@ -14,24 +14,24 @@
    <attribute value="" name="Parent bone name"/>
   </component>
   <component type="EC_Mesh" sync="true">
-   <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000" name="Transform"/>
-   <attribute value="fireworks_prop.mesh" name="Mesh ref"/>
+   <attribute value="-8.600000,4.890000,2.600000,90.000000,180.000000,19.000000,0.800000,0.800000,0.800000" name="Transform"/>
+   <attribute value="fireworks_prop2.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="" name="Mesh materials"/>
+   <attribute value="fireworks_prop2.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
   <component type="EC_DynamicComponent" sync="true" name="prop">
-   <attribute value="ground" type="string" name="type"/>
+   <attribute value="ground" type="string" name="string"/>
   </component>
-  <component type="EC_ParticleSystem" sync="true" name="explosion">
-   <attribute value="local://fireworks_prop_2.particle" name="Particle ref"/>
+  <component type="EC_ParticleSystem" sync="true" name="emission">
+   <attribute value="fireworks_prop.particle" name="Particle ref"/>
    <attribute value="false" name="Cast shadows"/>
    <attribute value="true" name="Enabled"/>
    <attribute value="0" name="Rendering distance"/>
   </component>
-  <component type="EC_ParticleSystem" sync="true" name="emission">
-   <attribute value="local://fireworks_prop.particle" name="Particle ref"/>
+  <component type="EC_ParticleSystem" sync="true" name="explosion">
+   <attribute value="fireworks_prop_2.particle" name="Particle ref"/>
    <attribute value="false" name="Cast shadows"/>
    <attribute value="true" name="Enabled"/>
    <attribute value="0" name="Rendering distance"/>

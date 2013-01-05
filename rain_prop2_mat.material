@@ -1,16 +1,16 @@
-// fire_prop_mat1 genrated by blender2ogre 0.5.8
+// rain_prop2_mat genrated by blender2ogre 0.5.8
 
-material fire_prop_mat1 
+material rain_prop2_mat 
 {
     receive_shadows on 
 
     technique
     {
-        pass fire_prop_mat1
+        pass rain_prop2_mat
         {
-            ambient 0.8 0.8 0.8 1
-            diffuse 0.64 0.64 0.64 1
-            specular 0.5 0.5 0.5 1 12.5
+            ambient 0.147936 0.759227 0.8 1
+            diffuse 0.118349 0.607382 0.64 1
+            specular 0.117901 0.461733 0.5 1 12.5
             emissive 0 1 1 1
 
             alpha_to_coverage off
