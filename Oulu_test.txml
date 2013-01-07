@@ -1605,7 +1605,7 @@
    <attribute value="" name="description"/>
   </component>
   <component type="EC_Script" sync="true">
-   <attribute value="local://PropsScript.js;local://MainMenu.js" name="Script ref"/>
+   <attribute value=";local://MainMenu.js" name="Script ref"/>
    <attribute value="true" name="Run on load"/>
    <attribute value="0" name="Run mode"/>
    <attribute value="" name="Script application name"/>
@@ -1727,10 +1727,10 @@
    <attribute value="" name="description"/>
   </component>
   <component type="EC_Script" sync="true">
-   <attribute value="EntityScript.js" name="Script ref"/>
+   <attribute value="local://PropsScript.js" name="Script ref"/>
    <attribute value="true" name="Run on load"/>
    <attribute value="0" name="Run mode"/>
-   <attribute value="ScriptApp" name="Script application name"/>
+   <attribute value="" name="Script application name"/>
    <attribute value="" name="Script class name"/>
   </component>
  </entity>
@@ -1755,6 +1755,28 @@
    <attribute value="narrator.mesh" name="Mesh ref"/>
    <attribute value="narrator.skeleton" name="Skeleton ref"/>
    <attribute value="Material.material" name="Mesh materials"/>
+   <attribute value="0" name="Draw distance"/>
+   <attribute value="false" name="Cast shadows"/>
+  </component>
+ </entity>
+ <entity id="82" sync="1">
+  <component type="EC_Name" sync="true">
+   <attribute value="stage_plexi" name="name"/>
+   <attribute value="" name="description"/>
+  </component>
+  <component type="EC_Placeable" sync="true">
+   <attribute value="-53.220001,12.800000,-74.449997,1.090000,-90.000000,178.880005,7.680000,3.480000,3.650000" name="Transform"/>
+   <attribute value="false" name="Show bounding box"/>
+   <attribute value="true" name="Visible"/>
+   <attribute value="1" name="Selection layer"/>
+   <attribute value="" name="Parent entity ref"/>
+   <attribute value="" name="Parent bone name"/>
+  </component>
+  <component type="EC_Mesh" sync="true">
+   <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
+   <attribute value="stage_plexi.mesh" name="Mesh ref"/>
+   <attribute value="" name="Skeleton ref"/>
+   <attribute value="stage_plexi_mat.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>

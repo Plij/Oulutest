@@ -1,0 +1,79 @@
+particle_system fireworks_prop
+{
+	material local://fireworks_prop_mat.material
+    particle_width 2
+    particle_height 2
+    quota 200
+    cull_each false
+    sorted false
+    local_space true
+    iteration_interval 0.0
+    nonvisible_update_timeout 0.0
+    billboard_type oriented_common
+    billboard_origin center
+    billboard_rotation_type texcoord
+    common_direction 0.0 1.0 0.0
+    common_up_vector 0.0 1.0 0.0
+    point_rendering false
+    accurate_facing false
+    emitter Point
+    {
+        position 0.0 0.0 0.0
+        emission_rate 0
+        duration 1
+        repeat_delay 4
+    }
+    emitter Point
+    {
+        position 5.0 -0.5 1.0
+        direction 0.0 1.0 0.0
+        angle 0
+        emission_rate 1
+        velocity 0.2
+        time_to_live 3
+        duration 1
+        repeat_delay 4 
+        colour 0 1 1 1
+    }
+    emitter Point
+    {
+        position 0.0 1.2 1.5
+        direction 0.0 1.0 0.0
+        angle 0
+        emission_rate 1
+        velocity 0.2
+        time_to_live 3
+        duration 1
+        repeat_delay 4
+        colour 1 0 0 1
+    }
+    emitter Point
+    {
+        position -5.0 -0.5 1.0
+        direction 0.0 1.0 0.0
+        angle 0
+        emission_rate 1
+        velocity 0.2
+        time_to_live 3
+        duration 1
+        repeat_delay 4
+        colour 1 1 0 1
+    }
+     affector LinearForce
+    {
+        force_vector 0.0 2.0 0.0
+        force_application add
+    }
+    affector DeflectorPlane
+    {
+        plane_point 0 11 0
+        plane_normal 0 -1 0
+        bounce 0.05
+    }
+	affector ColourFader2
+	{
+		alpha1 0
+		alpha2 -0.5
+		state_change 3
+	}
+}
