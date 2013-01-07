@@ -10,7 +10,7 @@ material local://fire_prop.material
 
 			texture_unit
 			{
-				texture local://fire_prop_text3.png
+				texture local://fire_prop_text2.png
 			}
 		}
 	}

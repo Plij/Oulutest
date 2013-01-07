@@ -77,12 +77,12 @@ var _connectionInfo =
 These are all Properties that are currently made for our Project, if you make a new entity add its files to scenes rootfolder and according to
 its name in root add it to array. For example if you have City.txml in your root you must have 'City' in array. Case sensitive!!!
 */
-var Scenes = ["Winter", "Mountains", "Medow", "Forest", "City", "Beach", "Room"];
-var Backgrounds = ["NightSky", "DaySky", "Sunset"];
-var Elements =["Clouds", "Sun", "Moon", "SnowFlakes","Rain" ,"Volcano", "Fire", "Rainbow"];
-var Objects = ["Palm", "Tree", "Butterflies", "Mushroom", "Walrus", "PinkElephant", "Bunny", "Cow"];
-var ManMade = ["Rocket", "SandToys", "Tombstone", "Car", "Treasure", "Mob", "Parasol", "Pirates", "SandCastle", "Snowman"];
-var SpecialEffects = ["Monolith", "UFO", "Fire", "Hearts", "Rain", "SnowFlakes", "Fireworks"];
+var Scenes = ["Winter", "Mountains", "Medow", "Forest", "City", "Beach", "Room"].sort();
+var Backgrounds = ["NightSky", "DaySky", "Sunset"].sort();
+var Elements =["Clouds", "Sun", "Moon", "SnowFlakes","Rain" ,"Volcano", "Fire", "Rainbow"].sort();
+var Objects = ["Palm", "Tree", "Butterflies", "Mushroom", "Walrus", "PinkElephant", "Bunny", "Cow"].sort();
+var ManMade = ["Axe", "Cottage", "Rocket", "SandToys", "Tombstone", "Car", "Treasure", "Mob", "Parasol", "Pirates", "SandCastle", "Snowman"].sort();
+var SpecialEffects = ["Monolith", "UFO", "Fire", "Hearts", "Rain", "SnowFlakes", "Fireworks"].sort();
 
 var PropType = ["Element","Object","ManMade","Effect"];
 
@@ -403,6 +403,7 @@ function Init()
  
  	// when scene button clicked, it will load all items related to scene from the scene array, and hide the proptype and background widgets.
 	function SceneBtnClicked(){
+      
       _SceneListWidget.clear();
       for(i = 0; i < Scenes.length; i++){
         _SceneListWidget.addItem(Scenes[i]);
@@ -523,6 +524,7 @@ function Init()
  */
 	// respond to the event of item double clicked in the sceneListWidget
  	function SceneListItemDoubleClicked(){
+    RemoveOld();
 		var type ='Scene';
 		CurrentClickedItemName = _SceneListWidget.currentItem().text();
 		console.LogInfo(_SceneListWidget.objectName);
@@ -583,7 +585,7 @@ This function is launched if the new added entity has an animationcontroller. If
 After that we launch EnableAnims, which activates animations.
 */
 function CheckAnims(enti){
-  var ent = scene.GetEntityByName(enti);
+  var ent = scene.GetEntity(enti);
   this.enti=ent;
   if(ent.animationcontroller.GetAvailableAnimations().length > 0){
      EnableAnims();
@@ -641,15 +643,19 @@ function LoadXML (text){
     var assets = scene.LoadSceneXML(asset.GetAsset(text + ".txml").DiskSource(), false, false, 0);
     var enti = assets[0].name;
     var id = assets[0].id;
-    var ent = scene.GetEntityByName(enti);
+    var ent = scene.GetEntity(id);
     ent.placeable.visible = false;
     ent.dynamiccomponent.CreateAttribute('bool', 'Placed');
-    RemoveHighlights(scene.GetEntitiesWithComponent('EC_Highlight', 'MySpecialHighlight'));
+    
     //Check if entity has animationcontroller.
     if(!ent.animationcontroller && ent.dynamiccomponent.GetAttribute('Placed') == false)
-      CheckPlacement(enti);
+      CheckPlacement(id);
     else if(ent.dynamiccomponent.GetAttribute('Placed') == false)
-      CheckAnims(enti);
+      CheckAnims(id);
+    else if(ent.dynamiccomponent.GetAttribute('Placed') == true && !ent.animationcontroller)
+      CheckPlacement(id);
+    else if(ent.dynamiccomponent.GetAttribute('Placed') == true)
+      CheckAnims(id);
     else
       console.LogInfo('Entity is missing dynamiccomponent.');
    }
@@ -660,7 +666,7 @@ function LoadXML (text){
 
 function CheckPlacement(enti){
     //CASE1: Entity has no animations and is not placed yet. We place it and set placed to true, depending on if its prop, scene or background. 
-      var ent = scene.GetEntityByName(enti);
+      var ent = scene.GetEntity(enti);
       if(ent.dynamiccomponent.name == "Prop" || ent.dynamiccomponent.name == "prop"){
          ent.placeable.visible = true;            
          ent.dynamiccomponent.SetAttribute('Placed', true);
@@ -668,6 +674,7 @@ function CheckPlacement(enti){
       }else if (ent.dynamiccomponent.name == "Scene" || ent.dynamiccomponent.name == "scene"){
          ent.placeable.visible = true;  
          ent.dynamiccomponent.SetAttribute('Placed', true);
+         RemoveHighlights(scene.GetEntitiesWithComponent('EC_Highlight', 'MySpecialHighlight'));
          
       }else if(ent.dynamiccomponent.name == "Background" || ent.dynamiccomponent.name == "background"){
          ent.placeable.visible = true;
@@ -710,6 +717,15 @@ function RemoveAllEntities(){
   }
   
   console.LogInfo("Executing the function of removing all entities")
+}
+
+function RemoveOld(){
+  var ents = scene.GetEntitiesWithComponent('EC_DynamicComponent');
+  for (i = 0; i < ents.length; i++){
+    if(ents[i].dynamiccomponent.name == 'scene' || ents[i].dynamiccomponent.name == 'Scene'){
+      scene.RemoveEntity(ents[i].Id());
+    }
+  }
 }
 /*
 Set Camera a new script which will set its position and inputmappers

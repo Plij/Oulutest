@@ -8,35 +8,20 @@ material stage_plexi_mat
     {
         pass stage_plexi_mat
         {
-            ambient 0.800000011920929 0.800000011920929 0.800000011920929 0.699999988079071
-            diffuse 0.6400000190734865 0.6400000190734865 0.6400000190734865 0.699999988079071
-            specular 0.2733333110809326 0.5 0.5 0.699999988079071 12.5
-            emissive 0.0 0.0 0.0 0.699999988079071
-
-            alpha_to_coverage off
-            colour_write on
-            cull_hardware clockwise
-            depth_check on
-            depth_func less_equal
-            depth_write off
-            illumination_stage 
-            light_clip_planes off
-            light_scissor off
-            lighting on
-            normalise_normals off
-            polygon_mode solid
-            scene_blend one zero
-            scene_blend_op add
-            shading gouraud
+      {
+            ambient 0.8 0.8 0.8 1
+            diffuse 0.64 0.64 0.64 1
+            specular 0.5 0.479069 0.217079 1 12.5
+            emissive 0.8 0.8 0.8 1
+            scene_blend zero dest_colour
             transparent_sorting off
+            depth_write off
 
             texture_unit 
             {
-                texture lasi.jpg
-                tex_address_mode wrap
-                scale 1.0 1.0
-                env_map planar
-                colour_op alpha_blend
+                texture plexi_text.jpg
+				colour_op_ex blend_texture_alpha src_texture src_current
+                colour_op_multipass_fallback src_alpha one_minus_src_alpha
             }
         }
     }
