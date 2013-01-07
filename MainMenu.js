@@ -718,7 +718,10 @@ function RemoveAllEntities(){
   
   console.LogInfo("Executing the function of removing all entities")
 }
-
+/*
+Removes old entity from scene, when new one is added.
+Used ATM in SceneListDoubleClicked
+*/
 function RemoveOld(){
   var ents = scene.GetEntitiesWithComponent('EC_DynamicComponent');
   for (i = 0; i < ents.length; i++){
