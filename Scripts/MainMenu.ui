@@ -125,7 +125,7 @@ font:bold;
     <property name="geometry">
      <rect>
       <x>4</x>
-      <y>13</y>
+      <y>42</y>
       <width>93</width>
       <height>30</height>
      </rect>
@@ -147,7 +147,7 @@ font:bold;
     <property name="geometry">
      <rect>
       <x>4</x>
-      <y>75</y>
+      <y>108</y>
       <width>93</width>
       <height>30</height>
      </rect>
@@ -163,7 +163,7 @@ font:bold;
     <property name="geometry">
      <rect>
       <x>4</x>
-      <y>44</y>
+      <y>75</y>
       <width>93</width>
       <height>30</height>
      </rect>
@@ -182,7 +182,7 @@ font:bold;
     <property name="geometry">
      <rect>
       <x>4</x>
-      <y>107</y>
+      <y>9</y>
       <width>93</width>
       <height>30</height>
      </rect>
@@ -201,7 +201,7 @@ font:bold;
     <property name="geometry">
      <rect>
       <x>4</x>
-      <y>139</y>
+      <y>174</y>
       <width>93</width>
       <height>30</height>
      </rect>
@@ -219,8 +219,8 @@ font:bold;
    <widget class="QPushButton" name="RandomBtn">
     <property name="geometry">
      <rect>
-      <x>4</x>
-      <y>170</y>
+      <x>3</x>
+      <y>141</y>
       <width>93</width>
       <height>30</height>
      </rect>
