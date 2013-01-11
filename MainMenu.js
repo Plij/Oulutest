@@ -80,7 +80,7 @@ its name in root add it to array. For example if you have City.txml in your root
 var Scenes = ["Winter", "Mountains", "Medow", "Forest", "City", "Beach", "Room"].sort();
 var Backgrounds = ["NightSky", "DaySky", "Sunset"].sort();
 var Elements =["Clouds", "Sun", "Moon", "SnowFlakes","Rain" ,"Volcano", "Fire", "Rainbow"].sort();
-var Objects = ["Palm", "Tree", "Butterflies", "Mushroom", "Walrus", "PinkElephant", "Bunny", "Cow"].sort();
+var Objects = ["Girl", "Boy", "Alien", "Palm", "Tree", "Butterflies", "Mushroom", "Walrus", "PinkElephant", "Bunny", "Cow"].sort();
 var ManMade = ["Axe", "Cottage", "Rocket", "SandToys", "Tombstone", "Car", "Treasure", "Mob", "Parasol", "Pirates", "SandCastle", "Snowman"].sort();
 var SpecialEffects = ["Monolith", "UFO", "Fire", "Hearts", "Rain", "SnowFlakes", "Fireworks"].sort();
 
@@ -670,7 +670,7 @@ function CheckPlacement(enti){
       if(ent.dynamiccomponent.name == "Prop" || ent.dynamiccomponent.name == "prop"){
          ent.placeable.visible = true;            
          ent.dynamiccomponent.SetAttribute('Placed', true);
-         
+         RemoveHighlights(scene.GetEntitiesWithComponent('EC_Highlight', 'MySpecialHighlight'));
       }else if (ent.dynamiccomponent.name == "Scene" || ent.dynamiccomponent.name == "scene"){
          ent.placeable.visible = true;  
          ent.dynamiccomponent.SetAttribute('Placed', true);
@@ -679,6 +679,7 @@ function CheckPlacement(enti){
       }else if(ent.dynamiccomponent.name == "Background" || ent.dynamiccomponent.name == "background"){
          ent.placeable.visible = true;
          ent.dynamiccomponent.SetAttribute('Placed', true);
+         RemoveHighlights(scene.GetEntitiesWithComponent('EC_Highlight', 'MySpecialHighlight'));
       }
             
 }
@@ -692,15 +693,18 @@ function EnableAnims(){
       ent.animationcontroller.EnableAnimation('PropAnim'); 
       ent.placeable.visible = true;
       ent.dynamiccomponent.SetAttribute('Placed', true);
+      RemoveHighlights(scene.GetEntitiesWithComponent('EC_Highlight', 'MySpecialHighlight'));
       
     }else if(ent.dynamiccomponent.name == "Scene" || ent.dynamiccomponent.name == "scene"){
       ent.animationcontroller.EnableAnimation('SceneAnim');      
       ent.placeable.visible = true;
       ent.dynamiccomponent.SetAttribute('Placed', true);
+      RemoveHighlights(scene.GetEntitiesWithComponent('EC_Highlight', 'MySpecialHighlight'));
       
     }else if(ent.dynamiccomponent.name == "Background" || ent.dynamiccomponent.name == "background"){
       ent.placeable.visible = true;
       ent.dynamiccomponent.SetAttribute('Placed', true);
+      RemoveHighlights(scene.GetEntitiesWithComponent('EC_Highlight', 'MySpecialHighlight'));
       
     }
      

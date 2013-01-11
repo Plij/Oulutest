@@ -1,12 +1,12 @@
 <!DOCTYPE Scene>
 <scene>
- <entity id="1">
+ <entity id="1" sync="1">
   <component type="EC_Name" sync="true">
    <attribute value="scene_city" name="name"/>
    <attribute value="" name="description"/>
   </component>
   <component type="EC_Placeable" sync="true">
-   <attribute value="-52.500000,10.520000,-74.500000,0.000000,90.000000,-2.000000,2.600000,1.200000,0.900000" name="Transform"/>
+   <attribute value="-52.500000,10.520000,-74.500000,0.000000,90.000000,-2.000000,2.292482,1.000000,1.000000" name="Transform"/>
    <attribute value="false" name="Show bounding box"/>
    <attribute value="true" name="Visible"/>
    <attribute value="1" name="Selection layer"/>
@@ -21,6 +21,6 @@
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
-  <component type="EC_DynamicComponent" sync="true" name="scene"/>
+  <component type="EC_DynamicComponent" sync="true" name="Scene"/>
  </entity>
 </scene>

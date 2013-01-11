@@ -1,9 +1,9 @@
-particle_system local://hearts_prop
+particle_system local://hearts_prop.particle_0
 {
-  material local://hearts_prop_mat.material
+    material local://hearts_prop_mat.material
     particle_width 5.0
     particle_height 5.0
-    quota 25
+    quota 20
     cull_each false
     sorted false
     local_space true
@@ -22,20 +22,16 @@ particle_system local://hearts_prop
         width 100
         height 100
         depth 100
-        emission_rate 10
-        velocity_min 6.95
+        emission_rate 6
+        velocity_min 20
         velocity_max 68.32
-        time_to_live_min 0.85
+        time_to_live_min 1.5
         time_to_live_max 2
-        duration_min 0
-        duration_max 0
-        repeat_delay_min 0
-        repeat_delay_max 0
 
     }
     affector DirectionRandomiser
     {
-        randomness 2000
+        randomness 200
         scope 100
         keep_velocity false
     }
@@ -47,35 +43,15 @@ particle_system local://hearts_prop
         colour1 0.5 0.2 0.5
         time2 1
         colour2 0.9 0.2 0.2 1
-
     }
     affector Scaler
     {
-        rate 38.82
+        rate 20
     }
     affector DeflectorPlane
     {
-        plane_point 0 -170 0
-        plane_normal 0 1 0
-        bounce 4.06
-    }
-    affector LinearForce
-    {
-        force_vector 0.0 -100.0 0.0
-        force_application add
-    }
-}
-        rate 38.82
-    }
-    affector DeflectorPlane
-    {
-        plane_point 0 -120 0
-        plane_normal 0 1 0
-        bounce 4.06
-    }
-    affector LinearForce
-    {
-        force_vector 0.0 -100.0 0.0
-        force_application add
+        plane_point 0 3 0
+        plane_normal 1 0 0
+        bounce 10
     }
 }
