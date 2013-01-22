@@ -27,44 +27,6 @@
 		var channelLabel = findChild(_mumbleClientWidget, "labelChannelName");
 		channelLabel.text = channelName;
 	}
-	
-/*
- *  show the widget of connecting to server, the parameters of connecting to server are default value, 
- *  so don't need to care more about it and just to click connect button, which makes it earier for users to use.
- */
-	function ShowConnectDialog()
-	{
-		 //Initialize if not yet done
-		if (_mumbleConnectWidget == null)
-		{
-			//_connectWidget = ui.LoadFromFile("local://MumbleConnectWidget.ui");			
-			_mumbleConnectWidget = ui.LoadFromFile("Scripts/MumbleConnectWidget.ui",false);
-			MumbleConnectProxy = new UiProxyWidget(_mumbleConnectWidget);
-			ui.AddProxyWidgetToScene(MumbleConnectProxy);
-			
-			MumbleConnectProxy.windowFlags = 0;
-			MumbleConnectProxy.x = 2 + 248;
-			MumbleConnectProxy.y = 42;
-			
-			var widgets = GetConnectionDataWidgets(_mumbleConnectWidget);
-			//console.LogInfo("_mumbleConnectWidget:"+_mumbleConnectWidget);
-			//console.LogInfo("widgets:"+widgets);
-			widgets.connectButton.clicked.connect(Connect);
-			widgets.cancelButton.clicked.connect(_mumbleConnectWidget, _mumbleConnectWidget.hide);
-	
-			widgets.host.text = _connectionInfo.host;
-			widgets.port.value = _connectionInfo.port;
-			widgets.password.text = _connectionInfo.password;
-			widgets.channel.text = _connectionInfo.channel;
-			if (client != null && client.LoginProperty("username") != "")
-				widgets.username.text = client.LoginProperty("username");
-			else
-				widgets.username.text = "Tom";
-		}
-	    MumbleConnectProxy.visible = true;
-		//_mumbleConnectWidget.visible = true;	
-	}
-	
 /*
  *  Everytime connecting to server, it will get all parameters from the connection widget in case that some parameters are modified. 
  */
@@ -174,7 +136,8 @@
  */
 	function OnUserJoinedPresentChannel(user)
 	{
-		var listItem = new QListWidgetItem(_iconInactive, user.name + " (" + user.id.toString() + ")");
+		//var listItem = new QListWidgetItem(_iconInactive, user.name + " (" + user.id.toString() + ")");
+		var listItem = new QListWidgetItem(user.name + " (" + user.id.toString() + ")");
 		listItem.setData(Qt.UserRole, user.id);
 	
 		if (user.isMe)
@@ -194,7 +157,8 @@
 	{
 		var listItem = GetUser(userId);
 		if (listItem != null)
-			_userList.takeAt(listItem.row);
+			//_userList.takeAt(listItem.row);
+			_userList.takeItem(listItem.row);
 	}
 	
 /*
@@ -309,22 +273,23 @@
 	}
 	
 /*
- *      the position of user changes
+ *      the position of user changes, here it doesn't need to show the user position, remain it to be used in the future. 
  */
-	function OnUserPositionalChange(mumbleUser, isPositional)
-	{
-		UpdateUserState(mumbleUser);
-	}
+ 
+//	function OnUserPositionalChange(mumbleUser, isPositional)
+//	{
+//		UpdateUserState(mumbleUser);
+//	}
 
 /*
- *  speak to concrete user
+ *  speak to concrete user,here it doesn't need to show the icon status, remain it to be used in the future.
  */
-	function OnUserSpeakingChange(mumbleUser, speaking)
-	{
-		var iter = GetUser(mumbleUser.id);
-		if (iter != null)
-			iter.listItem.setIcon(speaking ? _iconActive : _iconInactive);
-	}
+//	function OnUserSpeakingChange(mumbleUser, speaking)
+//	{
+//		var iter = GetUser(mumbleUser.id);
+//		if (iter != null)
+//			iter.listItem.setIcon(speaking ? _iconActive : _iconInactive);
+//	}
 	
 /*
  *   send the text message 

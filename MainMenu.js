@@ -47,7 +47,7 @@ var ObjectProxy = null;
 var ManMadeProxy = null;
 var EffectProxy = null;
 var MumbleClientProxy_visible = false;
-var MumbleConnectProxy_visible = false;
+//var MumbleConnectProxy_visible = false;
 var MumbleProxy = null;
 var MumbleClientProxy = null;
 var MumbleConnectProxy = null;
@@ -132,8 +132,8 @@ function Init()
 	mumble.UserMuted.connect(OnUserLocalMuteChanged);
 	mumble.UserSelfMuted.connect(OnUserSelfMutedChange);
 	mumble.UserSelfDeaf.connect(OnUserSelfDeafChange);
-	mumble.UserSpeaking.connect(OnUserSpeakingChange);
-	mumble.UserPositionalChanged.connect(OnUserPositionalChange);
+	//mumble.UserSpeaking.connect(OnUserSpeakingChange); // used to show the icon status, if the user speaking, then the color of icon will change. 
+	//mumble.UserPositionalChanged.connect(OnUserPositionalChange);  // used to show the position of the user based on the network's hotspot where user access to. 
 	mumble.ChannelTextMessageReceived.connect(OnChannelTextMessageReceived);
 // -------------- Hook to MumblePlugin ---------------end -----------------//
 
@@ -342,6 +342,43 @@ function Init()
 	MumbleClientProxy.x = 2;
 	MumbleClientProxy.y = 42;
 	
+		
+/*
+ *  show the widget of connecting to server, the parameters of connecting to server are default value, 
+ *  so don't need to care more about it and just to click connect button, which makes it earier for users to use.
+ */
+	function ShowConnectDialog()
+	{
+		 //Initialize if not yet done
+		if (_mumbleConnectWidget == null)
+		{
+			//_connectWidget = ui.LoadFromFile("local://MumbleConnectWidget.ui");			
+			_mumbleConnectWidget = ui.LoadFromFile("Scripts/MumbleConnectWidget.ui",false);
+			MumbleConnectProxy = new UiProxyWidget(_mumbleConnectWidget);
+			ui.AddProxyWidgetToScene(MumbleConnectProxy);
+			
+			MumbleConnectProxy.windowFlags = 0;
+			MumbleConnectProxy.x = 2 + 248;
+			MumbleConnectProxy.y = 42;
+			
+			var widgets = GetConnectionDataWidgets(_mumbleConnectWidget);
+			//console.LogInfo("_mumbleConnectWidget:"+_mumbleConnectWidget);
+			//console.LogInfo("widgets:"+widgets);
+			widgets.connectButton.clicked.connect(Connect);
+			widgets.cancelButton.clicked.connect(_mumbleConnectWidget, _mumbleConnectWidget.hide);
+	
+			widgets.host.text = _connectionInfo.host;
+			widgets.port.value = _connectionInfo.port;
+			widgets.password.text = _connectionInfo.password;
+			widgets.channel.text = _connectionInfo.channel;
+			if (client != null && client.LoginProperty("username") != "")
+				widgets.username.text = client.LoginProperty("username");
+			else
+				widgets.username.text = "Tom";
+		}
+	    MumbleConnectProxy.visible = true;
+		
+	}
 	
 	
 //------------------------------------------------- mumble /widget-------------end ------------------------------//
@@ -393,8 +430,10 @@ function Init()
 		MumbleClientProxy.visible = MumbleClientProxy_visible;
 		 SetConnectionState(false, "Disconnected");
 		// hide the connect dialog
-		MumbleConnectProxy.visible = false;
-		
+		if(MumbleConnectProxy != null)
+		{
+			MumbleConnectProxy.visible = false;
+		}
 	}
 
 /*
