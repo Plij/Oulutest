@@ -1,3 +1,7 @@
+/*
+Not used for anything atm.
+*/
+
 function EntityScript(entity, comp){
 
   this.me = entity;
