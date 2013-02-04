@@ -1,0 +1,41 @@
+<!DOCTYPE Scene>
+<scene>
+ <entity id="89" sync="1">
+  <component type="EC_Name" sync="true">
+   <attribute value="lightning_prop" name="name"/>
+   <attribute value="" name="description"/>
+  </component>
+  <component type="EC_Placeable" sync="true">
+   <attribute value="-55.000000,16.000000,-70.000000,0.000000,0.000000,87.163414,1.000000,1.000000,1.000000" name="Transform"/>
+   <attribute value="false" name="Show bounding box"/>
+   <attribute value="true" name="Visible"/>
+   <attribute value="1" name="Selection layer"/>
+   <attribute value="" name="Parent entity ref"/>
+   <attribute value="" name="Parent bone name"/>
+  </component>
+  <component type="EC_Mesh" sync="true">
+   <attribute value="-5.200000,1.550000,2.700000,0.000000,0.000000,0.000000,0.500000,0.500000,0.500000" name="Transform"/>
+   <attribute value="lightning_prop.mesh" name="Mesh ref"/>
+   <attribute value="" name="Skeleton ref"/>
+   <attribute value="lightning.material" name="Mesh materials"/>
+   <attribute value="0" name="Draw distance"/>
+   <attribute value="false" name="Cast shadows"/>
+  </component>
+  <component type="EC_DynamicComponent" sync="true" name="prop">
+   <attribute value="sky" type="string" name="string"/>
+   <attribute value="false" type="bool" name="Placed"/>
+  </component>
+  <component type="EC_ParticleSystem" sync="true" name="stormclouds">
+   <attribute value="stormclouds.particle" name="Particle ref"/>
+   <attribute value="false" name="Cast shadows"/>
+   <attribute value="true" name="Enabled"/>
+   <attribute value="0" name="Rendering distance"/>
+  </component>
+  <component type="EC_ParticleSystem" sync="true" name="lightning">
+   <attribute value="lightning.particle" name="Particle ref"/>
+   <attribute value="false" name="Cast shadows"/>
+   <attribute value="true" name="Enabled"/>
+   <attribute value="0" name="Rendering distance"/>
+  </component>
+ </entity>
+</scene>

@@ -1,0 +1,41 @@
+particle_system stormclouds.particle
+{
+    material local://stormclouds.material
+    particle_width 4
+    particle_height 4
+    quota 30
+    cull_each false
+    sorted false
+    local_space true
+    iteration_interval 0.0
+    nonvisible_update_timeout 0.0
+    billboard_type point
+    billboard_origin center
+    billboard_rotation_type vertex
+    point_rendering false
+    accurate_facing true
+
+    emitter Box
+    {
+        position 1.5 0.0 -5.0
+        direction 0.0 1.0 0.0
+        angle 0
+        width 1
+        height 12
+        depth 5
+        emission_rate 16
+        velocity 0.1
+        time_to_live 2
+        colour 1 1 1 0.2
+    }
+    affector Scaler
+    {
+        rate 0.5
+    }
+
+    affector LinearForce
+    {
+        force_vector 0.0 0.0 0.5
+        force_application add
+    }
+}

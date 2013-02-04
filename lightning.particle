@@ -1,0 +1,47 @@
+particle_system lightning.particle
+{
+   material local://lightning_part.material
+    particle_width 4
+    particle_height 8
+    quota 1
+    cull_each false
+    sorted false
+    local_space true
+    iteration_interval 0.0
+    nonvisible_update_timeout 0.0
+    billboard_type point
+    billboard_origin center
+    billboard_rotation_type vertex
+    common_direction 0.0 1.0 0.0
+    common_up_vector 0.0 1.0 0.0
+    point_rendering false
+    accurate_facing true
+    emitter Box
+    {
+        position -2.0 2.0 -4.0
+        width 0.1
+        height 4
+        depth 11
+        emission_rate 1
+        velocity 0
+        time_to_live 0.7 
+        duration 1
+        repeat_delay_min 1
+        repeat_delay_max 4
+    }
+    affector ColourInterpolator
+    {
+        time0 0
+        colour0 1 1 1 0
+        time1 0.43
+        colour1 1 1 1 0.1
+        time2 0.44
+        colour 0 0 0 0
+        time3 0.75
+        colour3 0 0 0 0
+        time4 0.76
+        colour4 1 1 1 1
+        time5 1
+        colour5 1 1 1 0.8
+    }
+}
