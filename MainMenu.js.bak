@@ -27,6 +27,7 @@ engine.ImportExtension("qt.gui");
  *    from PropsScript.js.
  */
 
+// global variables
 var SceneList_visible = false;
 var BackgroundList_visible = false;
 var PropType_visible = false;
@@ -46,7 +47,7 @@ var ObjectProxy = null;
 var ManMadeProxy = null;
 var EffectProxy = null;
 var MumbleClientProxy_visible = false;
-var MumbleConnectProxy_visible = false;
+//var MumbleConnectProxy_visible = false;
 var MumbleProxy = null;
 var MumbleClientProxy = null;
 var MumbleConnectProxy = null;
@@ -76,16 +77,19 @@ var _connectionInfo =
 These are all Properties that are currently made for our Project, if you make a new entity add its files to scenes rootfolder and according to
 its name in root add it to array. For example if you have City.txml in your root you must have 'City' in array. Case sensitive!!!
 */
-var Scenes = ["Winter", "Mountains", "Medow", "Forest", "City", "Beach", "Room"];
-var Backgrounds = ["NightSky", "DaySky", "Sunset"];
-var Elements =["Clouds", "Sun", "Moon", "SnowFlakes","Rain" ,"Volcano"];
-var Objects = ["Palm", "Tree", "Butterflies", "Mushroom", "Walrus", "PinkElephant"];
-var ManMade = ["Rocket", "SandToys", "Tombstone", "Car", "Treasure", "Mob", "Parasol", "Pirates"];
-var SpecialEffects = ["Monolith", "UFO", "Fire", "Hearts", "Rain", "SnowFlakes"];
+var Scenes = ["TALVI", "VUORISTO", "NIITTY", "METSÄ", "KAUPUNKI", "RANTA", "HUONE"].sort();
+var Backgrounds = ["YÖ", "PÄIVÄ", "AURINGONLASKU"].sort();
+var Elements =["PILVET", "AURINKO", "KUU", "LUMISADE","VESISADE" ,"TULIVUORI", "TULIPALO", "SATEENKAARI", "SALAMA"].sort();
+var Objects = ["TYTTÖ", "POIKA", "AVARUUSOLENTO", "PALMU", "PUU", "PERHOSET", "SIENET", "MURSU", "PINKKI_NORSU", "PUPU", "Cow"].sort();
+var ManMade = ["KIRVES", "MÖKKI", "RAKETTI", "HIEKKALELUT", "HAUTA", "AUTO", "AARRE", "TIERNAT", "AURINGONVARJO", "MERIROSVOT", "HIEKKALINNA", "LUMIUKKO"].sort();
+var SpecialEffects = ["MONOLIITTI", "UFO", "TULIPALO", "SYDÄMET", "VESISADE", "LUMISADE", "ILOTULITUS", "SALAMA"].sort();
 
 var PropType = ["Element","Object","ManMade","Effect"];
 
-
+/*
+These arrays are for different kind of entities, if the positions of those when adding them would be 
+  determined from script.
+*/
 var ScenePos = [
 position1 = {x : -53.98, y: 10.25, z: -73.77},
 position2 =  {x : -60.98, y: 7.75, z: -73.77}
@@ -128,8 +132,8 @@ function Init()
 	mumble.UserMuted.connect(OnUserLocalMuteChanged);
 	mumble.UserSelfMuted.connect(OnUserSelfMutedChange);
 	mumble.UserSelfDeaf.connect(OnUserSelfDeafChange);
-	mumble.UserSpeaking.connect(OnUserSpeakingChange);
-	mumble.UserPositionalChanged.connect(OnUserPositionalChange);
+	//mumble.UserSpeaking.connect(OnUserSpeakingChange); // used to show the icon status, if the user speaking, then the color of icon will change. 
+	//mumble.UserPositionalChanged.connect(OnUserPositionalChange);  // used to show the position of the user based on the network's hotspot where user access to. 
 	mumble.ChannelTextMessageReceived.connect(OnChannelTextMessageReceived);
 // -------------- Hook to MumblePlugin ---------------end -----------------//
 
@@ -338,10 +342,47 @@ function Init()
 	MumbleClientProxy.x = 2;
 	MumbleClientProxy.y = 42;
 	
+		
+/*
+ *  show the widget of connecting to server, the parameters of connecting to server are default value, 
+ *  so don't need to care more about it and just to click connect button, which makes it earier for users to use.
+ */
+	function ShowConnectDialog()
+	{
+		 //Initialize if not yet done
+		if (_mumbleConnectWidget == null)
+		{
+			//_connectWidget = ui.LoadFromFile("local://MumbleConnectWidget.ui");			
+			_mumbleConnectWidget = ui.LoadFromFile("Scripts/MumbleConnectWidget.ui",false);
+			MumbleConnectProxy = new UiProxyWidget(_mumbleConnectWidget);
+			ui.AddProxyWidgetToScene(MumbleConnectProxy);
+			
+			MumbleConnectProxy.windowFlags = 0;
+			MumbleConnectProxy.x = 2 + 248;
+			MumbleConnectProxy.y = 42;
+			
+			var widgets = GetConnectionDataWidgets(_mumbleConnectWidget);
+			//console.LogInfo("_mumbleConnectWidget:"+_mumbleConnectWidget);
+			//console.LogInfo("widgets:"+widgets);
+			widgets.connectButton.clicked.connect(Connect);
+			widgets.cancelButton.clicked.connect(_mumbleConnectWidget, _mumbleConnectWidget.hide);
+	
+			widgets.host.text = _connectionInfo.host;
+			widgets.port.value = _connectionInfo.port;
+			widgets.password.text = _connectionInfo.password;
+			widgets.channel.text = _connectionInfo.channel;
+			if (client != null && client.LoginProperty("username") != "")
+				widgets.username.text = client.LoginProperty("username");
+			else
+				widgets.username.text = "Tom";
+		}
+	    MumbleConnectProxy.visible = true;
+		
+	}
 	
 	
 //------------------------------------------------- mumble /widget-------------end ------------------------------//
-	
+
 
 }
 
@@ -382,7 +423,6 @@ function Init()
 	}
 
 
-//---------------------------
 //  respond to the event of Mumble button clicked, when the mumble button clicked, then it will show the mumble client widget in the scene. 
 	function MumbleBtnClicked(){
 		// show and hide the mumble of client
@@ -390,17 +430,19 @@ function Init()
 		MumbleClientProxy.visible = MumbleClientProxy_visible;
 		 SetConnectionState(false, "Disconnected");
 		// hide the connect dialog
-		MumbleConnectProxy.visible = false;
-		
+		if(MumbleConnectProxy != null)
+		{
+			MumbleConnectProxy.visible = false;
+		}
 	}
 
-//----------------------------
 /*
  *  handle all events occurring on submenus (background, proptype, scene, clearMenu, clearEntity)---------begin------------
  */
  
  	// when scene button clicked, it will load all items related to scene from the scene array, and hide the proptype and background widgets.
 	function SceneBtnClicked(){
+      
       _SceneListWidget.clear();
       for(i = 0; i < Scenes.length; i++){
         _SceneListWidget.addItem(Scenes[i]);
@@ -492,6 +534,7 @@ function Init()
 	}
 	// respond to the event of Random generate the effect 
 	function RandomButtonClicked(){
+    
     RemoveAllEntities();
 		var ElementArray = [Backgrounds, Scenes];
 		var randomProp = [Elements, Objects, ManMade, SpecialEffects];
@@ -520,6 +563,7 @@ function Init()
  */
 	// respond to the event of item double clicked in the sceneListWidget
  	function SceneListItemDoubleClicked(){
+    RemoveOld();
 		var type ='Scene';
 		CurrentClickedItemName = _SceneListWidget.currentItem().text();
 		console.LogInfo(_SceneListWidget.objectName);
@@ -580,7 +624,7 @@ This function is launched if the new added entity has an animationcontroller. If
 After that we launch EnableAnims, which activates animations.
 */
 function CheckAnims(enti){
-  var ent = scene.GetEntityByName(enti);
+  var ent = scene.GetEntity(enti);
   this.enti=ent;
   if(ent.animationcontroller.GetAvailableAnimations().length > 0){
      EnableAnims();
@@ -610,6 +654,15 @@ function NarratorAnim(){
   }
   
 }
+/*
+Removes all highlights to be sure that entities are not selected when added to scene.
+*/
+function RemoveHighlights(ents){
+  for (i in ents){
+    ents[i].RemoveComponent('EC_Highlight', 'MySpecialHighlight');
+  }
+
+}
 
 function LoadXML (text){
   
@@ -618,6 +671,7 @@ function LoadXML (text){
   Also on every new action with GUI, we make our "narrator" animate. See NarratorAnim() for its logic.
   */			   
   NarratorAnim();
+  
   if(text == null || text == ""){
 	  console.LogInfo("You havn't selected any effect");
   }
@@ -628,15 +682,19 @@ function LoadXML (text){
     var assets = scene.LoadSceneXML(asset.GetAsset(text + ".txml").DiskSource(), false, false, 0);
     var enti = assets[0].name;
     var id = assets[0].id;
-    var ent = scene.GetEntityByName(enti);
+    var ent = scene.GetEntity(id);
     ent.placeable.visible = false;
     ent.dynamiccomponent.CreateAttribute('bool', 'Placed');
     
     //Check if entity has animationcontroller.
     if(!ent.animationcontroller && ent.dynamiccomponent.GetAttribute('Placed') == false)
-      CheckPlacement(enti);
+      CheckPlacement(id);
     else if(ent.dynamiccomponent.GetAttribute('Placed') == false)
-      CheckAnims(enti);
+      CheckAnims(id);
+    else if(ent.dynamiccomponent.GetAttribute('Placed') == true && !ent.animationcontroller)
+      CheckPlacement(id);
+    else if(ent.dynamiccomponent.GetAttribute('Placed') == true)
+      CheckAnims(id);
     else
       console.LogInfo('Entity is missing dynamiccomponent.');
    }
@@ -644,20 +702,23 @@ function LoadXML (text){
 
 
 
+
 function CheckPlacement(enti){
     //CASE1: Entity has no animations and is not placed yet. We place it and set placed to true, depending on if its prop, scene or background. 
-      var ent = scene.GetEntityByName(enti);
+      var ent = scene.GetEntity(enti);
       if(ent.dynamiccomponent.name == "Prop" || ent.dynamiccomponent.name == "prop"){
          ent.placeable.visible = true;            
          ent.dynamiccomponent.SetAttribute('Placed', true);
-         
+         RemoveHighlights(scene.GetEntitiesWithComponent('EC_Highlight', 'MySpecialHighlight'));
       }else if (ent.dynamiccomponent.name == "Scene" || ent.dynamiccomponent.name == "scene"){
          ent.placeable.visible = true;  
          ent.dynamiccomponent.SetAttribute('Placed', true);
+         RemoveHighlights(scene.GetEntitiesWithComponent('EC_Highlight', 'MySpecialHighlight'));
          
       }else if(ent.dynamiccomponent.name == "Background" || ent.dynamiccomponent.name == "background"){
          ent.placeable.visible = true;
          ent.dynamiccomponent.SetAttribute('Placed', true);
+         RemoveHighlights(scene.GetEntitiesWithComponent('EC_Highlight', 'MySpecialHighlight'));
       }
             
 }
@@ -671,15 +732,18 @@ function EnableAnims(){
       ent.animationcontroller.EnableAnimation('PropAnim'); 
       ent.placeable.visible = true;
       ent.dynamiccomponent.SetAttribute('Placed', true);
+      RemoveHighlights(scene.GetEntitiesWithComponent('EC_Highlight', 'MySpecialHighlight'));
       
     }else if(ent.dynamiccomponent.name == "Scene" || ent.dynamiccomponent.name == "scene"){
       ent.animationcontroller.EnableAnimation('SceneAnim');      
       ent.placeable.visible = true;
       ent.dynamiccomponent.SetAttribute('Placed', true);
+      RemoveHighlights(scene.GetEntitiesWithComponent('EC_Highlight', 'MySpecialHighlight'));
       
     }else if(ent.dynamiccomponent.name == "Background" || ent.dynamiccomponent.name == "background"){
       ent.placeable.visible = true;
       ent.dynamiccomponent.SetAttribute('Placed', true);
+      RemoveHighlights(scene.GetEntitiesWithComponent('EC_Highlight', 'MySpecialHighlight'));
       
     }
      
@@ -697,8 +761,28 @@ function RemoveAllEntities(){
   
   console.LogInfo("Executing the function of removing all entities")
 }
-
-
+/*
+Removes old entity from scene, when new one is added.
+Used ATM in SceneListDoubleClicked
+*/
+function RemoveOld(){
+  var ents = scene.GetEntitiesWithComponent('EC_DynamicComponent');
+  for (i = 0; i < ents.length; i++){
+    if(ents[i].dynamiccomponent.name == 'scene' || ents[i].dynamiccomponent.name == 'Scene'){
+      scene.RemoveEntity(ents[i].Id());
+    }
+  }
+}
+/*
+Set Camera a new script which will set its position and inputmappers
+*/
+function SetCamera(){
+  var cam = scene.GetEntityByName('FreeLookCamera');
+  var script = cam.GetOrCreateComponent('EC_Script');
+  script.scriptRef = ["local://freelookcamera.js", "local://CamScript.js"];
+  
+  
+}
 
 // Destory the widget and stop the script running
 function OnScriptdestroyed() {
@@ -715,5 +799,7 @@ if (server.IsRunning()){
 else{
    
    Init();
+   //Call the camerasetting function
+   SetCamera();
    print('Init');
 }

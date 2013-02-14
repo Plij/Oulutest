@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>132</width>
-    <height>209</height>
+    <width>152</width>
+    <height>211</height>
    </rect>
   </property>
   <property name="acceptDrops">
@@ -26,7 +26,7 @@ QFrame#frame { background-color: rgba(237,29,63,150);
     <rect>
      <x>1</x>
      <y>-2</y>
-     <width>131</width>
+     <width>151</width>
      <height>211</height>
     </rect>
    </property>
@@ -54,7 +54,7 @@ QFrame#frame { background-color: rgba(237,29,63,150);
      <rect>
       <x>15</x>
       <y>21</y>
-      <width>101</width>
+      <width>121</width>
       <height>181</height>
      </rect>
     </property>
