@@ -134,7 +134,7 @@ font:bold;
      <bool>true</bool>
     </property>
     <property name="text">
-     <string>BackGround</string>
+     <string>TAUSTA</string>
     </property>
     <property name="iconSize">
      <size>
@@ -156,7 +156,7 @@ font:bold;
      <bool>true</bool>
     </property>
     <property name="text">
-     <string>PROPS</string>
+     <string>LAVASTEET</string>
     </property>
    </widget>
    <widget class="QPushButton" name="SceneBtn">
@@ -175,7 +175,7 @@ font:bold;
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>SCENE</string>
+     <string>MAISEMA</string>
     </property>
    </widget>
    <widget class="QPushButton" name="ClearMenuBtn">
@@ -194,7 +194,7 @@ font:bold;
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>HomeMenu</string>
+     <string>PääValikko</string>
     </property>
    </widget>
    <widget class="QPushButton" name="ClearEntityBtn">
@@ -213,7 +213,7 @@ font:bold;
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>ClearAll</string>
+     <string>TyhjäLava</string>
     </property>
    </widget>
    <widget class="QPushButton" name="RandomBtn">
@@ -232,7 +232,7 @@ font:bold;
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>Random</string>
+     <string>Satunnainen</string>
     </property>
    </widget>
   </widget>

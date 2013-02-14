@@ -101,7 +101,7 @@ font:bold;
      <bool>true</bool>
     </property>
     <property name="text">
-     <string>ManMade</string>
+     <string>ESINEET</string>
     </property>
    </widget>
    <widget class="QPushButton" name="ObjectBtn">
@@ -117,7 +117,7 @@ font:bold;
      <bool>true</bool>
     </property>
     <property name="text">
-     <string>Objects</string>
+     <string>LUONTO</string>
     </property>
    </widget>
    <widget class="QPushButton" name="ElementBtn">
@@ -136,7 +136,7 @@ font:bold;
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>Elements</string>
+     <string>SÄÄ</string>
     </property>
    </widget>
    <widget class="QPushButton" name="EffectBtn">
@@ -155,7 +155,7 @@ font:bold;
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>Effects</string>
+     <string>EFEKTIT</string>
     </property>
    </widget>
   </widget>
