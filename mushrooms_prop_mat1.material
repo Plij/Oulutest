@@ -8,10 +8,10 @@ material mushrooms_prop_mat1
     {
         pass mushrooms_prop_mat1
         {
-            ambient 0.5878182649612427 0.6502943634986877 0.6859451532363892 1.0
-            diffuse 0.4702546189763339 0.5202354985510631 0.5487561307662148 1.0
-            specular 0.5 0.5 0.5 1.0 12.5
-            emissive 0.0 0.0 0.0 1.0
+            ambient 0.587818 0.650294 0.685945 1
+            diffuse 0.470255 0.520235 0.548756 1
+            specular 0.5 0.5 0.5 1 12.5
+            emissive 0.533333 0.533333 0.533333 1
 
             alpha_to_coverage off
             colour_write on
