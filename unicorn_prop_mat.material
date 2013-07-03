@@ -1,0 +1,24 @@
+// unicorn_prop_mat genrated by blender2ogre 0.5.8
+
+material unicorn_prop_mat 
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass unicorn_prop_mat
+        {
+            ambient 0.988235 0.788235 1 1
+            diffuse 1 0.788235 0.992157 1
+            specular 0.5 0.207122 0.408762 1 12.5
+
+            texture_unit 
+            {
+                texture unicorn_prop_text.jpg
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op modulate
+            }
+        }
+    }
+}

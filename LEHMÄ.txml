@@ -1,12 +1,12 @@
 <!DOCTYPE Scene>
 <scene>
- <entity id="112" sync="1">
+ <entity id="106" sync="1">
   <component type="EC_Name" sync="true">
-   <attribute value="girl" name="name"/>
+   <attribute value="cow" name="name"/>
    <attribute value="" name="description"/>
   </component>
   <component type="EC_Placeable" sync="true">
-   <attribute value="-56.000000,12.720000,-74.000000,0.000000,-80.000000,0.000000,0.400000,0.400000,0.400000" name="Transform"/>
+   <attribute value="-55.000000,10.500000,-77.269997,0.000000,-24.000000,0.000000,0.420000,0.420000,0.420000" name="Transform"/>
    <attribute value="false" name="Show bounding box"/>
    <attribute value="true" name="Visible"/>
    <attribute value="1" name="Selection layer"/>
@@ -18,9 +18,9 @@
   </component>
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="girl.mesh" name="Mesh ref"/>
-   <attribute value="girl.skeleton" name="Skeleton ref"/>
-   <attribute value="girl.material" name="Mesh materials"/>
+   <attribute value="cow.mesh" name="Mesh ref"/>
+   <attribute value="cow.skeleton" name="Skeleton ref"/>
+   <attribute value="cow.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>

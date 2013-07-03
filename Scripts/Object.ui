@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>152</width>
-    <height>239</height>
+    <height>269</height>
    </rect>
   </property>
   <property name="acceptDrops">
@@ -27,7 +27,7 @@ QFrame#frame { background-color: rgba(36,217,87,150);
      <x>1</x>
      <y>-2</y>
      <width>151</width>
-     <height>241</height>
+     <height>271</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -55,7 +55,7 @@ QFrame#frame { background-color: rgba(36,217,87,150);
       <x>15</x>
       <y>21</y>
       <width>121</width>
-      <height>211</height>
+      <height>241</height>
      </rect>
     </property>
     <property name="mouseTracking">
