@@ -1,14 +1,14 @@
 <!DOCTYPE Scene>
 <scene>
- <entity id="82">
+ <entity id="85" sync="1">
   <component type="EC_Name" sync="true">
    <attribute value="SunSet_background" name="name"/>
    <attribute value="" name="description"/>
   </component>
   <component type="EC_Placeable" sync="true">
-   <attribute value="-51.580002,13.242902,-74.267021,-0.000000,-0.000000,0.000000,0.068589,3.172904,6.261244" name="Transform"/>
+   <attribute value="-51.580002,12.700000,-74.267021,-0.000000,-0.000000,0.000000,0.068589,3.172904,6.261244" name="Transform"/>
    <attribute value="false" name="Show bounding box"/>
-   <attribute value="false" name="Visible"/>
+   <attribute value="true" name="Visible"/>
    <attribute value="1" name="Selection layer"/>
    <attribute value="" name="Parent entity ref"/>
    <attribute value="" name="Parent bone name"/>
@@ -22,7 +22,7 @@
    <attribute value="false" name="Cast shadows"/>
   </component>
   <component type="EC_DynamicComponent" sync="true" name="background">
-   <attribute value="false" type="bool" name="Placed"/>
+   <attribute value="true" type="bool" name="Placed"/>
   </component>
  </entity>
 </scene>

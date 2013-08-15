@@ -1,12 +1,12 @@
 <!DOCTYPE Scene>
 <scene>
- <entity id="83" sync="1">
+ <entity id="92" sync="1">
   <component type="EC_Name" sync="true">
    <attribute value="princess" name="name"/>
    <attribute value="" name="description"/>
   </component>
   <component type="EC_Placeable" sync="true">
-   <attribute value="-55.000000,11.000000,-70.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
+   <attribute value="-56.500000,11.000000,-70.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
    <attribute value="false" name="Show bounding box"/>
    <attribute value="true" name="Visible"/>
    <attribute value="1" name="Selection layer"/>

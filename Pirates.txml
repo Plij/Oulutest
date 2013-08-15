@@ -1,12 +1,12 @@
 <!DOCTYPE Scene>
 <scene>
- <entity id="82">
+ <entity id="106" sync="1">
   <component type="EC_Name" sync="true">
    <attribute value="pirates" name="name"/>
    <attribute value="" name="description"/>
   </component>
   <component type="EC_Placeable" sync="true">
-   <attribute value="-56.830002,10.070000,-75.250000,0.000000,-89.000000,3.000000,1.000000,1.000000,1.000000" name="Transform"/>
+   <attribute value="-57.194687,10.510002,-74.223976,-1.000000,-90.000000,5.000000,1.000000,1.000000,1.000000" name="Transform"/>
    <attribute value="false" name="Show bounding box"/>
    <attribute value="true" name="Visible"/>
    <attribute value="1" name="Selection layer"/>
@@ -14,10 +14,10 @@
    <attribute value="" name="Parent bone name"/>
   </component>
   <component type="EC_Mesh" sync="true">
-   <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
+   <attribute value="0.000000,0.000000,0.000000,4.000000,0.000000,3.000000,1.000000,1.000000,1.000000" name="Transform"/>
    <attribute value="pirates.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="pirates_material.material" name="Mesh materials"/>
+   <attribute value="local://pirates_material.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -26,6 +26,7 @@
   </component>
   <component type="EC_DynamicComponent" sync="true" name="prop">
    <attribute value="ground" type="string" name="type"/>
+   <attribute value="true" type="bool" name="Placed"/>
   </component>
  </entity>
 </scene>
