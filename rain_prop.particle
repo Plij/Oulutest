@@ -1,6 +1,6 @@
 particle_system rain_prop
 {
-    material local://rain_prop.material
+    material rain_prop.material
     particle_width 0.5
     particle_height 2
     quota 50

@@ -1,6 +1,6 @@
 particle_system snowflakes_prop
 {
-	material local://snowflakes_prop_mat.material
+	material snowflakes_prop_mat.material
 	particle_width 2.0
 	particle_height 2.0
 	quota 30

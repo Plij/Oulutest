@@ -11,8 +11,61 @@
 //!ref: Scripts/MumbleConnectWidget.ui
 //!ref: Scripts/StartMumble.ui
 
+//!ref: Alien.txml
+//!ref: axe.txml
+//!ref: Beach.txml
+//!ref: Boy.txml
+//!ref: Bunny.txml
+//!ref: Butterflies.txml
+//!ref: Car.txml
+//!ref: City.txml
+//!ref: Clouds.txml
+//!ref: Cottage.txml
+//!ref: Cow.txml
+//!ref: DaySky.txml
+//!ref: Fire.txml
+//!ref: Fireworks.txml
+//!ref: Forest.txml
+//!ref: Girl.txml
+//!ref: Hearts.txml
+//!ref: Medow.txml
+//!ref: Mob.txml
+//!ref: Monolith.txml
+//!ref: Moon.txml
+//!ref: Mountains.txml
+//!ref: Mushroom.txml
+//!ref: narrator-avatar.txml
+//!ref: NightSky.txml
+//!ref: Oulu3D.txml
+//!ref: Palm.txml
+//!ref: Parasol.txml
+//!ref: PinkElephant.txml
+//!ref: Pirates.txml
+//!ref: plexi.txml
+//!ref: Rain.txml
+//!ref: Rainbow.txml
+//!ref: Rocket.txml
+//!ref: Room.txml
+//!ref: SandCastle.txml
+//!ref: SandToys.txml
+//!ref: scene.txml
+//!ref: SnowFlakes.txml
+//!ref: Snowman.txml
+//!ref: stage.txml
+//!ref: stage_plexi.txml
+//!ref: Sun.txml
+//!ref: Sunset.txml
+//!ref: Tombstone.txml
+//!ref: Treasure.txml
+//!ref: Tree.txml
+//!ref: UFO.txml
+//!ref: Walrus.txml
+//!ref: Winter.txml
+//!ref: Volcano.txml
 
-engine.IncludeFile("local://MumbleFunc.js");
+
+
+engine.IncludeFile("MumbleFunc.js");
 engine.ImportExtension("qt.core");
 engine.ImportExtension("qt.gui");
 //engine.ImportExtension("qt.uitools");
@@ -352,7 +405,7 @@ function Init()
 		 //Initialize if not yet done
 		if (_mumbleConnectWidget == null)
 		{
-			//_connectWidget = ui.LoadFromFile("local://MumbleConnectWidget.ui");			
+			//_connectWidget = ui.LoadFromFile("MumbleConnectWidget.ui");			
 			_mumbleConnectWidget = ui.LoadFromFile("Scripts/MumbleConnectWidget.ui",false);
 			MumbleConnectProxy = new UiProxyWidget(_mumbleConnectWidget);
 			ui.AddProxyWidgetToScene(MumbleConnectProxy);
@@ -729,13 +782,15 @@ function EnableAnims(){
     //Scenes have SceneAnim named animation, same principle as in Props.
     var ent = this.enti;
     if(ent.dynamiccomponent.name == "Prop" || ent.dynamiccomponent.name == "prop"){     
-      ent.animationcontroller.EnableAnimation('PropAnim'); 
+      //ent.animationcontroller.EnableAnimation('PropAnim'); 
+	  ent.Exec(5, "PlayLoopedAnim", "PropAnim");
       ent.placeable.visible = true;
       ent.dynamiccomponent.SetAttribute('Placed', true);
       RemoveHighlights(scene.GetEntitiesWithComponent('EC_Highlight', 'MySpecialHighlight'));
       
     }else if(ent.dynamiccomponent.name == "Scene" || ent.dynamiccomponent.name == "scene"){
-      ent.animationcontroller.EnableAnimation('SceneAnim');      
+      //ent.animationcontroller.EnableAnimation('SceneAnim');      
+      ent.Exec(5, "PlayLoopedAnim", "SceneAnim");
       ent.placeable.visible = true;
       ent.dynamiccomponent.SetAttribute('Placed', true);
       RemoveHighlights(scene.GetEntitiesWithComponent('EC_Highlight', 'MySpecialHighlight'));
@@ -779,7 +834,7 @@ Set Camera a new script which will set its position and inputmappers
 function SetCamera(){
   var cam = scene.GetEntityByName('FreeLookCamera');
   var script = cam.GetOrCreateComponent('EC_Script');
-  script.scriptRef = ["local://freelookcamera.js", "local://CamScript.js"];
+  script.scriptRef = ["freelookcamera.js", "CamScript.js"];
   
   
 }
