@@ -1,0 +1,21 @@
+// dancefloor_mat genrated by blender2ogre 0.5.8
+material local://dancefloor_mat.material
+{
+    technique
+    {
+        pass dancefloor_mat
+        {
+            ambient 0.247059 0.792157 0.8 1
+            diffuse 0.235294 0.988235 1 1
+            specular 0.138655 0.138655 0.138655 1 5
+            emissive 0.694118 0.694118 0.694118 1
+
+            texture_unit
+            {
+                texture local://Dancefloor_scene_text.jpg
+            }
+        }
+
+    }
+
+}

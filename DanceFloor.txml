@@ -1,0 +1,30 @@
+<!DOCTYPE Scene>
+<scene>
+ <entity temporary="false" id="83" sync="true">
+  <component temporary="false" type="Name" sync="true">
+   <attribute value="Dancefloor_scene" type="string" id="name" name="Name"/>
+   <attribute value="" type="string" id="description" name="Description"/>
+   <attribute value="" type="string" id="group" name="Group"/>
+  </component>
+  <component temporary="false" type="Placeable" sync="true">
+   <attribute value="-55.000000,12.940000,-74.500000,179.917740,268.959991,0.096220,6.310000,3.171279,2.000000" type="Transform" id="transform" name="Transform"/>
+   <attribute value="false" type="bool" id="drawDebug" name="Show bounding box"/>
+   <attribute value="true" type="bool" id="visible" name="Visible"/>
+   <attribute value="1" type="int" id="selectionLayer" name="Selection layer"/>
+   <attribute value="" type="EntityReference" id="parentRef" name="Parent entity ref"/>
+   <attribute value="" type="string" id="parentBone" name="Parent bone name"/>
+  </component>
+  <component temporary="false" type="Mesh" sync="true">
+   <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" type="Transform" id="nodeTransformation" name="Transform"/>
+   <attribute value="dancefloor_scene.mesh" type="AssetReference" id="meshRef" name="Mesh ref"/>
+   <attribute value="" type="AssetReference" id="skeletonRef" name="Skeleton ref"/>
+   <attribute value="local://dancefloor_mat.material;local://dancefloor_tiles_mat.material" type="AssetReferenceList" id="meshMaterial" name="Mesh materials"/>
+   <attribute value="0.000000" type="real" id="drawDistance" name="Draw distance"/>
+   <attribute value="false" type="bool" id="castShadows" name="Cast shadows"/>
+   <attribute value="false" type="bool" id="useInstancing" name="Use instancing"/>
+  </component>
+  <component temporary="false" type="DynamicComponent" sync="true" name="Scene">
+   <attribute value="true" type="bool" id="Placed" name="Placed"/>
+  </component>
+ </entity>
+</scene>
