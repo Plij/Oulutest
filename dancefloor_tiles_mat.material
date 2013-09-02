@@ -1,0 +1,24 @@
+// dancefloor_tiles_mat genrated by blender2ogre 0.5.8
+
+material dancefloor_tiles_mat 
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass dancefloor_tiles_mat
+        {
+  			lighting off
+			depth_write off
+			scene_blend src_alpha dest_alpha
+
+            texture_unit 
+            {
+                texture dancefloor_tiles_text.png
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op alpha_blend
+            }
+        }
+    }
+}
