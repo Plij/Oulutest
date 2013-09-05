@@ -77,7 +77,7 @@ var _connectionInfo =
 These are all Properties that are currently made for our Project, if you make a new entity add its files to scenes rootfolder and according to
 its name in root add it to array. For example if you have City.txml in your root you must have 'City' in array. Case sensitive!!!
 */
-var Scenes = ["TALVI", "VUORISTO", "NIITTY", "METSÄ", "KAUPUNKI", "RANTA", "HUONE", "TANSSILATTIA", "AVARUUS"].sort();
+var Scenes = ["TALVI", "VUORISTO", "NIITTY", "METSÄ", "KAUPUNKI", "RANTA", "HUONE", "TANSSILATTIA"].sort();
 var Backgrounds = ["YÖ", "PÄIVÄ", "AAMU"].sort();
 var Elements =["PILVET", "AURINKO", "KUU", "LUMISADE","VESISADE" ,"TULIVUORI", "TULIPALO", "SATEENKAARI", "SALAMA"].sort();
 var Objects = ["TYTTÖ", "POIKA", "AVARUUSOLENTO", "PALMU", "PUU", "PERHOSET", "SIENET", "MURSU", "PINKKI_NORSU", "PUPU", "LEHMÄ", "UNIKORNI", "PRINSESSA"].sort();
