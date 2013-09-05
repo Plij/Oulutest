@@ -1,0 +1,36 @@
+particle_system stars.particle
+{
+    material local://stars_prop.material
+    particle_width 3
+    particle_height 3
+    quota 15
+    cull_each false
+    sorted false
+    local_space true
+    iteration_interval 0.0
+    nonvisible_update_timeout 0.0
+    billboard_type point
+    billboard_origin center
+    billboard_rotation_type vertex
+    common_direction 0.0 1.0 0.0
+    common_up_vector 0.0 1.0 0.0
+    point_rendering false
+    accurate_facing true
+    emitter Box
+    {
+        position 5.0 0.0 -15.0
+        width 15
+        height 4
+        depth 30
+        emission_rate 9
+        velocity 0
+        time_to_live 3
+        duration 1
+        repeat_delay_min 1
+        repeat_delay_max 4
+    }
+    affector Scaler
+    {
+        rate -1.3
+    }
+}
