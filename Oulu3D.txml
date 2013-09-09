@@ -3,9 +3,9 @@
  <entity id="1" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://ouluStreetBridge.mesh" name="Mesh ref"/>
+   <attribute value="ouluStreetBridge.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://OuluStreetBridge.material" name="Mesh materials"/>
+   <attribute value="OuluStreetBridge.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -25,9 +25,9 @@
  <entity id="2" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://OuluParkBridge.mesh" name="Mesh ref"/>
+   <attribute value="OuluParkBridge.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://oulu_park_bridge.material" name="Mesh materials"/>
+   <attribute value="oulu_park_bridge.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -47,9 +47,9 @@
  <entity id="3" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://OuluParkBridge.mesh" name="Mesh ref"/>
+   <attribute value="OuluParkBridge.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://oulu_park_bridge.material" name="Mesh materials"/>
+   <attribute value="oulu_park_bridge.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -69,9 +69,9 @@
  <entity id="4" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://AdministrationParkBlock.mesh" name="Mesh ref"/>
+   <attribute value="AdministrationParkBlock.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://oulu_road.material;local://side_humps.material;local://oulu_side-walk.material" name="Mesh materials"/>
+   <attribute value="oulu_road.material;side_humps.material;oulu_side-walk.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -91,9 +91,9 @@
  <entity id="5" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://ouluStreetBridge.mesh" name="Mesh ref"/>
+   <attribute value="ouluStreetBridge.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://OuluStreetBridge.material" name="Mesh materials"/>
+   <attribute value="OuluStreetBridge.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -113,9 +113,9 @@
  <entity id="6" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://OuluParkBridge.mesh" name="Mesh ref"/>
+   <attribute value="OuluParkBridge.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://oulu_park_bridge.material" name="Mesh materials"/>
+   <attribute value="oulu_park_bridge.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -135,9 +135,9 @@
  <entity id="7" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://OuluParkBridge.mesh" name="Mesh ref"/>
+   <attribute value="OuluParkBridge.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://oulu_park_bridge.material" name="Mesh materials"/>
+   <attribute value="oulu_park_bridge.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -157,9 +157,9 @@
  <entity id="8" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://hallituskatu11.mesh" name="Mesh ref"/>
+   <attribute value="hallituskatu11.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://hallituskatu11.material" name="Mesh materials"/>
+   <attribute value="hallituskatu11.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -179,9 +179,9 @@
  <entity id="9" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://Hallituskatu9.mesh" name="Mesh ref"/>
+   <attribute value="Hallituskatu9.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Hallituskatu9.material" name="Mesh materials"/>
+   <attribute value="Hallituskatu9.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -201,9 +201,9 @@
  <entity id="10" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://Asemakatu4.mesh" name="Mesh ref"/>
+   <attribute value="Asemakatu4.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Asemakatu4.material" name="Mesh materials"/>
+   <attribute value="Asemakatu4.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -223,9 +223,9 @@
  <entity id="11" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://SnelmannsBlockRiver.mesh" name="Mesh ref"/>
+   <attribute value="SnelmannsBlockRiver.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://grass.material;local://oulu_st-dirt.material" name="Mesh materials"/>
+   <attribute value="grass.material;oulu_st-dirt.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -245,9 +245,9 @@
  <entity id="12" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://SnelmannsBlock.mesh" name="Mesh ref"/>
+   <attribute value="SnelmannsBlock.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://oulu_road.material;local://side_humps.material;local://oulu_side-walk.material;local://oulu_ground.material" name="Mesh materials"/>
+   <attribute value="oulu_road.material;side_humps.material;oulu_side-walk.material;oulu_ground.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -267,9 +267,9 @@
  <entity id="13" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://asemakatu2.mesh" name="Mesh ref"/>
+   <attribute value="asemakatu2.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Asemakatu2.material;local://Asemakatu2walls.material" name="Mesh materials"/>
+   <attribute value="Asemakatu2.material;Asemakatu2walls.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -289,9 +289,9 @@
  <entity id="14" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://asemakatu_10.mesh" name="Mesh ref"/>
+   <attribute value="asemakatu_10.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Asemakatu10.material" name="Mesh materials"/>
+   <attribute value="Asemakatu10.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -311,9 +311,9 @@
  <entity id="15" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://asemakatu6.mesh" name="Mesh ref"/>
+   <attribute value="asemakatu6.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Asemakatu6.material" name="Mesh materials"/>
+   <attribute value="Asemakatu6.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -333,9 +333,9 @@
  <entity id="16" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://Isokatu19.mesh" name="Mesh ref"/>
+   <attribute value="Isokatu19.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Isokatu19.material" name="Mesh materials"/>
+   <attribute value="Isokatu19.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -355,9 +355,9 @@
  <entity id="17" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://OuluBlock30.mesh" name="Mesh ref"/>
+   <attribute value="OuluBlock30.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://oulu_road.material;local://side_humps.material;local://oulu_side-walk.material;local://oulu_ground.material" name="Mesh materials"/>
+   <attribute value="oulu_road.material;side_humps.material;oulu_side-walk.material;oulu_ground.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -377,9 +377,9 @@
  <entity id="18" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://pakkahuoneenkatu_9b.mesh" name="Mesh ref"/>
+   <attribute value="pakkahuoneenkatu_9b.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://pakkahuoneenkatu_9b.material" name="Mesh materials"/>
+   <attribute value="pakkahuoneenkatu_9b.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -399,9 +399,9 @@
  <entity id="19" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://Hallituskatu12.mesh" name="Mesh ref"/>
+   <attribute value="Hallituskatu12.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Hallituskatu12.material" name="Mesh materials"/>
+   <attribute value="Hallituskatu12.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -421,9 +421,9 @@
  <entity id="20" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://Hallituskatu10.mesh" name="Mesh ref"/>
+   <attribute value="Hallituskatu10.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Hallituskatu10.material" name="Mesh materials"/>
+   <attribute value="Hallituskatu10.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -443,9 +443,9 @@
  <entity id="21" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://YhdystorniBlock.mesh" name="Mesh ref"/>
+   <attribute value="YhdystorniBlock.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://oulu_road.material;local://side_humps.material;local://oulu_side-walk.material;local://oulu_ground.material" name="Mesh materials"/>
+   <attribute value="oulu_road.material;side_humps.material;oulu_side-walk.material;oulu_ground.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -465,9 +465,9 @@
  <entity id="22" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://OuluBlock20.mesh" name="Mesh ref"/>
+   <attribute value="OuluBlock20.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://oulu_road.material;local://side_humps.material;local://oulu_side-walk.material;local://oulu_ground.material" name="Mesh materials"/>
+   <attribute value="oulu_road.material;side_humps.material;oulu_side-walk.material;oulu_ground.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -487,9 +487,9 @@
  <entity id="23" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://Hallituskatu16.mesh" name="Mesh ref"/>
+   <attribute value="Hallituskatu16.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Hallituskatu16.material" name="Mesh materials"/>
+   <attribute value="Hallituskatu16.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -509,9 +509,9 @@
  <entity id="24" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://hallituskatu14.mesh" name="Mesh ref"/>
+   <attribute value="hallituskatu14.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://hallituskatu14.material" name="Mesh materials"/>
+   <attribute value="hallituskatu14.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -531,9 +531,9 @@
  <entity id="25" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://pakkahuoneenkatu_10.mesh" name="Mesh ref"/>
+   <attribute value="pakkahuoneenkatu_10.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://pakkahuoneenkatu_10.material" name="Mesh materials"/>
+   <attribute value="pakkahuoneenkatu_10.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -553,9 +553,9 @@
  <entity id="26" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://Kauppurienkatu11.mesh" name="Mesh ref"/>
+   <attribute value="Kauppurienkatu11.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Kauppurienkatu11.material" name="Mesh materials"/>
+   <attribute value="Kauppurienkatu11.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -575,9 +575,9 @@
  <entity id="27" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://kauppurienkatu9.mesh" name="Mesh ref"/>
+   <attribute value="kauppurienkatu9.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Kauppurienkatu09.material" name="Mesh materials"/>
+   <attribute value="Kauppurienkatu09.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -597,9 +597,9 @@
  <entity id="28" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://PallasBlock.mesh" name="Mesh ref"/>
+   <attribute value="PallasBlock.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://oulu_road.material;local://side_humps.material;local://oulu_side-walk.material;local://oulu_ground.material" name="Mesh materials"/>
+   <attribute value="oulu_road.material;side_humps.material;oulu_side-walk.material;oulu_ground.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -619,9 +619,9 @@
  <entity id="29" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://kauppurienkatu_13.mesh" name="Mesh ref"/>
+   <attribute value="kauppurienkatu_13.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://kauppurienkatu_13.material" name="Mesh materials"/>
+   <attribute value="kauppurienkatu_13.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -641,9 +641,9 @@
  <entity id="30" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://Kirkkokatu17.mesh" name="Mesh ref"/>
+   <attribute value="Kirkkokatu17.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Kirkkokatu17.material" name="Mesh materials"/>
+   <attribute value="Kirkkokatu17.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -663,9 +663,9 @@
  <entity id="31" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://Isokatu20-22.mesh" name="Mesh ref"/>
+   <attribute value="Isokatu20-22.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Isokatu20_22.material" name="Mesh materials"/>
+   <attribute value="Isokatu20_22.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -685,9 +685,9 @@
  <entity id="32" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://KauppuriBlock.mesh" name="Mesh ref"/>
+   <attribute value="KauppuriBlock.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://oulu_road.material;local://side_humps.material;local://oulu_side-walk.material;local://oulu_ground.material" name="Mesh materials"/>
+   <attribute value="oulu_road.material;side_humps.material;oulu_side-walk.material;oulu_ground.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -707,9 +707,9 @@
  <entity id="33" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://Kauppurienkatu17.mesh" name="Mesh ref"/>
+   <attribute value="Kauppurienkatu17.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Kauppurienkatu17.material" name="Mesh materials"/>
+   <attribute value="Kauppurienkatu17.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -729,9 +729,9 @@
  <entity id="34" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://Kauppurienkatu19.mesh" name="Mesh ref"/>
+   <attribute value="Kauppurienkatu19.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Kauppurienkatu19.material" name="Mesh materials"/>
+   <attribute value="Kauppurienkatu19.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -751,9 +751,9 @@
  <entity id="35" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://uusikatu_28.mesh" name="Mesh ref"/>
+   <attribute value="uusikatu_28.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://uusikatu_28.material" name="Mesh materials"/>
+   <attribute value="uusikatu_28.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -773,9 +773,9 @@
  <entity id="36" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://Isokatu23.mesh" name="Mesh ref"/>
+   <attribute value="Isokatu23.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Isokatu23.material" name="Mesh materials"/>
+   <attribute value="Isokatu23.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -795,9 +795,9 @@
  <entity id="37" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://pakkahuoneenkatu_22.mesh" name="Mesh ref"/>
+   <attribute value="pakkahuoneenkatu_22.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://pakkahuoneenkatu_22.material" name="Mesh materials"/>
+   <attribute value="pakkahuoneenkatu_22.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -817,9 +817,9 @@
  <entity id="38" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://KarhisParkBlock.mesh" name="Mesh ref"/>
+   <attribute value="KarhisParkBlock.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://oulu_road.material;local://side_humps.material;local://oulu_side-walk.material;local://oulu_ground.material" name="Mesh materials"/>
+   <attribute value="oulu_road.material;side_humps.material;oulu_side-walk.material;oulu_ground.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -839,9 +839,9 @@
  <entity id="39" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://ouluStreetBridge.mesh" name="Mesh ref"/>
+   <attribute value="ouluStreetBridge.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://OuluStreetBridge.material" name="Mesh materials"/>
+   <attribute value="OuluStreetBridge.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -861,9 +861,9 @@
  <entity id="40" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://ouluStreetBridge.mesh" name="Mesh ref"/>
+   <attribute value="ouluStreetBridge.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://OuluStreetBridge.material" name="Mesh materials"/>
+   <attribute value="OuluStreetBridge.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -883,9 +883,9 @@
  <entity id="41" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://OuluParkBridge.mesh" name="Mesh ref"/>
+   <attribute value="OuluParkBridge.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://oulu_park_bridge.material" name="Mesh materials"/>
+   <attribute value="oulu_park_bridge.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -905,9 +905,9 @@
  <entity id="42" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://OuluParkBridge.mesh" name="Mesh ref"/>
+   <attribute value="OuluParkBridge.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://oulu_park_bridge.material" name="Mesh materials"/>
+   <attribute value="oulu_park_bridge.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -927,9 +927,9 @@
  <entity id="43" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://BenchPark3.mesh" name="Mesh ref"/>
+   <attribute value="BenchPark3.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Bench.material" name="Mesh materials"/>
+   <attribute value="Bench.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -949,9 +949,9 @@
  <entity id="44" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://BenchPark3.mesh" name="Mesh ref"/>
+   <attribute value="BenchPark3.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Bench.material" name="Mesh materials"/>
+   <attribute value="Bench.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -971,9 +971,9 @@
  <entity id="45" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://BenchPark3.mesh" name="Mesh ref"/>
+   <attribute value="BenchPark3.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Bench.material" name="Mesh materials"/>
+   <attribute value="Bench.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -993,9 +993,9 @@
  <entity id="46" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://BenchPark3.mesh" name="Mesh ref"/>
+   <attribute value="BenchPark3.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Bench.material" name="Mesh materials"/>
+   <attribute value="Bench.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1015,9 +1015,9 @@
  <entity id="47" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://Kirkkokatu2.mesh" name="Mesh ref"/>
+   <attribute value="Kirkkokatu2.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Kirkkokatu2Details.material;local://Kirkkokatu2Base.material;local://Kirkkokatu2_vaakuna.material" name="Mesh materials"/>
+   <attribute value="Kirkkokatu2Details.material;Kirkkokatu2Base.material;Kirkkokatu2_vaakuna.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1037,7 +1037,7 @@
  <entity id="48" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://water.001.mesh" name="Mesh ref"/>
+   <attribute value="water.001.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
    <attribute value="" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
@@ -1059,9 +1059,9 @@
  <entity id="49" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://merge_pakkahuoneenkatu_12.mesh" name="Mesh ref"/>
+   <attribute value="merge_pakkahuoneenkatu_12.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://pakkahuoneenkatu_12.material;local://pakkahuoneenkatu_12_signs.material" name="Mesh materials"/>
+   <attribute value="pakkahuoneenkatu_12.material;pakkahuoneenkatu_12_signs.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1081,9 +1081,9 @@
  <entity id="50" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://merge_pakkahuoneenkatu_11.mesh" name="Mesh ref"/>
+   <attribute value="merge_pakkahuoneenkatu_11.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://pakkahuoneenkatu_11_signs.material;local://pakkahuoneenkatu_11.material" name="Mesh materials"/>
+   <attribute value="pakkahuoneenkatu_11_signs.material;pakkahuoneenkatu_11.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1103,9 +1103,9 @@
  <entity id="51" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://merge_pakkahuoneenkatu_13.mesh" name="Mesh ref"/>
+   <attribute value="merge_pakkahuoneenkatu_13.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://pakkahuoneenkatu_13.material;local://pakkahuoneenkatu_13_signs.material" name="Mesh materials"/>
+   <attribute value="pakkahuoneenkatu_13.material;pakkahuoneenkatu_13_signs.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1125,9 +1125,9 @@
  <entity id="52" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://merge_pakkahuoneenkatu_18.mesh" name="Mesh ref"/>
+   <attribute value="merge_pakkahuoneenkatu_18.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://pakkahuoneenkatu_18.material;local://pakkahuoneenkatu_18_signs.material" name="Mesh materials"/>
+   <attribute value="pakkahuoneenkatu_18.material;pakkahuoneenkatu_18_signs.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1147,9 +1147,9 @@
  <entity id="53" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://merge_pakkahuoneenkatu_14-16.mesh" name="Mesh ref"/>
+   <attribute value="merge_pakkahuoneenkatu_14-16.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://pakkahuoneenkatu_14-16_signs.material;local://pakkahuoneenkatu_14-16.material" name="Mesh materials"/>
+   <attribute value="pakkahuoneenkatu_14-16_signs.material;pakkahuoneenkatu_14-16.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1169,9 +1169,9 @@
  <entity id="54" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://merge_pakkahuoneenkatu_15.mesh" name="Mesh ref"/>
+   <attribute value="merge_pakkahuoneenkatu_15.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://pakkahuoneenkatu_15_signs.material;local://pakkahuoneenkatu_railing_2.material;local://pakkahuoneenkatu_15.material;local://pakkahuoneenkatu_railing_1.material;local://pakkahuoneenkatu_15_sign_boards.material" name="Mesh materials"/>
+   <attribute value="pakkahuoneenkatu_15_signs.material;pakkahuoneenkatu_railing_2.material;pakkahuoneenkatu_15.material;pakkahuoneenkatu_railing_1.material;pakkahuoneenkatu_15_sign_boards.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1191,9 +1191,9 @@
  <entity id="55" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://merge_AdministrationParkBlockRiver.mesh" name="Mesh ref"/>
+   <attribute value="merge_AdministrationParkBlockRiver.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://grass.material;local://oulu_st-dirt.material" name="Mesh materials"/>
+   <attribute value="grass.material;oulu_st-dirt.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1213,9 +1213,9 @@
  <entity id="56" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://merge_hallituskatu_13-17.mesh" name="Mesh ref"/>
+   <attribute value="merge_hallituskatu_13-17.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://hallituskatu13_17.material" name="Mesh materials"/>
+   <attribute value="hallituskatu13_17.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1235,9 +1235,9 @@
  <entity id="57" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://merge_Pakkahuoneenkatu9a.mesh" name="Mesh ref"/>
+   <attribute value="merge_Pakkahuoneenkatu9a.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Pakkahuoneenkatu9BalconieRailing.material;local://Pakkahuoneenkatu9a.material" name="Mesh materials"/>
+   <attribute value="Pakkahuoneenkatu9BalconieRailing.material;Pakkahuoneenkatu9a.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1257,9 +1257,9 @@
  <entity id="58" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://merge_Kauppurienkatu15.mesh" name="Mesh ref"/>
+   <attribute value="merge_Kauppurienkatu15.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://Kauppurienkatu15.material;local://railing_bars.material" name="Mesh materials"/>
+   <attribute value="Kauppurienkatu15.material;railing_bars.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1279,9 +1279,9 @@
  <entity id="59" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://merge_ GalleriaBlock.mesh" name="Mesh ref"/>
+   <attribute value="merge_ GalleriaBlock.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://oulu_road.material;local://side_humps.material;local://oulu_side-walk.material;local://oulu_ground.material" name="Mesh materials"/>
+   <attribute value="oulu_road.material;side_humps.material;oulu_side-walk.material;oulu_ground.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1301,9 +1301,9 @@
  <entity id="60" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://merge_KarhisParkBlockRiver.mesh" name="Mesh ref"/>
+   <attribute value="merge_KarhisParkBlockRiver.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://grass.material;local://oulu_st-dirt.material" name="Mesh materials"/>
+   <attribute value="grass.material;oulu_st-dirt.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1323,9 +1323,9 @@
  <entity id="61" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://merge_ParkLampsWest.mesh" name="Mesh ref"/>
+   <attribute value="merge_ParkLampsWest.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://StreetLamp2.material;local://StreetLamps1.material" name="Mesh materials"/>
+   <attribute value="StreetLamp2.material;StreetLamps1.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1345,9 +1345,9 @@
  <entity id="62" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://merge_ParkLampsNorth.mesh" name="Mesh ref"/>
+   <attribute value="merge_ParkLampsNorth.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://StreetLamps1.material;local://StreetLamp2.material" name="Mesh materials"/>
+   <attribute value="StreetLamps1.material;StreetLamp2.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1367,9 +1367,9 @@
  <entity id="63" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://merge_ParkLampsSouth.mesh" name="Mesh ref"/>
+   <attribute value="merge_ParkLampsSouth.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://StreetLamps1.material;local://StreetLamp2.material" name="Mesh materials"/>
+   <attribute value="StreetLamps1.material;StreetLamp2.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1389,9 +1389,9 @@
  <entity id="64" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://merge_ParkLampsMid.mesh" name="Mesh ref"/>
+   <attribute value="merge_ParkLampsMid.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://StreetLamps1.material" name="Mesh materials"/>
+   <attribute value="StreetLamps1.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1411,9 +1411,9 @@
  <entity id="65" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://merge_ParkLampsEast.mesh" name="Mesh ref"/>
+   <attribute value="merge_ParkLampsEast.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://StreetLamps1.material;local://StreetLamp2.material" name="Mesh materials"/>
+   <attribute value="StreetLamps1.material;StreetLamp2.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1433,9 +1433,9 @@
  <entity id="66" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://merge_TreesBushesWest.mesh" name="Mesh ref"/>
+   <attribute value="merge_TreesBushesWest.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://TreesAndBushes.material" name="Mesh materials"/>
+   <attribute value="TreesAndBushes.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1455,9 +1455,9 @@
  <entity id="67" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://merge_TreesBushesMid.mesh" name="Mesh ref"/>
+   <attribute value="merge_TreesBushesMid.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://TreesAndBushes.material" name="Mesh materials"/>
+   <attribute value="TreesAndBushes.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1477,9 +1477,9 @@
  <entity id="68" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://merge_TreesBushesSouth.mesh" name="Mesh ref"/>
+   <attribute value="merge_TreesBushesSouth.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://TreesAndBushes.material" name="Mesh materials"/>
+   <attribute value="TreesAndBushes.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1499,9 +1499,9 @@
  <entity id="69" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://merge_TreesBushesNorth.mesh" name="Mesh ref"/>
+   <attribute value="merge_TreesBushesNorth.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://TreesAndBushes.material" name="Mesh materials"/>
+   <attribute value="TreesAndBushes.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>
@@ -1521,9 +1521,9 @@
  <entity id="70" sync="1">
   <component type="EC_Mesh" sync="true">
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" name="Transform"/>
-   <attribute value="local://merge_TreesBushesEast.mesh" name="Mesh ref"/>
+   <attribute value="merge_TreesBushesEast.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://TreesAndBushes.material" name="Mesh materials"/>
+   <attribute value="TreesAndBushes.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>

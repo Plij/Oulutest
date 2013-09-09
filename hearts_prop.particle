@@ -1,6 +1,6 @@
-particle_system local://hearts_prop.particle_0
+particle_system hearts_prop.particle_0
 {
-    material local://hearts_prop_mat.material
+    material hearts_prop_mat.material
     particle_width 5.0
     particle_height 5.0
     quota 20
