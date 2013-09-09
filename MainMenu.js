@@ -130,12 +130,21 @@ var _connectionInfo =
 These are all Properties that are currently made for our Project, if you make a new entity add its files to scenes rootfolder and according to
 its name in root add it to array. For example if you have City.txml in your root you must have 'City' in array. Case sensitive!!!
 */
+<<<<<<< HEAD
 var Scenes = ["TALVI", "VUORISTO", "NIITTY", "METSÄ", "KAUPUNKI", "RANTA", "HUONE", "TANSSILATTIA", "AVARUUS"].sort();
 var Backgrounds = ["YÖ", "PÄIVÄ", "AAMU"].sort();
 var Elements =["PILVET", "AURINKO", "KUU", "LUMISADE","VESISADE" ,"TULIVUORI", "TULIPALO", "SATEENKAARI", "SALAMA"].sort();
 var Objects = ["TYTTÖ", "POIKA", "AVARUUSOLENTO", "PALMU", "PUU", "PERHOSET", "SIENET", "MURSU", "PINKKI_NORSU", "PUPU", "LEHMÄ", "UNIKORNI", "PRINSESSA"].sort();
 var ManMade = ["KIRVES", "MÖKKI", "RAKETTI", "HIEKKALELUT", "HAUTA", "AUTO", "AARRE", "TIERNAT", "AURINGONVARJO", "MERIROSVOT", "HIEKKALINNA", "LUMIUKKO"].sort();
 var SpecialEffects = ["MONOLIITTI", "UFO", "TULIPALO", "SYDÄMET", "VESISADE", "LUMISADE", "ILOTULITUS", "SALAMA", "TÄHDET"].sort();
+=======
+var Scenes = ["Winter", "Mountains", "Medow", "Forest", "City", "Beach", "Room", "DanceFloor", "Space"].sort();
+var Backgrounds = ["NightSky", "DaySky", "Sunset"].sort();
+var Elements =["Clouds", "Sun", "Moon", "SnowFlakes","Rain" ,"Volcano", "Fire", "Rainbow", "Lightning"].sort();
+var Objects = ["Girl", "Boy", "Alien", "Palm", "Tree", "Butterflies", "Mushroom", "Walrus", "PinkElephant", "Bunny", "Cow", "Princess"].sort();
+var ManMade = ["Axe", "Cottage", "Rocket", "SandToys", "Tombstone", "Car", "Treasure", "Mob", "Parasol", "Pirates", "SandCastle", "Snowman"].sort();
+var SpecialEffects = ["Monolith", "UFO", "Fire", "Hearts", "Rain", "SnowFlakes", "Fireworks", "Lightning", "Unicorn", "Stars"].sort();
+>>>>>>> master
 
 var PropType = ["Element","Object","ManMade","Effect"];
 

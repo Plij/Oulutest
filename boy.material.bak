@@ -1,16 +1,16 @@
-// space_scene_mat genrated by blender2ogre 0.5.8
+// boy genrated by blender2ogre 0.5.8
 
-material space_scene_mat 
+material boy 
 {
     receive_shadows on 
 
     technique
     {
-        pass space_scene_mat
+        pass boy
         {
             ambient 0.800000011920929 0.800000011920929 0.800000011920929 1.0
             diffuse 0.6400000190734865 0.6400000190734865 0.6400000190734865 1.0
-            specular 0.14844779670238495 0.14844779670238495 0.14844779670238495 1.0 9.0
+            specular 0.09836064279079437 0.09836064279079437 0.09836064279079437 1.0 12.5
             emissive 0.0 0.0 0.0 1.0
 
             alpha_to_coverage off
@@ -32,7 +32,7 @@ material space_scene_mat
 
             texture_unit 
             {
-                texture Space_Scene_text.jpg
+                texture boy_text.jpg
                 tex_address_mode wrap
                 scale 1.0 1.0
                 colour_op modulate

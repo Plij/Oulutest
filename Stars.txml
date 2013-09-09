@@ -1,0 +1,34 @@
+<!DOCTYPE Scene>
+<scene>
+ <entity temporary="false" id="86" sync="true">
+  <component temporary="false" type="Name" sync="true">
+   <attribute value="stars_prop_icon" type="string" id="name" name="Name"/>
+   <attribute value="" type="string" id="description" name="Description"/>
+   <attribute value="" type="string" id="group" name="Group"/>
+  </component>
+  <component temporary="false" type="Placeable" sync="true">
+   <attribute value="-57.000000,17.000000,-68.500000,0.000000,0.000000,-89.798775,0.350000,0.350000,0.350000" type="Transform" id="transform" name="Transform"/>
+   <attribute value="false" type="bool" id="drawDebug" name="Show bounding box"/>
+   <attribute value="true" type="bool" id="visible" name="Visible"/>
+   <attribute value="1" type="int" id="selectionLayer" name="Selection layer"/>
+   <attribute value="" type="EntityReference" id="parentRef" name="Parent entity ref"/>
+   <attribute value="" type="string" id="parentBone" name="Parent bone name"/>
+  </component>
+  <component temporary="false" type="Mesh" sync="true">
+   <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" type="Transform" id="nodeTransformation" name="Transform"/>
+   <attribute value="stars_prop_icon.mesh" type="AssetReference" id="meshRef" name="Mesh ref"/>
+   <attribute value="" type="AssetReference" id="skeletonRef" name="Skeleton ref"/>
+   <attribute value="local://stars_prop_icon_mat.material" type="AssetReferenceList" id="meshMaterial" name="Mesh materials"/>
+   <attribute value="0.000000" type="real" id="drawDistance" name="Draw distance"/>
+   <attribute value="false" type="bool" id="castShadows" name="Cast shadows"/>
+   <attribute value="false" type="bool" id="useInstancing" name="Use instancing"/>
+  </component>
+  <component temporary="false" type="DynamicComponent" sync="true" name="Prop"/>
+  <component temporary="false" type="ParticleSystem" sync="true" name="Stars">
+   <attribute value="local://stars_prop.particle" type="AssetReference" id="particleRef" name="Particle ref"/>
+   <attribute value="false" type="bool" id="castShadows" name="Cast shadows"/>
+   <attribute value="true" type="bool" id="enabled" name="Enabled"/>
+   <attribute value="0.000000" type="real" id="renderingDistance" name="Rendering distance"/>
+  </component>
+ </entity>
+</scene>
