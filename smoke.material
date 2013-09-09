@@ -1,4 +1,4 @@
-material local://smoke.material
+material smoke.material
 {
     technique
     {
@@ -13,7 +13,7 @@ material local://smoke.material
 
             texture_unit
             {
-                texture local://smoke.png
+                texture smoke.png
             }
         }
 
