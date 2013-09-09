@@ -10,7 +10,7 @@ material fireworks_prop_mat
 
 			texture_unit
 			{
-				texture local://fireworks_prop_text.png
+				texture fireworks_prop_text.png
 			}
 		}
 	}

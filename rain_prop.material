@@ -1,4 +1,4 @@
-material local://rain_prop.material
+material rain_prop.material
 {
 	technique
 	{
@@ -10,7 +10,7 @@ material local://rain_prop.material
 
 			texture_unit
 			{
-				texture local://rain_prop_text.png
+				texture rain_prop_text.png
 			}
 		}
 	}
