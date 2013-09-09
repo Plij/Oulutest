@@ -1,6 +1,6 @@
 particle_system fireworks_prop
 {
-	material local://fireworks_prop_mat.material
+	material fireworks_prop_mat.material
     particle_width 2
     particle_height 2
     quota 200

@@ -1,6 +1,6 @@
 particle_system fire_prop1
 {
-	 material local://fire_prop_mat.material
+	 material fire_prop_mat.material
     particle_width 5
     particle_height 5
     quota 15

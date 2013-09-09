@@ -1,5 +1,5 @@
 
-material local://candle.material
+material candle.material
 {
 	technique
 	{
@@ -12,7 +12,7 @@ material local://candle.material
 
 			texture_unit
 			{
-				texture local://candle.PNG
+				texture candle.PNG
 			}
 		}
 
