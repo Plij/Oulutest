@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MumbleClientWidget</class>
+ <widget class="QWidget" name="MumbleClientWidget">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>243</width>
+    <height>264</height>
+   </rect>
+  </property>
+  <property name="acceptDrops">
+   <bool>true</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/*QWidget#MumbleClientWidget 
+{
+ 	border: 0px;
+	windowFlags: 0x00000800;
+
+}; */
+
+QWidget#MumbleClientWidget 
+{
+	border: 0px;
+	windowFlags: 0x00000800;
+    background-color: transparent; }
+QFrame#frame { 
+windowFlags: 0x00000800;
+background-color: rgba(33, 217, 229,200); border-radius: 12px;
+}
+
+QLabel, QPushButton {
+	font-size: 9pt;
+}
+
+QLabel#labelConnectionStateTitle, #labelChannelNameTitle, #labelControlsTitle, #labelChatTitle {
+	font-weight: bold;
+}
+
+QPlainTextEdit, QLineEdit, QListWidget {
+	border: 1px solid grey;
+}
+
+QLineEdit {
+	border-top: 0px;
+}</string>
+  </property>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>243</width>
+     <height>264</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="labelChannelNameTitle">
+    <property name="geometry">
+     <rect>
+      <x>13</x>
+      <y>6</y>
+      <width>93</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="text">
+     <string>Channel Users</string>
+    </property>
+    <property name="indent">
+     <number>2</number>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonDisconnect">
+    <property name="geometry">
+     <rect>
+      <x>151</x>
+      <y>230</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Disconnect</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelConnectionState">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>170</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="listUsers">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>48</y>
+      <width>211</width>
+      <height>118</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="deafSelfToggle">
+    <property name="geometry">
+     <rect>
+      <x>95</x>
+      <y>204</y>
+      <width>71</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Deaf Self</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelChannelName">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>24</y>
+      <width>211</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonOpenConnect">
+    <property name="geometry">
+     <rect>
+      <x>172</x>
+      <y>204</y>
+      <width>61</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Connect</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonOpenWizard">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>230</y>
+      <width>131</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Open Audio Wizard</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="muteSelfToggle">
+    <property name="geometry">
+     <rect>
+      <x>8</x>
+      <y>204</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Mute Self</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

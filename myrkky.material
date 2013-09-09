@@ -1,4 +1,4 @@
-material local://Special.001.material
+material Special.001.material
 {
     technique
     {
@@ -11,7 +11,7 @@ material local://Special.001.material
 
             texture_unit
             {
-                texture local://myrkky.png
+                texture myrkky.png
             }
         }
 
