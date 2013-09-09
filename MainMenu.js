@@ -11,8 +11,72 @@
 //!ref: Scripts/MumbleConnectWidget.ui
 //!ref: Scripts/StartMumble.ui
 
+//!ref: AAMU.txml
+//!ref: AARRE.txml
+//!ref: AURINGONVARJO.txml
+//!ref: AURINKO.txml
+//!ref: AUTO.txml
+//!ref: AVARUUS.txml
+//!ref: AVARUUSOLENTO.txml
+//!ref: DanceFloor.txml
+//!ref: HAUTA.txml
+//!ref: HIEKKALELUT.txml
+//!ref: HIEKKALINNA.txml
+//!ref: HUONE.txml
+//!ref: ILOTULITUS.txml
+//!ref: KAUPUNKI.txml
+//!ref: KIRVES.txml
+//!ref: KUU.txml
+//!ref: LEHMÄ.txml
+//!ref: LUMISADE.txml
+//!ref: LUMIUKKO.txml
+//!ref: MERIROSVOT.txml
+//!ref: METSÄ.txml
+//!ref: MONOLIITTI.txml
+//!ref: MURSU.txml
+//!ref: MÖKKI.txml
+//!ref: narrator-avatar.txml
+//!ref: NIITTY.txml
+//!ref: PALMU.txml
+//!ref: PERHOSET.txml
+//!ref: PILVET.txml
+//!ref: PINKKI_NORSU.txml
+//!ref: plexi.txml
+//!ref: POIKA.txml
+//!ref: Princess.txml
+//!ref: PRINSESSA.txml
+//!ref: PUPU.txml
+//!ref: PUU.txml
+//!ref: PÄIVÄ.txml
+//!ref: RAKETTI.txml
+//!ref: RANTA.txml
+//!ref: SALAMA.txml
+//!ref: SATEENKAARI.txml
+//!ref: SIENET.txml
+//!ref: Space.txml
+//!ref: stage.txml
+//!ref: stage_plexi.txml
+//!ref: Stars.txml
+//!ref: SYDÄMET.txml
+//!ref: TALVI.txml
+//!ref: TANSSILATTIA.txml
+//!ref: TIERNAT.txml
+//!ref: TULIPALO.txml
+//!ref: TULIVUORI.txml
+//!ref: TYTTÖ.txml
+//!ref: TÄHDET.txml
+//!ref: UFO.txml
+//!ref: Unicorn.txml
+//!ref: UNIKORNI.txml
+//!ref: VESISADE.txml
+//!ref: VUORISTO.txml
+//!ref: YÖ.txml
 
-engine.IncludeFile("local://MumbleFunc.js");
+
+
+
+
+engine.IncludeFile("MumbleFunc.js");
 engine.ImportExtension("qt.core");
 engine.ImportExtension("qt.gui");
 //engine.ImportExtension("qt.uitools");
@@ -77,6 +141,7 @@ var _connectionInfo =
 These are all Properties that are currently made for our Project, if you make a new entity add its files to scenes rootfolder and according to
 its name in root add it to array. For example if you have City.txml in your root you must have 'City' in array. Case sensitive!!!
 */
+
 var Scenes = ["TALVI", "VUORISTO", "NIITTY", "METSÄ", "KAUPUNKI", "RANTA", "HUONE", "TANSSILATTIA", "AVARUUS"].sort();
 var Backgrounds = ["YÖ", "PÄIVÄ", "AAMU"].sort();
 var Elements =["PILVET", "AURINKO", "KUU", "LUMISADE","VESISADE" ,"TULIVUORI", "TULIPALO", "SATEENKAARI", "SALAMA"].sort();
@@ -352,7 +417,7 @@ function Init()
 		 //Initialize if not yet done
 		if (_mumbleConnectWidget == null)
 		{
-			//_connectWidget = ui.LoadFromFile("local://MumbleConnectWidget.ui");			
+			//_connectWidget = ui.LoadFromFile("MumbleConnectWidget.ui");			
 			_mumbleConnectWidget = ui.LoadFromFile("Scripts/MumbleConnectWidget.ui",false);
 			MumbleConnectProxy = new UiProxyWidget(_mumbleConnectWidget);
 			ui.AddProxyWidgetToScene(MumbleConnectProxy);
@@ -729,13 +794,15 @@ function EnableAnims(){
     //Scenes have SceneAnim named animation, same principle as in Props.
     var ent = this.enti;
     if(ent.dynamiccomponent.name == "Prop" || ent.dynamiccomponent.name == "prop"){     
-      ent.animationcontroller.EnableAnimation('PropAnim'); 
+      //ent.animationcontroller.EnableAnimation('PropAnim'); 
+	  ent.Exec(5, "PlayLoopedAnim", "PropAnim");
       ent.placeable.visible = true;
       ent.dynamiccomponent.SetAttribute('Placed', true);
       RemoveHighlights(scene.GetEntitiesWithComponent('EC_Highlight', 'MySpecialHighlight'));
       
     }else if(ent.dynamiccomponent.name == "Scene" || ent.dynamiccomponent.name == "scene"){
-      ent.animationcontroller.EnableAnimation('SceneAnim');      
+      //ent.animationcontroller.EnableAnimation('SceneAnim');      
+      ent.Exec(5, "PlayLoopedAnim", "SceneAnim");
       ent.placeable.visible = true;
       ent.dynamiccomponent.SetAttribute('Placed', true);
       RemoveHighlights(scene.GetEntitiesWithComponent('EC_Highlight', 'MySpecialHighlight'));
@@ -779,7 +846,7 @@ Set Camera a new script which will set its position and inputmappers
 function SetCamera(){
   var cam = scene.GetEntityByName('FreeLookCamera');
   var script = cam.GetOrCreateComponent('EC_Script');
-  script.scriptRef = ["local://freelookcamera.js", "local://CamScript.js"];
+  script.scriptRef = ["freelookcamera.js", "CamScript.js"];
   
   
 }

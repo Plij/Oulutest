@@ -1,4 +1,4 @@
-material local://fire_prop.material
+material fire_prop.material
 {
 	technique
 	{
@@ -10,7 +10,7 @@ material local://fire_prop.material
 
 			texture_unit
 			{
-				texture local://fire_prop_text2.png
+				texture fire_prop_text2.png
 			}
 		}
 	}
