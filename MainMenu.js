@@ -132,7 +132,7 @@ its name in root add it to array. For example if you have City.txml in your root
 var Scenes = ["Winter", "Mountains", "Medow", "Forest", "City", "Beach", "Room", "DanceFloor", "Space"].sort();
 var Backgrounds = ["NightSky", "DaySky", "Sunset"].sort();
 var Elements =["Clouds", "Sun", "Moon", "SnowFlakes","Rain" ,"Volcano", "Fire", "Rainbow", "Lightning"].sort();
-var Objects = ["Girl", "Boy", "Alien", "Palm", "Tree", "Butterflies", "Mushroom", "Walrus", "PinkElephant", "Bunny", "Cow", "Princess"].sort();
+var Objects = ["Girl", "Boy", "Alien", "Palm", "Tree", "Butterflies", "Mushroom", "Walrus", "PinkElephant", "Bunny", "Cow", "Princess", "Narrator"].sort();
 var ManMade = ["Axe", "Cottage", "Rocket", "SandToys", "Tombstone", "Car", "Treasure", "Mob", "Parasol", "Pirates", "SandCastle", "Snowman"].sort();
 var SpecialEffects = ["Monolith", "UFO", "Fire", "Hearts", "Rain", "SnowFlakes", "Fireworks", "Lightning", "Unicorn", "Stars"].sort();
 
