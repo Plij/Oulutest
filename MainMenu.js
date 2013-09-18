@@ -34,7 +34,6 @@
 //!ref: Moon.txml
 //!ref: Mountains.txml
 //!ref: Mushroom.txml
-//!ref: narrator-avatar.txml
 //!ref: NightSky.txml
 //!ref: Oulu3D.txml
 //!ref: Palm.txml
@@ -693,21 +692,6 @@ function rnd(n){
 }
 
 /*
-Function for randoming narrators animations. Narrator entity has to be named 'narrator' in this case.
-*/
-function NarratorAnim(){
-  var nar = scene.GetEntityByName('narrator');
-  var a = nar.animationcontroller.GetAvailableAnimations();
-    
-  if(a.length < 0)
-    console.LogInfo('No animations yet');
-  else{
-    var idx = rnd(a.length);
-    nar.animationcontroller.EnableAnimation(a[idx], false);
-  }
-  
-}
-/*
 Removes all highlights to be sure that entities are not selected when added to scene.
 */
 function RemoveHighlights(ents){
@@ -721,9 +705,8 @@ function LoadXML (text){
   
   /*
   This function loads the entity from file .txml and places it according to its own settings. All Props, Scenes and Backgrounds are in the root folder of Oulutest.
-  Also on every new action with GUI, we make our "narrator" animate. See NarratorAnim() for its logic.
+
   */			   
-  NarratorAnim();
   
   if(text == null || text == ""){
 	  console.LogInfo("You havn't selected any effect");
