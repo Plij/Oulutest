@@ -145,7 +145,7 @@ var Scenes = ["TALVI", "VUORISTO", "NIITTY", "METSÄ", "KAUPUNKI", "RANTA", "HUON
 var Backgrounds = ["YÖ", "PÄIVÄ", "AAMU"].sort();
 var Elements =["PILVET", "AURINKO", "KUU", "LUMISADE","VESISADE" ,"TULIVUORI", "TULIPALO", "SATEENKAARI", "SALAMA"].sort();
 var Objects = ["TYTTÖ", "POIKA", "AVARUUSOLENTO", "PALMU", "PUU", "PERHOSET", "SIENET", "MURSU", "PINKKI_NORSU", "PUPU", "LEHMÄ", "UNIKORNI", "PRINSESSA"].sort();
-var ManMade = ["KIRVES", "MÖKKI", "RAKETTI", "HIEKKALELUT", "HAUTA", "AUTO", "AARRE", "TIERNAT", "AURINGONVARJO", "MERIROSVOT", "HIEKKALINNA", "LUMIUKKO"].sort();
+var ManMade = ["KIRVES", "MÖKKI", "RAKETTI", "HIEKKALELUT", "HAUTA", "AUTO", "AARRE", "TIERNAT", "AURINGONVARJO", "MERIROSVOT", "HIEKKALINNA", "LUMIUKKO", "KERTOJA"].sort();
 var SpecialEffects = ["MONOLIITTI", "UFO", "TULIPALO", "SYDÄMET", "VESISADE", "LUMISADE", "ILOTULITUS", "SALAMA", "TÄHDET"].sort();
 
 var PropType = ["Element","Object","ManMade","Effect"];
