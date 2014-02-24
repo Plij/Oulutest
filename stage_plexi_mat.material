@@ -1,28 +1,11 @@
-// stage_plexi_mat genrated by blender2ogre 0.5.8
-
-material stage_plexi_mat 
+material stage_plexi_mat
 {
-    receive_shadows off 
-
     technique
     {
-        pass stage_plexi_mat
+        pass pallo_mat2
         {
-      {
-            ambient 0.8 0.8 0.8 1
-            diffuse 0.64 0.64 0.64 1
-            specular 0.5 0.479069 0.217079 1 12.5
-            emissive 0.8 0.8 0.8 1
-            scene_blend zero dest_colour
-            transparent_sorting off
+            scene_blend one one_minus_src_colour
             depth_write off
-
-            texture_unit 
-            {
-                texture plexi_text.jpg
-				colour_op_ex blend_texture_alpha src_texture src_current
-                colour_op_multipass_fallback src_alpha one_minus_src_alpha
-            }
         }
     }
 }
