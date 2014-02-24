@@ -7,9 +7,6 @@
 //!ref: Scripts/Prop.ui
 //!ref: Scripts/PropType.ui
 //!ref: Scripts/Scene.ui
-//!ref: Scripts/MumbleClientWidget.ui
-//!ref: Scripts/MumbleConnectWidget.ui
-//!ref: Scripts/StartMumble.ui
 
 //!ref: AAMU.txml
 //!ref: AARRE.txml
@@ -18,7 +15,6 @@
 //!ref: AUTO.txml
 //!ref: AVARUUS.txml
 //!ref: AVARUUSOLENTO.txml
-//!ref: DanceFloor.txml
 //!ref: HAUTA.txml
 //!ref: HIEKKALELUT.txml
 //!ref: HIEKKALINNA.txml
@@ -27,14 +23,14 @@
 //!ref: KAUPUNKI.txml
 //!ref: KIRVES.txml
 //!ref: KUU.txml
-//!ref: LEHMÄ.txml
+//!ref: LEHMA.txml
 //!ref: LUMISADE.txml
 //!ref: LUMIUKKO.txml
 //!ref: MERIROSVOT.txml
-//!ref: METSÄ.txml
+//!ref: METSA.txml
 //!ref: MONOLIITTI.txml
 //!ref: MURSU.txml
-//!ref: MÖKKI.txml
+//!ref: MOKKI.txml
 //!ref: NIITTY.txml
 //!ref: PALMU.txml
 //!ref: PERHOSET.txml
@@ -46,7 +42,7 @@
 //!ref: PRINSESSA.txml
 //!ref: PUPU.txml
 //!ref: PUU.txml
-//!ref: PÄIVÄ.txml
+//!ref: PAIVA.txml
 //!ref: RAKETTI.txml
 //!ref: RANTA.txml
 //!ref: SALAMA.txml
@@ -56,20 +52,19 @@
 //!ref: stage.txml
 //!ref: stage_plexi.txml
 //!ref: Stars.txml
-//!ref: SYDÄMET.txml
+//!ref: SYDAMET.txml
 //!ref: TALVI.txml
 //!ref: TANSSILATTIA.txml
 //!ref: TIERNAT.txml
 //!ref: TULIPALO.txml
 //!ref: TULIVUORI.txml
-//!ref: TYTTÖ.txml
-//!ref: TÄHDET.txml
+//!ref: TYTTO.txml
+//!ref: TAHDET.txml
 //!ref: UFO.txml
-//!ref: Unicorn.txml
 //!ref: UNIKORNI.txml
 //!ref: VESISADE.txml
 //!ref: VUORISTO.txml
-//!ref: YÖ.txml
+//!ref: YO.txml
 
 
 
@@ -109,13 +104,6 @@ var ElementProxy = null;
 var ObjectProxy = null;
 var ManMadeProxy = null;
 var EffectProxy = null;
-var MumbleClientProxy_visible = false;
-//var MumbleConnectProxy_visible = false;
-var MumbleProxy = null;
-var MumbleClientProxy = null;
-var MumbleConnectProxy = null;
-var _mumbleClientWidget = null;
-var _mumbleConnectWidget = null;
 var _SceneListWidget = null;
 //var _PropListWidget = null;
 var _BackgroundListWidget  = null;
@@ -124,29 +112,17 @@ var _ObjectListWidget = null;
 var _ManMadeListWidget = null;
 var _EffectListWidget = null;
 
-//------------mumble /variable----begin-------------//
-var _connectionInfo =
-{
-    host      : "athena.mumble-serveur.com",    // Change to IP if you want to test remote Murmur servers.
-    port      : 13501,          				// Default port for Murmur, see murmur.ini for changing this.
-    password  : "e92ds6gs",             		// Default password for Murmur is empty, see murmur.ini for changing this.
-    channel   : "mumble-serveur.com public #1", // Default Murmur server will have one channel called "Root". Empty channel name is depicted as "Root" when connecting via MumblePlugin.
-    outputMuted : false,        // True means your voice is sent after connecting, false means your output is muted.
-    intputMuted : false         // True means voice should be sent to us from other client after connecting, false means server wont send us the voice packets.
-};
-//------------mumble /variable ----- end ------------//
-
 /*
 These are all Properties that are currently made for our Project, if you make a new entity add its files to scenes rootfolder and according to
 its name in root add it to array. For example if you have City.txml in your root you must have 'City' in array. Case sensitive!!!
 */
 
-var Scenes = ["TALVI", "VUORISTO", "NIITTY", "METSÄ", "KAUPUNKI", "RANTA", "HUONE", "TANSSILATTIA", "AVARUUS"].sort();
-var Backgrounds = ["YÖ", "PÄIVÄ", "AAMU"].sort();
+var Scenes = ["TALVI", "VUORISTO", "NIITTY", "METSA", "KAUPUNKI", "RANTA", "HUONE", "TANSSILATTIA", "AVARUUS"].sort();
+var Backgrounds = ["YO", "PAIVA", "AAMU"].sort();
 var Elements =["PILVET", "AURINKO", "KUU", "LUMISADE","VESISADE" ,"TULIVUORI", "TULIPALO", "SATEENKAARI", "SALAMA"].sort();
-var Objects = ["TYTTÖ", "POIKA", "AVARUUSOLENTO", "PALMU", "PUU", "PERHOSET", "SIENET", "MURSU", "PINKKI_NORSU", "PUPU", "LEHMÄ", "UNIKORNI", "PRINSESSA"].sort();
-var ManMade = ["KIRVES", "MÖKKI", "RAKETTI", "HIEKKALELUT", "HAUTA", "AUTO", "AARRE", "TIERNAT", "AURINGONVARJO", "MERIROSVOT", "HIEKKALINNA", "LUMIUKKO", "KERTOJA"].sort();
-var SpecialEffects = ["MONOLIITTI", "UFO", "TULIPALO", "SYDÄMET", "VESISADE", "LUMISADE", "ILOTULITUS", "SALAMA", "TÄHDET"].sort();
+var Objects = ["TYTTO", "POIKA", "AVARUUSOLENTO", "PALMU", "PUU", "PERHOSET", "SIENET", "MURSU", "PINKKI_NORSU", "PUPU", "LEHMA", "UNIKORNI", "PRINSESSA"].sort();
+var ManMade = ["KIRVES", "MOKKI", "RAKETTI", "HIEKKALELUT", "HAUTA", "AUTO", "AARRE", "TIERNAT", "AURINGONVARJO", "MERIROSVOT", "HIEKKALINNA", "LUMIUKKO", "KERTOJA"].sort();
+var SpecialEffects = ["MONOLIITTI", "UFO", "TULIPALO", "SYDAMET", "VESISADE", "LUMISADE", "ILOTULITUS", "SALAMA", "TAHDET"].sort();
 
 var PropType = ["Element","Object","ManMade","Effect"];
 
@@ -185,21 +161,6 @@ this.Positions = [ScenePos, GroundPropPos, SkyPropPos, BackgPos];
  */
 function Init()
 {
-
-// -------------Hook to MumblePlugin  ------------- begin ---------- //
-	 
-	mumble.Connected.connect(OnConnected);
-	mumble.Disconnected.connect(OnDisconnected);
-	mumble.ConnectionRejected.connect(OnRejected);
-	mumble.MeCreated.connect(OnMeCreated);
-	mumble.JoinedChannel.connect(OnJoinedChannel);
-	mumble.UserMuted.connect(OnUserLocalMuteChanged);
-	mumble.UserSelfMuted.connect(OnUserSelfMutedChange);
-	mumble.UserSelfDeaf.connect(OnUserSelfDeafChange);
-	//mumble.UserSpeaking.connect(OnUserSpeakingChange); // used to show the icon status, if the user speaking, then the color of icon will change. 
-	//mumble.UserPositionalChanged.connect(OnUserPositionalChange);  // used to show the position of the user based on the network's hotspot where user access to. 
-	mumble.ChannelTextMessageReceived.connect(OnChannelTextMessageReceived);
-// -------------- Hook to MumblePlugin ---------------end -----------------//
 
 		
 // load the file "MainMenu.ui"   
@@ -356,98 +317,6 @@ function Init()
 	//set proxy position
     EffectProxy.x = 965 + 105;            
     EffectProxy.y = 25 + 13 ;
-
-// --------------------------------------------------- mumble /widget---- --- begin ------------------------------------------//
-// load the file "StartMumble.ui and add it into the scene"
-	var _mumbleWidget = ui.LoadFromFile("Scripts/StartMumble.ui",false);
-	var _MumbleBtn = findChild(_mumbleWidget,"MumbleBtn");
-
-	_MumbleBtn.pressed.connect(MumbleBtnClicked);    //	 when the mumble button clicked, the mumble client GUI will be shown in the scene
-	
-	var MumbleProxy = new UiProxyWidget(_mumbleWidget);
-	ui.AddProxyWidgetToScene(MumbleProxy);
-	
-//	 set the default value of visible as  true;
-	MumbleProxy.visible = true;
-	MumbleProxy.windowFlags = 0;
-	
-	//set proxy position
-	MumbleProxy.x = 1;
-	MumbleProxy.y = 0;
-
-
-	// load the file "MumbleClientWidget.ui"
-	_mumbleClientWidget = ui.LoadFromFile("Scripts/MumbleClientWidget.ui",false);
-	MumbleClientProxy = new UiProxyWidget(_mumbleClientWidget);
-	
-	
-		_buttonConnect = findChild(_mumbleClientWidget,"buttonOpenConnect");
-		_buttonConnect.clicked.connect(ShowConnectDialog);                // listen to the event of show connect Dialog 
-	
-	    _buttonDisconnect = findChild(_mumbleClientWidget, "buttonDisconnect");
-		_buttonDisconnect.clicked.connect(mumble, mumble.Disconnect);     // Direct connection to MumblePlugin C++ QObject
-	
-		_buttonWizard = findChild(_mumbleClientWidget, "buttonOpenWizard");
-		_buttonWizard.clicked.connect(mumble, mumble.RunAudioWizard);      // Direct connection to MumblePlugin C++ QObject
-	
-		_buttonSelfMute = findChild(_mumbleClientWidget, "muteSelfToggle");
-		_buttonSelfMute.clicked.connect(OnSelfMuteToggle);                // listen to the event of Mute self 
-	
-		_buttonSelfDeaf = findChild(_mumbleClientWidget, "deafSelfToggle");
-		_buttonSelfDeaf.clicked.connect(OnSelfDeafToggle);                 // listen to the event of Deaf self
-		
-		_userList = findChild(_mumbleClientWidget, "listUsers");
-	
-	ui.AddProxyWidgetToScene(MumbleClientProxy);
-	MumbleClientProxy.visible = MumbleClientProxy_visible;
-	MumbleClientProxy.windowFlags = 0;
-	
-	//set proxy position
-	MumbleClientProxy.x = 2;
-	MumbleClientProxy.y = 42;
-	
-		
-/*
- *  show the widget of connecting to server, the parameters of connecting to server are default value, 
- *  so don't need to care more about it and just to click connect button, which makes it earier for users to use.
- */
-	function ShowConnectDialog()
-	{
-		 //Initialize if not yet done
-		if (_mumbleConnectWidget == null)
-		{
-			//_connectWidget = ui.LoadFromFile("MumbleConnectWidget.ui");			
-			_mumbleConnectWidget = ui.LoadFromFile("Scripts/MumbleConnectWidget.ui",false);
-			MumbleConnectProxy = new UiProxyWidget(_mumbleConnectWidget);
-			ui.AddProxyWidgetToScene(MumbleConnectProxy);
-			
-			MumbleConnectProxy.windowFlags = 0;
-			MumbleConnectProxy.x = 2 + 248;
-			MumbleConnectProxy.y = 42;
-			
-			var widgets = GetConnectionDataWidgets(_mumbleConnectWidget);
-			//console.LogInfo("_mumbleConnectWidget:"+_mumbleConnectWidget);
-			//console.LogInfo("widgets:"+widgets);
-			widgets.connectButton.clicked.connect(Connect);
-			widgets.cancelButton.clicked.connect(_mumbleConnectWidget, _mumbleConnectWidget.hide);
-	
-			widgets.host.text = _connectionInfo.host;
-			widgets.port.value = _connectionInfo.port;
-			widgets.password.text = _connectionInfo.password;
-			widgets.channel.text = _connectionInfo.channel;
-			if (client != null && client.LoginProperty("username") != "")
-				widgets.username.text = client.LoginProperty("username");
-			else
-				widgets.username.text = "Tom";
-		}
-	    MumbleConnectProxy.visible = true;
-		
-	}
-	
-	
-//------------------------------------------------- mumble /widget-------------end ------------------------------//
-
-
 }
 
 	// responed to the event of cleanPropTypeMenu, when the scene or background widget shown, it should call this function to hide the proptype widget and its four  
@@ -486,19 +355,6 @@ function Init()
 		
 	}
 
-
-//  respond to the event of Mumble button clicked, when the mumble button clicked, then it will show the mumble client widget in the scene. 
-	function MumbleBtnClicked(){
-		// show and hide the mumble of client
-		MumbleClientProxy_visible = !MumbleClientProxy_visible;
-		MumbleClientProxy.visible = MumbleClientProxy_visible;
-		 SetConnectionState(false, "Disconnected");
-		// hide the connect dialog
-		if(MumbleConnectProxy != null)
-		{
-			MumbleConnectProxy.visible = false;
-		}
-	}
 
 /*
  *  handle all events occurring on submenus (background, proptype, scene, clearMenu, clearEntity)---------begin------------
