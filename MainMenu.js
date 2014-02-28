@@ -1,7 +1,7 @@
 //!ref: Scripts/MainMenu.ui
 //!ref: Scripts/Background.ui
 //!ref: Scripts/Effect.ui
-//!ref: ScriptS/Element.ui
+//!ref: Scripts/Element.ui
 //!ref: Scripts/ManMade.ui
 //!ref: Scripts/Object.ui
 //!ref: Scripts/Prop.ui
