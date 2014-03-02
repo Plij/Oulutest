@@ -1,6 +1,6 @@
 // pirates_material genrated by blender2ogre 0.5.8
 
-material pirates_material.material
+material local://pirates_material.material
 {
     technique
     {
@@ -13,7 +13,7 @@ material pirates_material.material
 
             texture_unit
             {
-                texture pirates_prop_text.jpg
+                texture local://pirates_prop_text.jpg
             }
         }
 

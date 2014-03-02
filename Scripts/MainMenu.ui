@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>83</width>
-    <height>252</height>
+    <width>103</width>
+    <height>212</height>
    </rect>
   </property>
   <property name="mouseTracking">
@@ -108,8 +108,8 @@ font:bold;
     <rect>
      <x>2</x>
      <y>1</y>
-     <width>81</width>
-     <height>251</height>
+     <width>101</width>
+     <height>211</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -124,10 +124,10 @@ font:bold;
    <widget class="QPushButton" name="BackgroundBtn">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>50</y>
-      <width>81</width>
-      <height>41</height>
+      <x>4</x>
+      <y>42</y>
+      <width>93</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="mouseTracking">
@@ -146,10 +146,10 @@ font:bold;
    <widget class="QPushButton" name="PropBtn">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>130</y>
-      <width>81</width>
-      <height>41</height>
+      <x>4</x>
+      <y>108</y>
+      <width>93</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="mouseTracking">
@@ -162,10 +162,10 @@ font:bold;
    <widget class="QPushButton" name="SceneBtn">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>90</y>
-      <width>81</width>
-      <height>41</height>
+      <x>4</x>
+      <y>75</y>
+      <width>93</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="mouseTracking">
@@ -181,10 +181,10 @@ font:bold;
    <widget class="QPushButton" name="ClearMenuBtn">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>10</y>
-      <width>81</width>
-      <height>41</height>
+      <x>4</x>
+      <y>9</y>
+      <width>93</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="mouseTracking">
@@ -193,17 +193,17 @@ font:bold;
     <property name="styleSheet">
      <string notr="true"/>
     </property>
-     <qresource>      //TÄHÄM JÄIT
-     <file alias="mainMenu.png">assets/icons/mainMenu.png</file>
-   </qresource>
+    <property name="text">
+     <string>PääValikko</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="ClearEntityBtn">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>210</y>
-      <width>81</width>
-      <height>41</height>
+      <x>4</x>
+      <y>174</y>
+      <width>93</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="mouseTracking">
@@ -219,10 +219,10 @@ font:bold;
    <widget class="QPushButton" name="RandomBtn">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>170</y>
-      <width>81</width>
-      <height>41</height>
+      <x>3</x>
+      <y>141</y>
+      <width>93</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="mouseTracking">
