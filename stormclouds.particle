@@ -1,33 +1,38 @@
-particle_system stormclouds.particle
+particle_system http$1$2$2meshmoon.eu.scenes.2.s3-eu-west-1.amazonaws.com$2mediateam-b4527d$2Props-test$2stormclouds.particle
 {
-    material local://stormclouds.material
+    // Main attributes
+    quota 30
+    material stormclouds.material
     particle_width 4
     particle_height 4
-    quota 30
-    cull_each false
-    sorted false
     local_space true
-    iteration_interval 0.0
-    nonvisible_update_timeout 0.0
-    billboard_type point
-    billboard_origin center
+
+    // Billboard renderer attributes
     billboard_rotation_type vertex
-    point_rendering false
     accurate_facing true
 
+    // Emitters
     emitter Box
     {
-        position 1.5 0.0 -5.0
-        direction 0.0 1.0 0.0
-        angle 0
+        colour 1 1 1 0.2
+        colour_range_start 1 1 1 0.2
+        colour_range_end 1 1 1 0.2
+        direction 0 1 0
+        up 0 0 -1
+        emission_rate 16
+        position 1.5 0 -5
+        velocity 0.1
+        velocity_min 0.1
+        velocity_max 0.1
+        time_to_live 2
+        time_to_live_min 2
+        time_to_live_max 2
         width 1
         height 12
         depth 5
-        emission_rate 16
-        velocity 0.1
-        time_to_live 2
-        colour 1 1 1 0.2
     }
+
+    // Affectors
     affector Scaler
     {
         rate 0.5
@@ -35,7 +40,6 @@ particle_system stormclouds.particle
 
     affector LinearForce
     {
-        force_vector 0.0 0.0 0.5
-        force_application add
+        force_vector 0 0 0.5
     }
 }

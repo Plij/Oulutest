@@ -1,36 +1,53 @@
-// user material: rex/DiffSpecmapNormal
-vertex_program rex/DiffSpecmapNormalVP cg
+
+material http://meshmoon.eu.scenes.2.s3-eu-west-1.amazonaws.com/mediateam-b4527d/Props-test/mursu.material
 {
-	source SuperShader.cg
-    entry_point mainVS
-   	profiles vs_3_0 arbvp1
-   	compile_arguments -DDIFFUSE_MAPPING -DNORMAL_MAPPING -DSPECULAR_MAPPING
-	default_params
-	{
-	    param_named_auto worldViewProjMatrix worldviewproj_matrix
-	    param_named_auto worldMatrix world_matrix
-	    param_named_auto inverseWorldMatrix inverse_world_matrix
-		param_named_auto camPos camera_position
-		param_named_auto sunLightDir light_position 0
-		param_named_auto lightPos0 light_position 1
-		param_named_auto lightPos1 light_position 2
-		param_named_auto lightAtt0 light_attenuation 1
-		param_named_auto lightAtt1 light_attenuation 2
-		param_named_auto fogParams fog_params
-		param_named_auto fogColor fog_colour
-	}
-}
-fragment_program rex/DiffSpecmapNormalFP cg
-{
-	source SuperShader.cg
-    entry_point mainPS
-    profiles ps_3_0 arbfp1
-   	compile_arguments -DDIFFUSE_MAPPING -DNORMAL_MAPPING -DSPECULAR_MAPPING
-	default_params
+    technique
     {
-		param_named_auto sunLightCol light_diffuse_colour 0
-		param_named_auto lightCol0 light_diffuse_colour 1
-		param_named_auto lightCol1 light_diffuse_colour 2
+        pass mursu
+        {
+            ambient 0.8 0.8 0.8 1
+            diffuse 0.64 0.64 0.64 1
+            specular 0.721569 0.721569 0.721569 1 12.5
+            emissive 0.580392 0.580392 0.580392 1
+
+            texture_unit
+            {
+            }
+
+            texture_unit
+            {
+                texture http://meshmoon.eu.scenes.2.s3-eu-west-1.amazonaws.com/mediateam-b4527d/Props-test/walrus_normals.jpg
+            }
+        }
+
+        pass mursu.LAYER0
+        {
+            specular 0.278431 0.278431 0.207843 1 0
+            emissive 0.596078 0.596078 0.596078 1
+            depth_bias 2 0
+
+            vertex_program_ref meshmoon/DiffNormalVP
+            {
+            }
+
+            fragment_program_ref meshmoon/DiffNormalFP
+            {
+            }
+
+            texture_unit diffuseMap
+            {
+                texture http://meshmoon.eu.scenes.2.s3.amazonaws.com/mediateam-b4527d/Props-test/walrus_prop_texture.jpg
+            }
+
+            texture_unit normalMap
+            {
+            }
+        }
+
+    }
+
+}
+fuse_colour 2
 		param_named_auto ambientLight ambient_light_colour	
     }
 }

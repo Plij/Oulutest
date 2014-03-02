@@ -1,4 +1,4 @@
-material local://lightning_part.material
+material lightning_part.material
 {
 	technique
 	{
@@ -10,7 +10,11 @@ material local://lightning_part.material
 
 			texture_unit
 			{
-				texture local://lightning.png
+				texture lightning.png
+			}
+		}
+	}
+}/lightning.png
 			}
 		}
 	}

@@ -1,4 +1,4 @@
-material local://stars_prop
+material stars_prop
 {
 	technique
 	{
@@ -10,7 +10,12 @@ material local://stars_prop
 
 			texture_unit
 			{
-				texture local://stars_prop_text.png
+				texture stars_prop_text.png
+			}
+		}
+	}
+}
+prop_text.png
 			}
 		}
 	}

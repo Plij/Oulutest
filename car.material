@@ -1,34 +1,41 @@
-// user material: rex/DiffSpecmap
-vertex_program rex/DiffSpecmapVP cg
+
+material http://meshmoon.eu.scenes.2.s3-eu-west-1.amazonaws.com/mediateam-b4527d/Props-test/car.material
 {
-	source SuperShader.cg
-    entry_point mainVS
-   	profiles vs_3_0 arbvp1
-   	compile_arguments -DDIFFUSE_MAPPING -DSPECULAR_MAPPING
-	default_params
-	{
-	    param_named_auto worldViewProjMatrix worldviewproj_matrix
-	    param_named_auto worldMatrix world_matrix
-		param_named_auto camPos camera_position
-		param_named_auto sunLightDir light_position 0
-		param_named_auto lightPos0 light_position 1
-		param_named_auto lightPos1 light_position 2
-		param_named_auto lightAtt0 light_attenuation 1
-		param_named_auto lightAtt1 light_attenuation 2
-		param_named_auto fogParams fog_params
-		param_named_auto fogColor fog_colour
-	}
-}
-fragment_program rex/DiffSpecmapFP cg
-{
-	source SuperShader.cg
-    entry_point mainPS
-    profiles ps_3_0 arbfp1
-   	compile_arguments -DDIFFUSE_MAPPING -DSPECULAR_MAPPING
-	default_params
+    technique
     {
-		param_named_auto sunLightCol light_diffuse_colour 0
-		param_named_auto lightCol0 light_diffuse_colour 1
+        pass car
+        {
+            ambient 0.8 0.8 0.8 1
+            diffuse 0.64 0.64 0.64 1
+            specular 0.5 0.5 0.5 1 12.5
+
+            texture_unit
+            {
+                texture http://meshmoon.eu.scenes.2.s3-eu-west-1.amazonaws.com/mediateam-b4527d/Props-test/car_color.JPG
+            }
+        }
+
+        pass car.LAYER0
+        {
+            depth_bias 2 0
+
+            texture_unit baseMap
+            {
+                texture_alias baseMap
+                texture http://meshmoon.eu.scenes.2.s3-eu-west-1.amazonaws.com/mediateam-b4527d/Props-test/car_color.JPG
+            }
+
+            texture_unit specularMap
+            {
+                texture_alias specularMap
+                texture http://meshmoon.eu.scenes.2.s3-eu-west-1.amazonaws.com/mediateam-b4527d/Props-test/car_color.JPG
+            }
+        }
+
+    }
+
+}
+named_auto lightCol0 light_diffuse_colour 1
 		param_named_auto lightCol1 light_diffuse_colour 2
 		param_named_auto ambientLight ambient_light_colour
     }

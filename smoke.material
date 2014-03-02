@@ -13,9 +13,13 @@ material smoke.material
 
             texture_unit
             {
-                texture smoke.png
+                texture smoke.PNG
             }
         }
+
+    }
+
+}      }
 
     }
 

@@ -18,7 +18,7 @@
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" type="Transform" id="nodeTransformation" name="Transform"/>
    <attribute value="dancefloor_scene.mesh" type="AssetReference" id="meshRef" name="Mesh ref"/>
    <attribute value="" type="AssetReference" id="skeletonRef" name="Skeleton ref"/>
-   <attribute value="local://dancefloor_mat.material;local://dancefloor_tiles_mat.material" type="AssetReferenceList" id="meshMaterial" name="Mesh materials"/>
+   <attribute value="dancefloor_mat.material;dancefloor_tiles_mat.material" type="AssetReferenceList" id="meshMaterial" name="Mesh materials"/>
    <attribute value="0.000000" type="real" id="drawDistance" name="Draw distance"/>
    <attribute value="false" type="bool" id="castShadows" name="Cast shadows"/>
    <attribute value="false" type="bool" id="useInstancing" name="Use instancing"/>

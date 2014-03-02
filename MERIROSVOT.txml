@@ -17,7 +17,7 @@
    <attribute value="0.000000,0.000000,0.000000,4.000000,0.000000,3.000000,1.000000,1.000000,1.000000" name="Transform"/>
    <attribute value="pirates.mesh" name="Mesh ref"/>
    <attribute value="" name="Skeleton ref"/>
-   <attribute value="local://pirates_material.material" name="Mesh materials"/>
+   <attribute value="pirates_material.material" name="Mesh materials"/>
    <attribute value="0" name="Draw distance"/>
    <attribute value="false" name="Cast shadows"/>
   </component>

@@ -1,6 +1,6 @@
 // ufo_texture genrated by blender2ogre 0.5.8
 
-material local://ufo_texture.material
+material ufo_texture.material
 {
     technique
     {
@@ -13,8 +13,13 @@ material local://ufo_texture.material
 
             texture_unit
             {
-                texture local://ufo_prop_text.jpg
+                texture ufo_prop_text.jpg
             }
+        }
+
+    }
+
+}           }
         }
 
     }

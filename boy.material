@@ -13,8 +13,13 @@ material local://boy.material
 
             texture_unit
             {
-                texture local://boy_text.jpg
+                texture boy_text.jpg
             }
+        }
+
+    }
+
+}   }
         }
 
     }

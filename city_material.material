@@ -1,4 +1,5 @@
-material local://city_material.material
+
+material http://meshmoon.eu.scenes.2.s3.amazonaws.com/mediateam-b4527d/Props-test/city_material.material_RocketMaterialEditor.material
 {
     technique
     {
@@ -11,10 +12,10 @@ material local://city_material.material
 
             texture_unit
             {
-                texture local://city_text_scene.jpg
+                texture http://meshmoon.eu.scenes.2.s3.amazonaws.com/mediateam-b4527d/Props-test/city_text_scene.jpg
             }
         }
 
     }
-	
+
 }

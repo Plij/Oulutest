@@ -18,14 +18,14 @@
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" type="Transform" id="nodeTransformation" name="Transform"/>
    <attribute value="stars_prop_icon.mesh" type="AssetReference" id="meshRef" name="Mesh ref"/>
    <attribute value="" type="AssetReference" id="skeletonRef" name="Skeleton ref"/>
-   <attribute value="stars_prop_icon_mat.material" type="AssetReferenceList" id="meshMaterial" name="Mesh materials"/>
+   <attribute value="local://stars_prop_icon_mat.material" type="AssetReferenceList" id="meshMaterial" name="Mesh materials"/>
    <attribute value="0.000000" type="real" id="drawDistance" name="Draw distance"/>
    <attribute value="false" type="bool" id="castShadows" name="Cast shadows"/>
    <attribute value="false" type="bool" id="useInstancing" name="Use instancing"/>
   </component>
   <component temporary="false" type="DynamicComponent" sync="true" name="Prop"/>
   <component temporary="false" type="ParticleSystem" sync="true" name="Stars">
-   <attribute value="stars_prop.particle" type="AssetReference" id="particleRef" name="Particle ref"/>
+   <attribute value="local://stars_prop.particle" type="AssetReference" id="particleRef" name="Particle ref"/>
    <attribute value="false" type="bool" id="castShadows" name="Cast shadows"/>
    <attribute value="true" type="bool" id="enabled" name="Enabled"/>
    <attribute value="0.000000" type="real" id="renderingDistance" name="Rendering distance"/>

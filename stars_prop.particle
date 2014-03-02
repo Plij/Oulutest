@@ -1,6 +1,6 @@
 particle_system stars.particle
 {
-    material local://stars_prop.material
+    material stars_prop.material
     particle_width 3
     particle_height 3
     quota 15
@@ -30,6 +30,10 @@ particle_system stars.particle
         repeat_delay_max 4
     }
     affector Scaler
+    {
+        rate -1.3
+    }
+} Scaler
     {
         rate -1.3
     }

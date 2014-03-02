@@ -1,6 +1,6 @@
 // cottage genrated by blender2ogre 0.5.8
 
-material local://cottage.material
+material cottage.material
 {
     technique
     {
@@ -13,8 +13,13 @@ material local://cottage.material
 
             texture_unit
             {
-                texture local://cottage_prop_text.jpg
+                texture cottage_prop_text.jpg
             }
+        }
+
+    }
+
+}           }
         }
 
     }

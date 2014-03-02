@@ -193,7 +193,7 @@ font:bold;
     <property name="styleSheet">
      <string notr="true"/>
     </property>
-     <qresource>      //TÄHÄM JÄIT
+     <qresource>
      <file alias="mainMenu.png">assets/icons/mainMenu.png</file>
    </qresource>
    </widget>

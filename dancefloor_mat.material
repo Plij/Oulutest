@@ -1,5 +1,5 @@
 // dancefloor_mat genrated by blender2ogre 0.5.8
-material local://dancefloor_mat.material
+material dancefloor_mat.material
 {
     technique
     {
@@ -12,9 +12,13 @@ material local://dancefloor_mat.material
 
             texture_unit
             {
-                texture local://Dancefloor_scene_text.jpg
+                texture Dancefloor_scene_text.jpg
             }
         }
+
+    }
+
+}     }
 
     }
 
