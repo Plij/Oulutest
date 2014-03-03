@@ -361,9 +361,13 @@ function clearPropTypeSubMenu(btnName){
 function SceneBtnClicked(){
 
     _SceneListWidget.clear();
-    for(i = 0; i < Scenes.length; i++){
+ 
+    for(i = 0; i < Scenes.length; i++){	
+		
         _SceneListWidget.addItem(Scenes[i]);
-    }
+ 
+		
+     }
     SceneProxy.visible = true;
     PropTypeProxy.visible = ! SceneProxy.visible;
     clearPropTypeMenu();
