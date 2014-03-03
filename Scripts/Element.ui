@@ -18,7 +18,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget#Element{ background-color: transparent;}
-QFrame#frame{ background-color: rgba(21,122,69,150); border-radius: 15px; }</string>
+QFrame#frame{ background-color: rgba(0,255,89,150); border-radius: 15px; }</string>
   </property>
   <widget class="QFrame" name="frame">
    <property name="geometry">
@@ -45,16 +45,16 @@ QFrame#frame{ background-color: rgba(21,122,69,150); border-radius: 15px; }</str
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;LUONNON_ILMIÖT:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string/>
     </property>
    </widget>
    <widget class="QListWidget" name="ElementListWidget">
     <property name="geometry">
      <rect>
-      <x>15</x>
-      <y>21</y>
-      <width>121</width>
-      <height>181</height>
+      <x>5</x>
+      <y>11</y>
+      <width>138</width>
+      <height>191</height>
      </rect>
     </property>
     <property name="mouseTracking">

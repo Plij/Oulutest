@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>110</width>
-    <height>200</height>
+    <width>128</width>
+    <height>185</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,9 +23,9 @@ QFrame#frame { background-color: rgba(33, 217, 229, 150);
    <property name="geometry">
     <rect>
      <x>-1</x>
-     <y>0</y>
-     <width>111</width>
-     <height>201</height>
+     <y>4</y>
+     <width>131</width>
+     <height>181</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -40,9 +40,9 @@ QFrame#frame { background-color: rgba(33, 217, 229, 150);
    <widget class="QListWidget" name="BackgroundListWidget">
     <property name="geometry">
      <rect>
-      <x>11</x>
-      <y>28</y>
-      <width>91</width>
+      <x>5</x>
+      <y>11</y>
+      <width>121</width>
       <height>161</height>
      </rect>
     </property>
@@ -57,7 +57,7 @@ QFrame#frame { background-color: rgba(33, 217, 229, 150);
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;TAUSTAT:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string/>
     </property>
    </widget>
   </widget>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>151</width>
-    <height>259</height>
+    <width>150</width>
+    <height>209</height>
    </rect>
   </property>
   <property name="acceptDrops">
@@ -18,7 +18,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget#ManMade{ background-color: transparent;}
-QFrame#frame { background-color: rgba(33, 217, 229, 150);
+QFrame#frame { background-color: rgba(80, 160, 255, 150);
  border-radius: 12px;}</string>
   </property>
   <widget class="QFrame" name="frame">
@@ -27,7 +27,7 @@ QFrame#frame { background-color: rgba(33, 217, 229, 150);
      <x>1</x>
      <y>-2</y>
      <width>151</width>
-     <height>261</height>
+     <height>209</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -46,16 +46,16 @@ QFrame#frame { background-color: rgba(33, 217, 229, 150);
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;ESINEET:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string/>
     </property>
    </widget>
    <widget class="QListWidget" name="ManMadeListWidget">
     <property name="geometry">
      <rect>
-      <x>15</x>
-      <y>21</y>
-      <width>121</width>
-      <height>231</height>
+      <x>5</x>
+      <y>11</y>
+      <width>138</width>
+      <height>191</height>
      </rect>
     </property>
     <property name="mouseTracking">

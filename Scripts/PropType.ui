@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>102</width>
-    <height>192</height>
+    <width>78</width>
+    <height>219</height>
    </rect>
   </property>
   <property name="mouseTracking">
@@ -21,7 +21,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget#PropTypesMenu { background-color: transparent; }
-QFrame#frame { background-color: rgba(33, 217, 229, 150);
+QFrame#frame { background-color: rgba(33, 217, 229, 0);
  border-radius: 12px;}
 QPushButton#EffectBtn{
 color:black;
@@ -78,8 +78,8 @@ font:bold;
     <rect>
      <x>2</x>
      <y>1</y>
-     <width>101</width>
-     <height>191</height>
+     <width>71</width>
+     <height>217</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -91,42 +91,62 @@ font:bold;
    <widget class="QPushButton" name="ManMadeBtn">
     <property name="geometry">
      <rect>
-      <x>5</x>
-      <y>99</y>
-      <width>91</width>
-      <height>31</height>
+      <x>2</x>
+      <y>107</y>
+      <width>65</width>
+      <height>55</height>
      </rect>
     </property>
     <property name="mouseTracking">
      <bool>true</bool>
     </property>
     <property name="text">
-     <string>ESINEET</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>manMade.png</normaloff>manMade.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>65</width>
+      <height>55</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="ObjectBtn">
     <property name="geometry">
      <rect>
-      <x>5</x>
-      <y>60</y>
-      <width>91</width>
-      <height>31</height>
+      <x>2</x>
+      <y>55</y>
+      <width>63</width>
+      <height>55</height>
      </rect>
     </property>
     <property name="mouseTracking">
      <bool>true</bool>
     </property>
     <property name="text">
-     <string>LUONTO</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>objects.png</normaloff>objects.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>65</width>
+      <height>55</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="ElementBtn">
     <property name="geometry">
      <rect>
-      <x>5</x>
-      <y>21</y>
-      <width>91</width>
-      <height>31</height>
+      <x>2</x>
+      <y>2</y>
+      <width>65</width>
+      <height>55</height>
      </rect>
     </property>
     <property name="mouseTracking">
@@ -136,16 +156,26 @@ font:bold;
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>SÄÄ</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>elements.png</normaloff>elements.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>65</width>
+      <height>55</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="EffectBtn">
     <property name="geometry">
      <rect>
-      <x>5</x>
-      <y>138</y>
-      <width>91</width>
-      <height>31</height>
+      <x>2</x>
+      <y>160</y>
+      <width>65</width>
+      <height>55</height>
      </rect>
     </property>
     <property name="mouseTracking">
@@ -155,7 +185,17 @@ font:bold;
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>EFEKTIT</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>effects.png</normaloff>effects.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>65</width>
+      <height>55</height>
+     </size>
     </property>
    </widget>
   </widget>

@@ -263,7 +263,7 @@ function Init()
     ElementProxy.windowFlags = 0;
 
     //set proxy position
-    ElementProxy.x = 925 + 81;
+    ElementProxy.x = 925 + 105;
     ElementProxy.y = 25 + 13;
 
 // load the file "Object.ui"
@@ -279,7 +279,7 @@ function Init()
     ObjectProxy.windowFlags = 0;
 
     //set proxy position
-    ObjectProxy.x = 925 + 81;
+    ObjectProxy.x = 925 + 105;
     ObjectProxy.y = 25 + 13 ;
 
 // load the file "ManMade.ui"
@@ -295,7 +295,7 @@ function Init()
     ManMadeProxy.windowFlags = 0;
 
     //set proxy position
-    ManMadeProxy.x = 925 + 81;
+    ManMadeProxy.x = 925 + 105;
     ManMadeProxy.y = 25 + 13 ;
 
 // load the file "Effect.ui"
@@ -311,7 +311,7 @@ function Init()
     EffectProxy.windowFlags = 0;
 
     //set proxy position
-    EffectProxy.x = 925 + 81;
+    EffectProxy.x = 925 + 105;
     EffectProxy.y = 25 + 13 ;
 
 }

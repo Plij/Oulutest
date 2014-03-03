@@ -18,7 +18,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget#Effect{ background-color: transparent;}
-QFrame#frame { background-color: rgba(237,29,63,150);
+QFrame#frame { background-color: rgba(255,80,157,150);
  border-radius: 12px;}</string>
   </property>
   <widget class="QFrame" name="frame">
@@ -26,8 +26,8 @@ QFrame#frame { background-color: rgba(237,29,63,150);
     <rect>
      <x>1</x>
      <y>-2</y>
-     <width>151</width>
-     <height>211</height>
+     <width>150</width>
+     <height>209</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -46,16 +46,16 @@ QFrame#frame { background-color: rgba(237,29,63,150);
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;ERIKOISEFEKTIT:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string/>
     </property>
    </widget>
    <widget class="QListWidget" name="EffectListWidget">
     <property name="geometry">
      <rect>
-      <x>15</x>
-      <y>21</y>
-      <width>121</width>
-      <height>181</height>
+      <x>5</x>
+      <y>11</y>
+      <width>138</width>
+      <height>191</height>
      </rect>
     </property>
     <property name="mouseTracking">

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>132</width>
-    <height>209</height>
+    <width>131</width>
+    <height>226</height>
    </rect>
   </property>
   <property name="acceptDrops">
@@ -27,7 +27,7 @@ QFrame#frame { background-color: rgba(33, 217, 229, 150);
      <x>1</x>
      <y>-2</y>
      <width>131</width>
-     <height>211</height>
+     <height>231</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -39,23 +39,23 @@ QFrame#frame { background-color: rgba(33, 217, 229, 150);
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>12</x>
-      <y>2</y>
+      <x>5</x>
+      <y>11</y>
       <width>54</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;MAISEMA:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string/>
     </property>
    </widget>
    <widget class="QListWidget" name="SceneListWidget">
     <property name="geometry">
      <rect>
-      <x>15</x>
-      <y>21</y>
-      <width>101</width>
-      <height>181</height>
+      <x>5</x>
+      <y>11</y>
+      <width>121</width>
+      <height>211</height>
      </rect>
     </property>
     <property name="mouseTracking">
