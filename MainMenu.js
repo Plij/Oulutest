@@ -203,7 +203,7 @@ function Init()
     SceneProxy.windowFlags = 0;
 
     // set proxy position
-    SceneProxy.x = 925;
+    SceneProxy.x = 931;
     SceneProxy.y = 25;
 
 // load the file "Background.ui"
@@ -219,8 +219,8 @@ function Init()
     BackgroundProxy.windowFlags = 0;
 
     //set proxy position
-    BackgroundProxy.x = 925;
-    BackgroundProxy.y = 25;
+    BackgroundProxy.x = 931;
+    BackgroundProxy.y = 22;
 
 
 
@@ -246,7 +246,7 @@ function Init()
     PropTypeProxy.windowFlags = 0;
 
     //set proxy position
-    PropTypeProxy.x = 925;
+    PropTypeProxy.x = 931;
     PropTypeProxy.y = 25;
 
 
@@ -264,7 +264,7 @@ function Init()
 
     //set proxy position
     ElementProxy.x = 925 + 81;
-    ElementProxy.y = 25 + 13;
+    ElementProxy.y = 25;
 
 // load the file "Object.ui"
     var _ObjectWidget = ui.LoadFromFile("Scripts/Object.ui", false);
@@ -280,7 +280,7 @@ function Init()
 
     //set proxy position
     ObjectProxy.x = 925 + 81;
-    ObjectProxy.y = 25 + 13 ;
+    ObjectProxy.y = 25;
 
 // load the file "ManMade.ui"
     var _ManMadeWidget = ui.LoadFromFile("Scripts/ManMade.ui", false);
@@ -296,7 +296,7 @@ function Init()
 
     //set proxy position
     ManMadeProxy.x = 925 + 81;
-    ManMadeProxy.y = 25 + 13 ;
+    ManMadeProxy.y = 25;
 
 // load the file "Effect.ui"
     var _EffectWidget = ui.LoadFromFile("Scripts/Effect.ui", false);
@@ -312,7 +312,7 @@ function Init()
 
     //set proxy position
     EffectProxy.x = 925 + 81;
-    EffectProxy.y = 25 + 13 ;
+    EffectProxy.y = 25;
 
 }
 
