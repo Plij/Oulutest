@@ -61,7 +61,8 @@
 //!ref: VESISADE.txml
 //!ref: VUORISTO.txml
 //!ref: YO.txml
-
+//!ref: BIOVAARA.txml
+//!ref: VARIKSENPELATTI.txml
 
 
 
@@ -116,8 +117,8 @@ var Scenes = ["TALVI", "VUORISTO", "NIITTY", "METSA", "KAUPUNKI", "RANTA", "HUON
 var Backgrounds = ["YO", "PAIVA", "AAMU"].sort();
 var Elements =["PILVET", "AURINKO", "KUU", "LUMISADE","VESISADE" ,"TULIVUORI", "TULIPALO", "SATEENKAARI", "SALAMA"].sort();
 var Objects = ["POIKA", "AVARUUSOLENTO", "PALMU", "PUU", "PERHOSET", "SIENET", "MURSU", "PINKKI_NORSU", "PUPU", "LEHMA", "UNIKORNI", "PRINSESSA"].sort();
-var ManMade = ["KIRVES", "MOKKI", "RAKETTI", "HIEKKALELUT", "HAUTA", "AUTO", "AARRE", "TIERNAT", "AURINGONVARJO", "MERIROSVOT", "HIEKKALINNA", "LUMIUKKO"].sort();
-var SpecialEffects = ["MONOLIITTI", "UFO", "TULIPALO", "SYDAMET", "VESISADE", "LUMISADE", "ILOTULITUS", "SALAMA", "TAHDET"].sort();
+var ManMade = ["KIRVES", "MOKKI", "RAKETTI", "HIEKKALELUT", "HAUTA", "AUTO", "AARRE", "TIERNAT", "AURINGONVARJO", "MERIROSVOT", "HIEKKALINNA", "LUMIUKKO", "VARIKSENPELATTI"].sort();
+var SpecialEffects = ["MONOLIITTI", "UFO", "TULIPALO", "SYDAMET", "VESISADE", "LUMISADE", "ILOTULITUS", "SALAMA", "TAHDET", "BIOVAARA"].sort();
 
 var PropType = ["Element","Object","ManMade","Effect"];
 

@@ -1,68 +1,5 @@
 
-material http://meshmoon.eu.scenes.2.s3-eu-west-1.amazonaws.com/mediateam-b4527d/Props-test/elephant.material
-{
-    technique
-    {
-        pass elephant
-        {
-            lighting off
-
-            texture_unit
-            {
-                texture http://meshmoon.eu.scenes.2.s3.amazonaws.com/mediateam-b4527d/Props-test/elephant_normals.jpg
-            }
-        }
-
-        pass elephant.LAYER0.001
-        {
-            ambient 0.8 0.8 0.8 1
-            diffuse 0.639216 0.639216 0.639216 1
-            specular 1 0.45098 1 1 0
-            depth_bias 2 0
-
-            texture_unit baseMap
-            {
-                texture_alias baseMap
-                texture http://meshmoon.eu.scenes.2.s3.amazonaws.com/mediateam-b4527d/Props-test/elephant_prop_text.jpg
-            }
-
-            texture_unit normalMap
-            {
-                texture_alias normalMap
-                texture http://meshmoon.eu.scenes.2.s3-eu-west-1.amazonaws.com/mediateam-b4527d/Props-test/elephant_normals.jpg
-            }
-        }
-
-    }
-
-}
-ur 1
-		param_named_auto lightCol1 light_diffuse_colour 2
-		param_named_auto ambientLight ambient_light_colour
-    }
-}
-// abstract passes //
-abstract pass rex/DiffNormal/PASS0
-		{
-			iteration once
-			vertex_program_ref rex/DiffNormalVP
-			{
-			}
-			fragment_program_ref rex/DiffNormalFP
-			{
-			}
-			texture_unit baseMap
-			{
-				texture TextureMissing.png
-			}
-			texture_unit normalMap
-			{
-				texture TextureMissing.png
-			}
-		}
-// elephant genrated by blender2ogre 0.5.8
-
-material elephant 
+material elephant.material 
 {
     receive_shadows on 
 
@@ -99,45 +36,7 @@ material elephant
                 scale 1.0 1.0
                 colour_op modulate
             }
-            texture_unit 
-            {
-                texture elephant_normals.jpg
-                tex_address_mode wrap
-                scale 1.0 1.0
-                colour_op modulate
-            }
         }
 
-        pass elephant.LAYER0.001 : rex/DiffNormal/PASS0
-        {
-            depth_bias 2.0
-            alpha_to_coverage off
-            colour_write on
-            cull_hardware clockwise
-            depth_check on
-            depth_func less_equal
-            depth_write on
-            illumination_stage 
-            light_clip_planes off
-            light_scissor off
-            lighting on
-            normalise_normals off
-            polygon_mode solid
-            scene_blend one zero
-            scene_blend_op add
-            shading gouraud
-            transparent_sorting on
-
-            texture_unit baseMap
-            {
-                texture elephant_prop_text.jpg
-                tex_address_mode wrap
-            }
-            texture_unit normalMap
-            {
-                texture elephant_normals.jpg
-                tex_address_mode wrap
-            }
-        }
     }
 }

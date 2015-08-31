@@ -1,0 +1,43 @@
+particle_system local://biohazard.particle_0
+{
+    material local://biohazard.material
+    particle_width 4
+    particle_height 4
+    quota 20
+    cull_each false
+    sorted false
+    local_space true
+    iteration_interval 0.0
+    nonvisible_update_timeout 0.0
+    billboard_type point
+    billboard_origin center
+    billboard_rotation_type vertex
+    point_rendering false
+    accurate_facing true
+    emitter Box
+    {
+        width 4
+        height 10
+        depth 20
+        position 7 4  3
+        emission_rate 20
+        velocity 0.4
+        time_to_live 2.5
+        repeat_delay 0.0
+    }
+    affector Scaler
+    {
+        rate -0.3
+    }
+    affector LinearForce
+    {
+        force_vector 0 0 -1.0
+    }
+    affector Rotator
+    {
+        rotation_speed_range_start 20
+        rotation_speed_range_end 40
+        rotation_range_start 30
+        rotation_range_end 120
+    }
+}

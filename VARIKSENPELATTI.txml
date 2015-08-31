@@ -1,0 +1,30 @@
+<!DOCTYPE Scene>
+<scene>
+ <entity id="1" sync="true">
+  <component typeId="26" type="Name" sync="true">
+   <attribute value="variksenpelatti" type="string" id="name" name="Name"/>
+   <attribute value="" type="string" id="description" name="Description"/>
+   <attribute value="" type="string" id="group" name="Group"/>
+  </component>
+  <component typeId="20" type="Placeable" sync="true">
+   <attribute value="0.095555,2.882560,3.604747,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" type="Transform" id="transform" name="Transform"/>
+   <attribute value="false" type="bool" id="drawDebug" name="Show bounding box"/>
+   <attribute value="true" type="bool" id="visible" name="Visible"/>
+   <attribute value="1" type="int" id="selectionLayer" name="Selection layer"/>
+   <attribute value="" type="EntityReference" id="parentRef" name="Parent entity ref"/>
+   <attribute value="" type="string" id="parentBone" name="Parent bone name"/>
+  </component>
+  <component typeId="17" type="Mesh" sync="true">
+   <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" type="Transform" id="nodeTransformation" name="Transform"/>
+   <attribute value="variksenpelatti.mesh" type="AssetReference" id="meshRef" name="Mesh ref"/>
+   <attribute value="variksenpelatti.skeleton.xml" type="AssetReference" id="skeletonRef" name="Skeleton ref"/>
+   <attribute value="local://variksenpelatti_mat.material" type="AssetReferenceList" id="meshMaterial" name="Mesh materials"/>
+   <attribute value="0.000000" type="real" id="drawDistance" name="Draw distance"/>
+   <attribute value="false" type="bool" id="castShadows" name="Cast shadows"/>
+   <attribute value="false" type="bool" id="useInstancing" name="Use instancing"/>
+  </component>
+  <component typeId="25" type="DynamicComponent" sync="true" name="prop">
+   <attribute value="false" type="bool" id="Placed" name="Placed"/>
+  </component>
+ </entity>
+</scene>

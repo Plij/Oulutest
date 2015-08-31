@@ -1,0 +1,17 @@
+material local://biohazard.material
+{
+	technique
+	{
+		pass
+		{
+			emissive 0.2 0.2 0.2 1 
+                              scene_blend alpha_blend
+                              depth_write off
+
+			texture_unit
+			{
+			texture biohazard.png
+			}
+		}
+	}
+}
