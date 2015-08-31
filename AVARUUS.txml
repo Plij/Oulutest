@@ -1,6 +1,6 @@
 <!DOCTYPE Scene>
 <scene>
- <entity temporary="false" id="1" sync="true">
+ <entity temporary="false" id="97" sync="true">
   <component temporary="false" typeId="26" type="Name" sync="true">
    <attribute value="space_scene" type="string" id="name" name="Name"/>
    <attribute value="" type="string" id="description" name="Description"/>
@@ -18,13 +18,18 @@
    <attribute value="0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000" type="Transform" id="nodeTransformation" name="Transform"/>
    <attribute value="space_scene.mesh" type="AssetReference" id="meshRef" name="Mesh ref"/>
    <attribute value="" type="AssetReference" id="skeletonRef" name="Skeleton ref"/>
-   <attribute value="space_scene_mat.material" type="AssetReferenceList" id="materialRefs" name="Mesh materials"/>
+   <attribute value="local://space_scene_mat.material" type="AssetReferenceList" id="meshMaterial" name="Mesh materials"/>
    <attribute value="0.000000" type="real" id="drawDistance" name="Draw distance"/>
    <attribute value="false" type="bool" id="castShadows" name="Cast shadows"/>
    <attribute value="false" type="bool" id="useInstancing" name="Use instancing"/>
   </component>
   <component temporary="false" typeId="25" type="DynamicComponent" sync="true" name="scene">
    <attribute value="true" type="bool" id="Placed" name="Placed"/>
+  </component>
+  <component temporary="true" typeId="28" type="Highlight" sync="false" name="MySpecialHighlight">
+   <attribute value="true" type="bool" id="visible" name="Is visible"/>
+   <attribute value="0.300000 0.500000 0.100000 0.500000" type="Color" id="solidColor" name="Solid color"/>
+   <attribute value="1.000000 1.000000 1.000000 0.500000" type="Color" id="outlineColor" name="Outline color"/>
   </component>
  </entity>
 </scene>

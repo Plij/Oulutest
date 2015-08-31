@@ -1,6 +1,6 @@
-// variksenpelatti_mat genrated by blender2ogre 0.5.8
+// variksenpelatti_mat genrated by blender2ogre 0.6.0
 
-material local://variksenpelatti_mat.material 
+material variksenpelatti_mat 
 {
     receive_shadows on 
 
