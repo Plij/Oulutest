@@ -1,0 +1,15 @@
+material local://biohazard_prop.material
+{
+    technique
+    {
+        pass biohazard_prop
+        {
+            ambient 0.223798 0.93626 1 1
+            diffuse 0.179039 0.749008 0.8 1
+            specular 0.353182 0.493632 0.5 1 12.5
+            emissive 0 1 1 1
+        }
+
+    }
+
+}
